@@ -6,49 +6,20 @@
     <title>อัชนัยแอร์ (Atchanai Air) | ช่างแอร์โคราช มาตรฐานบริษัท ออกใบกำกับภาษีได้</title>
     <meta name="description" content="Atchanai Air (อัชนัยแอร์) ช่างแอร์โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้ถูกต้อง ครอบคลุม ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา บริการงานแอร์ครบวงจร ล้าง ซ่อม ติดตั้ง พร้อมระบบสร้างใบเสนอราคาอัตโนมัติ (Auto-Quoter) บนหน้าเว็บ รวดเร็ว แม่นยำ">
     
-    <!-- นำเข้าดีไซน์ทันสมัย Tailwind CSS และ ไอคอนต่างๆ -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- 🌐 [SEO GOLDEN KEY] โค้ดลับดัก Google บอทให้รู้ว่าเราคือเบอร์ 1 ท้องถิ่น มี 2 สาขา -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "อัชนัยแอร์ (Atchanai Air)",
-      "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
-      "telephone": "091-669-5595",
-      "url": "https://atchanaiair.com",
-      "priceRange": "฿500 - ฿1500",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "อำเภอเมืองนครราชสีมา",
-          "addressRegion": "นครราชสีมา",
-          "streetAddress": "ตำบลในเมือง"
-        },
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "อำเภอเมืองนครราชสีมา",
-          "addressRegion": "นครราชสีมา",
-          "streetAddress": "ตำบลสุรนารี"
-        }
-      ]
-    }
-    </script>
 
     <style>
         html { scroll-behavior: smooth; }
         @media print {
             body { background: white; color: black; }
             .no-print { display: none !important; }
-            .print-card { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+            .print-card { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; width: 100% !important; }
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <!-- Navbar Section (ซ่อนตอนพิมพ์) -->
     <nav class="bg-white/95 backdrop-blur shadow-md sticky top-0 z-50 no-print">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
             <a href="#" class="flex flex-col">
@@ -57,10 +28,7 @@
             </a>
             <div class="hidden md:flex space-x-6 font-semibold text-slate-600 text-sm">
                 <a href="#home" class="hover:text-blue-600 transition">หน้าแรก</a>
-                <a href="#features" class="hover:text-blue-600 transition">ทำไมต้องเลือกเรา</a>
-                <a href="#services" class="hover:text-blue-600 transition">อัตราค่าบริการ</a>
                 <a href="#quotation" class="hover:text-blue-600 transition text-blue-600 font-bold">● ออกใบเสนอราคาด่วน</a>
-                <a href="#contact" class="hover:text-blue-600 transition">ติดต่อเรา</a>
             </div>
             <a href="tel:0916695595" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2 shadow-md">
                 <i class="fas fa-phone"></i> <span>091-669-5595</span>
@@ -68,222 +36,265 @@
         </div>
     </nav>
 
-    <!-- Hero Section (ซ่อนตอนพิมพ์) -->
-    <header id="home" class="bg-gradient-to-b from-blue-50 to-slate-50 py-16 md:py-24 px-4 text-center no-print">
+    <header id="home" class="bg-gradient-to-b from-blue-50 to-slate-50 py-10 px-4 text-center no-print">
         <div class="max-w-4xl mx-auto">
-            <span class="bg-blue-100 text-blue-800 text-xs md:text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">ช่างแอร์ที่ไว้ใจได้ในนครราชสีมา</span>
-            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mt-4 leading-tight">
-                อัชนัยแอร์ <span class="text-blue-600">Atchanai Air</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto leading-relaxed">
-                บริการงานแอร์คู่ใจชาวโคราช มาตรฐานงานระดับองค์กร โปร่งใส <strong class="text-blue-600">สามารถออกใบกำกับภาษีได้ถูกต้อง</strong> ตอบโจทย์ลูกค้าทั่วไป ผู้รับเหมา และหน่วยงานเอกสารครบถ้วน
-            </p>
-            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#quotation" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-file-invoice-dollar"></i> ระบบใบเสนอราคาอัตโนมัติ
-                </a>
-                <a href="https://line.me/ti/p/~0916695595" target="_blank" class="bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-emerald-600 transition flex items-center justify-center gap-2">
-                    <i class="fab fa-line text-xl"></i> แอดไลน์ (ID: 091-669-5595)
-                </a>
-            </div>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">ระบบใบเสนอราคาออโต้</span>
+            <h1 class="text-3xl md:text-4xl font-black text-slate-900 mt-3">อัชนัยแอร์ <span class="text-blue-600">Atchanai Air</span></h1>
         </div>
     </header>
 
-    <!-- Why Us Section (ซ่อนตอนพิมพ์) -->
-    <section id="features" class="py-16 bg-white no-print">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900">สวย โดดเด่น และแตกต่างด้วยมาตรฐานบริษัท</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-file-signature"></i></div>
-                    <h3 class="text-lg font-bold mb-2">ออกใบกำกับภาษีเต็มรูปแบบ</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">หมดปัญหาเรื่องเอกสาร รองรับงานจัดซื้อบริษัท ห้างร้าน และผู้รับเหมาในโคราชอย่างถูกต้อง 100%</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-bolt"></i></div>
-                    <h3 class="text-lg font-bold mb-2">ระบบอัตโนมัติ ไม่ต้องรอนาน</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">ลูกค้าสามารถกรอกข้อมูล ออกใบเสนอราคาไปพิจารณาเบื้องต้นได้ทันทีผ่านหน้าเว็บภายใน 1 นาที</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="text-lg font-bold mb-2">ดูแลรักษาทั่วไปอย่างมืออาชีพ</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">ไม่ว่างานเล็กงานใหญ่ ล้างแอร์ทั่วไป ตรวจเช็คระบบ ช่างของเราใส่ใจในทุกรายละเอียดเหมือนกันหมด</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Rate Section (ซ่อนตอนพิมพ์) -->
-    <section id="services" class="py-16 bg-slate-50 no-print">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">อัตราค่าบริการล้างแอร์มาตรฐาน</h2>
-            <p class="text-slate-500 text-sm mb-10">ราคาชัดเจน โปร่งใส ตรงไปตรงมา ไม่มีบวกเพิ่มอย่างไร้เหตุผล</p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-sm font-bold text-slate-400 uppercase">Wall Type</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-1">แอร์ติดผนัง</h3>
-                    <div class="text-3xl font-black text-blue-600 my-3">500 <span class="text-sm font-normal text-slate-500">บาท/ตัว</span></div>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-sm font-bold text-slate-400 uppercase">Ceiling Type</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-1">แอร์แขวนเพดาน</h3>
-                    <div class="text-3xl font-black text-blue-600 my-3">800 <span class="text-sm font-normal text-slate-500">บาท/ตัว</span></div>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="text-sm font-bold text-slate-400 uppercase">Cassette Type</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-1">แอร์ฝังฝ้า 4 ทิศทาง</h3>
-                    <div class="text-3xl font-black text-blue-600 my-3">1,500 <span class="text-sm font-normal text-slate-500">บาท/ตัว</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= 🛠️ ระบบ AUTO-QUOTER GENERATOR ================= -->
-    <section id="quotation" class="py-16 bg-white">
+    <section id="quotation" class="py-6 bg-white">
         <div class="max-w-4xl mx-auto px-4">
             
-            <!-- ส่วนควบคุมฟอร์ม (จะถูกซ่อนเวลาสั่งพิมพ์/เซฟ PDF) -->
-            <div class="no-print bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200 mb-10 shadow-sm">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-2"></i> ระบบสร้างใบเสนอราคาด้วยตนเอง</h2>
-                    <p class="text-sm text-slate-500 mt-1">กรอกข้อมูลเพื่อรับเอกสารไปเสนออนุมัติได้ทันที รวดเร็ว ไม่ต้องรอช่างตอบแชท</p>
+            <div class="no-print bg-slate-50 p-5 md:p-8 rounded-2xl border border-slate-200 mb-8 shadow-sm space-y-5">
+                <div class="text-center">
+                    <h2 class="text-xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-1"></i> กรอกข้อมูลเพื่อสร้างใบเสนอราคา</h2>
                 </div>
 
-                <div class="space-y-6">
-                    <!-- 1. ข้อมูลผู้ติดต่อ -->
-                    <div>
-                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / บริษัท</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="clientName" oninput="updatePreview()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="ชื่อผู้ติดต่อ หรือ ชื่อบริษัท/หน่วยงาน">
-                            <input type="text" id="clientPhone" oninput="updatePreview()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
+                <div>
+                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / บริษัท</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="clientName" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="ชื่อผู้ติดต่อ หรือ ชื่อบริษัท/หน่วยงาน">
+                        <input type="text" id="clientPhone" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐาน</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
+                            <span class="text-xs font-semibold">ติดผนัง (500.-)</span>
+                            <input type="number" id="qtyWall" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
+                            <span class="text-xs font-semibold">แอร์แขวน (800.-)</span>
+                            <input type="number" id="qtyCeiling" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
+                            <span class="text-xs font-semibold">ฝังฝ้า (1,500.-)</span>
+                            <input type="number" id="qtyCassette" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
                         </div>
                     </div>
+                </div>
 
-                    <!-- 2. เลือกบริการมาตรฐาน -->
-                    <div>
-                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> เลือกบริการล้างแอร์มาตรฐาน</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                                <span class="text-xs font-semibold">ติดผนัง (500.-)</span>
-                                <input type="number" id="qtyWall" min="0" value="0" onchange="calculateTotal()" class="w-16 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                            </div>
-                            <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                                <span class="text-xs font-semibold">แอร์แขวน (800.-)</span>
-                                <input type="number" id="qtyCeiling" min="0" value="0" onchange="calculateTotal()" class="w-16 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                            </div>
-                            <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                                <span class="text-xs font-semibold">ฝังฝ้า (1,500.-)</span>
-                                <input type="number" id="qtyCassette" min="0" value="0" onchange="calculateTotal()" class="w-16 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                            </div>
+                <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                    <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
+                        <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์ระบุรายการบริการอื่นๆ เพิ่มเติมด้วยตัวเอง
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+                        <div>
+                            <label class="block text-[11px] text-slate-600 font-medium">ชื่อบริการ/รายการงานแอร์</label>
+                            <input type="text" id="customName" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="เช่น ซ่อมบอร์ด, ย้ายคอยล์ร้อน, เติมน้ำยา">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-600 font-medium">ราคาต่อหน่วย (บาท)</label>
+                            <input type="number" id="customPrice" min="0" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="0">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-600 font-medium">จำนวน</label>
+                            <input type="number" id="customQty" min="1" value="1" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs">
                         </div>
                     </div>
+                    <button type="button" onclick="addCustomItem()" class="mt-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition cursor-pointer">
+                        + เพิ่มรายการลงบิลด้านล่าง
+                    </button>
+                </div>
 
-                    <!-- 3. เพิ่มรายการเองอิสระ (ฟีเจอร์เด็ดที่คุณคิมต้องการ) -->
-                    <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
-                        <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
-                            <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์ระบุรายการบริการอื่นๆ เพิ่มเติมด้วยตัวเอง
-                        </h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
-                            <div class="sm:col-span-1">
-                                <label class="block text-[11px] text-slate-600 font-medium">ชื่อบริการ/รายการงานแอร์</label>
-                                <input type="text" id="customName" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="เช่น ซ่อมบอร์ด, เปลี่ยนคอมฯ, เติมน้ำยา">
-                            </div>
-                            <div>
-                                <label class="block text-[11px] text-slate-600 font-medium">ราคาต่อหน่วย (บาท)</label>
-                                <input type="number" id="customPrice" min="0" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="0">
-                            </div>
-                            <div>
-                                <label class="block text-[11px] text-slate-600 font-medium">จำนวน</label>
-                                <input type="number" id="customQty" min="1" value="1" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="1">
-                            </div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                    <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
+                        <i class="fas fa-percentage"></i> 4. การคิดภาษีมูลค่าเพิ่ม (VAT 7%)
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3 text-sm font-semibold text-slate-700">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()">
+                            <span>ต้องการคิด VAT 7% (ออกใบกำกับภาษีเต็มรูปแบบ)</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="vatToggle" value="no" onchange="calculateTotal()">
+                            <span>ไม่คิด VAT (ราคาเงินสด/บิลเงินสดทั่วไป)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                    <h3 class="font-bold text-purple-900 mb-2 flex items-center gap-2 text-sm">
+                        <i class="fas fa-envelope"></i> 5. ระบุอีเมลปลายทางที่ต้องการส่งใบเสนอราคา
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                        <div>
+                            <label class="block text-[11px] text-slate-600 font-medium">ใส่อีเมลผู้รับ (เช่น เมลเจ้านาย หรือเมลจัดซื้อ)</label>
+                            <input type="email" id="targetEmail" class="mt-1 w-full rounded-lg border border-slate-300 p-2.5 bg-white text-sm focus:outline-purple-500" placeholder="example@company.com">
                         </div>
-                        <button type="button" onclick="addCustomItem()" class="mt-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition flex items-center gap-1 cursor-pointer">
-                            <i class="fas fa-plus"></i> เพิ่มรายการลงเอกสาร
-                        </button>
+                        <p class="text-xs text-purple-700 pb-2">คัดลอกรายละเอียดงานทั้งหมดส่งเข้าเมลนี้ในคลิกเดียว</p>
                     </div>
+                </div>
 
-                    <div class="text-center pt-2">
-                        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-8 py-4 rounded-xl shadow-lg transition text-base w-full sm:w-auto cursor-pointer">
-                            <i class="fas fa-print mr-1"></i> คลิกที่นี่เพื่อบันทึกเป็น PDF / พิมพ์ใบเสนอราคา
-                        </button>
-                    </div>
+                <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-6 py-3.5 rounded-xl shadow transition text-sm cursor-pointer flex-1 text-center">
+                        <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์
+                    </button>
+                    <button onclick="sendQuotationEmail()" class="bg-purple-600 hover:bg-purple-700 text-white font-black px-6 py-3.5 rounded-xl shadow transition text-sm cursor-pointer flex-1 text-center">
+                        <i class="fas fa-paper-plane mr-1"></i> กดส่งรายละเอียดเข้าอีเมลที่ระบุ
+                    </button>
                 </div>
             </div>
 
-            <!-- ================= หน้าตาใบเสนอราคาจริงเมื่อกดพิมพ์/เซฟ PDF ================= -->
-            <div class="print-card p-6 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
-                <!-- Header เอกสาร -->
-                <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
+            <div class="print-card p-5 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
+                <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-3 gap-3">
                     <div>
-                        <h2 class="text-3xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</h2>
-                        <h3 class="text-lg font-bold text-slate-900 mt-1">อัชนัยแอร์ (สำนักงานใหญ่ นครราชสีมา)</h3>
-                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                            • สาขา ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
-                            • สาขา ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
-                            เบอร์โทรศัพท์ / LINE ID: <strong class="text-slate-900 font-bold text-sm">091-669-5595</strong>
+                        <h2 class="text-2xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</h2>
+                        <h3 class="text-base font-bold text-slate-900">อัชนัยแอร์ (สำนักงานใหญ่ นครราชสีมา)</h3>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">
+                            ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
+                            เบอร์โทรศัพท์ / LINE ID: <strong class="text-slate-900 font-bold">091-669-5595</strong>
                         </p>
                     </div>
-                    <div class="text-left sm:text-right w-full sm:w-auto">
-                        <h1 class="text-2xl font-black text-slate-900 uppercase tracking-widest">ใบเสนอราคา</h1>
-                        <p class="text-xs text-slate-600 mt-1">
-                            <strong>เลขที่เอกสาร:</strong> QT-<span id="qtNumber">20260607</span><br>
+                    <div class="text-left sm:text-right">
+                        <h1 class="text-xl font-black text-slate-900 uppercase tracking-widest">ใบเสนอราคา</h1>
+                        <p class="text-[11px] text-slate-600">
                             <strong>วันที่ออกเอกสาร:</strong> 7 มิถุนายน 2026
                         </p>
                     </div>
                 </div>
 
-                <!-- ข้อมูลลูกค้า -->
-                <div class="my-4 bg-slate-50 p-3 rounded-xl border border-slate-200">
-                    <h4 class="text-xs font-bold text-slate-900 border-b border-slate-300 pb-1 mb-1.5 uppercase tracking-wide">ข้อมูลผู้รับบริการ / ลูกค้า</h4>
+                <div class="my-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
                     <p class="text-sm"><strong>ชื่อลูกค้า/หน่วยงาน:</strong> <span id="lblClientName" class="text-blue-700 font-semibold">-</span></p>
                     <p class="text-sm mt-0.5"><strong>เบอร์โทรศัพท์ติดต่อ:</strong> <span id="lblClientPhone">-</span></p>
                 </div>
 
-                <!-- ตารางรายการสินค้า -->
-                <table class="w-full text-left text-sm border-collapse my-4">
+                <table class="w-full text-left text-xs border-collapse my-3">
                     <thead>
-                        <tr class="bg-slate-800 text-white uppercase text-xs">
-                            <th class="p-2.5 text-center w-12">ลำดับ</th>
-                            <th class="p-2.5">รายการบริการ / รายละเอียดงานแอร์</th>
-                            <th class="p-2.5 text-center w-20">จำนวน</th>
-                            <th class="p-2.5 text-right w-24">ราคา/หน่วย</th>
-                            <th class="p-2.5 text-right w-28">รวมเงิน (บาท)</th>
+                        <tr class="bg-slate-800 text-white uppercase">
+                            <th class="p-2 text-center w-10">ลำดับ</th>
+                            <th class="p-2">รายการบริการ / รายละเอียดงานแอร์</th>
+                            <th class="p-2 text-center w-16">จำนวน</th>
+                            <th class="p-2 text-right w-20">ราคา/หน่วย</th>
+                            <th class="p-2 text-right w-24">รวมเงิน (บาท)</th>
                         </tr>
                     </thead>
                     <tbody id="invoiceItems">
-                        <tr id="emptyRow"><td colspan="5" class="p-6 text-center text-slate-400">ยังไม่มีการเลือกหรือเพิ่มรายการบริการ</td></tr>
+                        <tr id="emptyRow"><td colspan="5" class="p-4 text-center text-slate-400">ยังไม่มีการเลือกหรือเพิ่มรายการบริการ</td></tr>
                     </tbody>
                 </table>
 
-                <!-- ส่วนสรุปเงินรวม + VAT -->
-                <div class="flex justify-end mt-4">
-                    <div class="w-full sm:w-1/2 space-y-1.5 border-t-2 border-slate-800 pt-3 text-sm">
+                <div class="flex justify-end mt-3">
+                    <div class="w-full sm:w-1/2 space-y-1 border-t-2 border-slate-800 pt-2 text-xs">
                         <div class="flex justify-between">
                             <span class="text-slate-600">รวมเป็นเงิน (Subtotal):</span>
                             <span id="subTotal" class="font-bold">0.00 บาท</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-slate-600">ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
+                            <span id="vatLabel" class="text-slate-600">ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
                             <span id="vatTotal" class="font-bold">0.00 บาท</span>
                         </div>
-                        <div class="flex justify-between text-base border-t border-slate-300 pt-1.5 font-black text-blue-700">
-                            <span>จำนวนเงินรวมทั้งสิ้น (รวม VAT):</span>
+                        <div class="flex justify-between text-sm border-t border-slate-300 pt-1 font-black text-blue-700">
+                            <span>จำนวนเงินรวมทั้งสิ้น:</span>
                             <span id="grandTotal">0.00 บาท</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- หมายเหตุท้ายเอกสาร -->
-                <div class="mt-8 text-[11px] text-slate-500 border-t border-slate-200 pt-3 leading-relaxed">
-                    <p>* หมายเหตุ: เอกสารฉบับนี้สร้างขึ้นโดยระบบอัตโนมัติของ อัชนัยแอร์ เพื่ออำนวยความสะดวกให้ลูกค้าในการเสนออนุมัติเบื้องต้นได้อย่างรวดเร็ว ข้อมูลราคาอ้างอิงตามมาตรฐานร้าน เอกสารจะมีผลสมบูรณ์เมื่อมีการลงนามนัดหมายคิวงานอย่างเป็นทางการ</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Footer / Contact Section (ซ่อนตอนพิมพ์) -->
-    <footer id="contact" class="bg-slate-900 text-slate-400 py-12 px-4 no-print text-center border-t border-slate-800">
-        <div class="max-w-4xl mx-auto space-y-4">
-            <h3 class="text-white text-xl font-bold">อัชนัยแอร์ (Atchanai Air) โคราช</h3>
-            <p class="text-sm max
+    <script>
+        let customItemsList = [];
+        let globalSummaryText = ""; // เก็บข้อความดิบไว้ใช้ส่งอีเมล
+
+        function addCustomItem() {
+            const name = document.getElementById('customName').value.trim();
+            const price = parseFloat(document.getElementById('customPrice').value) || 0;
+            const qty = parseInt(document.getElementById('customQty').value) || 1;
+
+            if (name === "" || price <= 0) {
+                alert("กรุณากรอกชื่อบริการและราคาที่ถูกต้องด้วยค่ะ");
+                return;
+            }
+
+            customItemsList.push({ name: name, price: price, qty: qty });
+            document.getElementById('customName').value = '';
+            document.getElementById('customPrice').value = '';
+            document.getElementById('customQty').value = '1';
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const cName = document.getElementById('clientName').value || '-';
+            const cPhone = document.getElementById('clientPhone').value || '-';
+            document.getElementById('lblClientName').innerText = cName;
+            document.getElementById('lblClientPhone').innerText = cPhone;
+
+            const wallQty = parseInt(document.getElementById('qtyWall').value) || 0;
+            const ceilingQty = parseInt(document.getElementById('qtyCeiling').value) || 0;
+            const cassetteQty = parseInt(document.getElementById('qtyCassette').value) || 0;
+
+            const tbody = document.getElementById('invoiceItems');
+            tbody.innerHTML = '';
+
+            let index = 1;
+            let subtotal = 0;
+            let emailDetails = "";
+
+            if(wallQty > 0) {
+                let amt = wallQty * 500; subtotal += amt;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์ติดผนัง (Wall Type)</td><td class="p-2 text-center">${wallQty}</td><td class="p-2 text-right">500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
+                emailDetails += `- ล้างแอร์ติดผนัง จำนวน ${wallQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+            }
+            if(ceilingQty > 0) {
+                let amt = ceilingQty * 800; subtotal += amt;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์แขวนเพดาน (Ceiling Type)</td><td class="p-2 text-center">${ceilingQty}</td><td class="p-2 text-right">800.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
+                emailDetails += `- ล้างแอร์แขวนเพดาน จำนวน ${ceilingQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+            }
+            if(cassetteQty > 0) {
+                let amt = cassetteQty * 1500; subtotal += amt;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์ฝังฝ้า 4 ทิศทาง (Cassette Type)</td><td class="p-2 text-center">${cassetteQty}</td><td class="p-2 text-right">1,500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
+                emailDetails += `- ล้างแอร์ฝังฝ้า 4 ทิศทาง จำนวน ${cassetteQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+            }
+
+            customItemsList.forEach(item => {
+                let amt = item.qty * item.price; subtotal += amt;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">${item.name}</td><td class="p-2 text-center">${item.qty}</td><td class="p-2 text-right">${item.price.toFixed(2)}</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
+                emailDetails += `- ${item.name} จำนวน ${item.qty} รายการ (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+            });
+
+            if(subtotal === 0) {
+                tbody.innerHTML = '<tr id="emptyRow"><td colspan="5" class="p-4 text-center text-slate-400">ยังไม่มีการเลือกหรือเพิ่มรายการบริการ</td></tr>';
+            }
+
+            const vatOption = document.querySelector('input[name="vatToggle"]:checked').value;
+            let vat = 0;
+            if (vatOption === "yes") {
+                vat = subtotal * 0.07;
+                document.getElementById('vatLabel').innerText = "ภาษีมูลค่าเพิ่ม (VAT 7%):";
+            } else {
+                document.getElementById('vatLabel').innerText = "ภาษีมูลค่าเพิ่ม (ไม่คิด VAT 0%):";
+            }
+
+            let grand = subtotal + vat;
+
+            document.getElementById('subTotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('vatTotal').innerText = vat.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('grandTotal').innerText = grand.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+
+            // บันทึกข้อความสรุปไว้ใช้ส่งเมล
+            globalSummaryText = `เรียน ผู้เกี่ยวข้อง/ลูกค้า\n\nนี่คือรายละเอียดใบเสนอราคาเบื้องต้นจากร้าน อัชนัยแอร์ (Atchanai Air)\n\nชื่อลูกค้า/บริษัท: ${cName}\nเบอร์โทรติดต่อ: ${cPhone}\n\n[รายการบริการที่เลือก]\n${emailDetails || '- ไม่มีรายการ -\n'}\nรวมเป็นเงิน (Subtotal): ${subtotal.toFixed(2)} บาท\nภาษีมูลค่าเพิ่ม: ${vat.toFixed(2)} บาท\nจำนวนเงินรวมทั้งสิ้น: ${grand.toFixed(2)} บาท\n\n*หมายเหตุ: ข้อมูลอ้างอิงตามมาตรฐานร้าน ลูกค้าสามารถตรวจสอบราคานี้เพื่อยื่นเสนออนุมัติในเบื้องต้นได้ทันทีค่ะ`;
+        }
+
+        // 📧 ฟังก์ชันดึงเมลปลายทางและส่งข้อมูล
+        function sendQuotationEmail() {
+            const targetMail = document.getElementById('targetEmail').value.trim();
+            if(targetMail === "") {
+                alert("กรุณาระบุอีเมลปลายทางที่ต้องการส่งในข้อ 5 ก่อนนะคะคุณคิม");
+                return;
+            }
+            
+            const subject = encodeURIComponent("ใบเสนอราคาค่าบริการงานแอร์ - อัชนัยแอร์ (Atchanai Air)");
+            const body = encodeURIComponent(globalSummaryText);
+            
+            window.location.href = `mailto:${targetMail}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
