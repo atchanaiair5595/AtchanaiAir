@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>อัชนัยแอร์ (Atchanai Air) | ช่างแอร์โคราช มาตรฐานบริษัท ออกใบกำกับภาษีได้</title>
-    <meta name="description" content="อัชนัยแอร์ (Atchanai Air) บริการล้าง ซ่อม ติดตั้งแอร์ โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้เต็มรูปแบบ ครอบคลุมพื้นที่ ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา มั่นใจในความน่าเชื่อถือโดยช่างมืออาชีพ พร้อมระบบคำนวณใบเสนอราคาด่วนฟรี">
+    <meta name="description" content="อัชนัยแอร์ (Atchanai Air) บริการล้าง ซ่อม ติดตั้งแอร์ โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้เต็มรูปแบบ ครอบคลุมพื้นที่ ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชชีมา มั่นใจในความน่าเชื่อถือโดยช่างมืออาชีพ พร้อมระบบคำนวณใบเสนอราคาด่วนฟรี">
     
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -174,7 +174,7 @@
                     </button>
                 </div>
 
-                <!-- Step 4: ปุ่มติ๊กเลือกเปิด-ปิด VAT 7% (กู้คืนตามคำสั่งเรียบร้อยครับพี่) -->
+                <!-- Step 4: ปุ่มติ๊กเลือกเปิด-ปิด VAT 7% -->
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
                     <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
                         <i class="fas fa-percentage"></i> 4. รูปแบบภาษีมูลค่าเพิ่ม (VAT 7%)
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <!-- หน้าตาตัวเอกสารใบเสนอราคาจริง (หัวกระดาษเป็นทางการ มีโลโก้+ที่อยู่ 2 สาขา และไม่มีข้อความส่วนเกิน) -->
+            <!-- หน้าตาตัวเอกสารใบเสนอราคาจริง (เพิ่มหมายเหตุตรงตําแหน่งเหนือสรุปยอดอย่างถูกต้อง) -->
             <div class="print-card p-6 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
                 <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
                     <div class="flex items-start gap-4">
@@ -242,8 +242,18 @@
                     </tbody>
                 </table>
 
-                <div class="flex justify-end mt-4">
-                    <div class="w-full sm:w-1/2 space-y-1.5 border-t-2 border-slate-800 pt-3 text-xs">
+                <!-- แผงสรุปยอดเงินและช่องหมายเหตุการรับประกัน (อยู่เหนือ Subtotal อย่างเป็นทางการ) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 border-t-2 border-slate-800 pt-3">
+                    <!-- ฝั่งซ้าย: หมายเหตุการรับประกัน (เพิ่มเข้าตามคำสั่งเป๊ะๆ ครับ) -->
+                    <div class="text-[11px] text-slate-700 space-y-1 self-start">
+                        <p class="font-bold text-slate-900 mb-1">หมายเหตุ:</p>
+                        <p>✅ รับประกันงานล้าง 3 เดือน กรณีมีน้ำหยดหรืออุดตันก่อนกำหนดล้างให้ใหม่ฟรี</p>
+                        <p>✅ รับประกันงานติดตั้ง 3 เดือน</p>
+                        <p>✅ ซื้อแอร์ใหม่พร้อมติดตั้งกับทางร้านรับประกันท่อน้ำยาซ่อมรั่วฟรี 1 ปี</p>
+                    </div>
+                    
+                    <!-- ฝั่งขวา: รายละเอียดการคำนวณเงิน -->
+                    <div class="space-y-1.5 text-xs">
                         <div class="flex justify-between">
                             <span class="text-slate-600">รวมเป็นเงิน (Subtotal):</span>
                             <span id="subTotal" class="font-bold">0.00 บาท</span>
@@ -263,18 +273,5 @@
         </div>
     </section>
 
-    <!-- Footer ดักคีย์เวิร์ด SEO ค้นหาท้องถิ่น (ซ่อนตอนพิมพ์) -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 no-print">
-        <div class="max-w-4xl mx-auto px-4 space-y-2">
-            <p class="text-slate-200 font-bold">อัชนัยแอร์ (Atchanai Air) - ช่างแอร์อันดับ 1 ที่คุณไว้วางใจในเมืองโคราช</p>
-            <p>ศูนย์บริการล้างแอร์ ซ่อมติดตั้งแอร์ เขตอำเภอเมืองนครราชสีมา, ตำบลในเมือง, ตำบลสุรนารี</p>
-            <p class="pt-4 text-slate-600">&copy; 2026 Atchanai Air. All Rights Reserved. ระบบพัฒนาโดยผู้ช่วยหวาน</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Logic ประมวลผลราคาและระบบบิล -->
-    <script>
-        let invoiceItemsList = [];
-
-        // ตั้งวันที่ปัจจุบันอัตโนมัติ
-        const optio
+    <!-- Footer SEO ท้องถิ่น (ซ่อนตอนพิมพ์) -->
+    <footer class="bg-slate-900 text
