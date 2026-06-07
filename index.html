@@ -6,7 +6,7 @@
     <title>อัชนัยแอร์ (Atchanai Air) | ช่างแอร์โคราช มาตรฐานบริษัท ออกใบกำกับภาษีได้</title>
     <meta name="description" content="อัชนัยแอร์ (Atchanai Air) บริการล้าง ซ่อม ติดตั้งแอร์ โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้เต็มรูปแบบ ครอบคลุมพื้นที่ ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา มั่นใจในความน่าเชื่อถือโดยช่างมืออาชีพ พร้อมระบบคำนวณใบเสนอราคาด่วนฟรี">
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -14,7 +14,6 @@
         @media print {
             body { background: white; color: black; }
             .no-print { display: none !important; }
-            /* จัดขอบใบเสนอราคาตอนปริ้นให้เป็นสีดำ ดูคมชัดแบบเอกสารราชการ/องค์กร */
             .print-card { border: 2px solid #1e293b !important; box-shadow: none !important; padding: 20px !important; margin: 0 !important; width: 100% !important; border-radius: 0px !important; }
             .print-logo { max-height: 80px !important; display: block !important; }
         }
@@ -267,4 +266,148 @@
     </section>
 
     <script>
- 
+        let customItems = [];
+
+        function addCustomItem() {
+            const nameEl = document.getElementById('customName');
+            const priceEl = document.getElementById('customPrice');
+            const qtyEl = document.getElementById('customQty');
+
+            const name = nameEl.value.trim();
+            const price = parseFloat(priceEl.value) || 0;
+            const qty = parseInt(qtyEl.value) || 1;
+
+            if (name && price >= 0) {
+                customItems.push({ name, price, qty });
+                nameEl.value = '';
+                priceEl.value = '';
+                qtyEl.value = '1';
+                calculateTotal();
+            } else {
+                alert('รบกวนระบุชื่อบริการและราคาให้ถูกต้องด้วยนะครับ');
+            }
+        }
+
+        function removeCustomItem(index) {
+            customItems.splice(index, 1);
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const clientName = document.getElementById('clientName').value.trim();
+            const clientPhone = document.getElementById('clientPhone').value.trim();
+            
+            document.getElementById('lblClientName').innerText = clientName || '______________________________________';
+            document.getElementById('lblClientPhone').innerText = clientPhone || '__________________';
+            
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = today.toLocaleDateString('th-TH', options);
+            document.getElementById('currentDocDate').innerText = formattedDate;
+            
+            const dateSpans = document.querySelectorAll('.lblCurrentDate');
+            dateSpans.forEach(span => span.innerText = formattedDate);
+
+            let subtotal = 0;
+            const tbody = document.getElementById('invoiceItems');
+            tbody.innerHTML = '';
+
+            let itemIndex = 1;
+
+            const qtyWall = parseInt(document.getElementById('qtyWall').value) || 0;
+            if (qtyWall > 0) {
+                const price = 500;
+                const total = qtyWall * price;
+                subtotal += total;
+                tbody.innerHTML += `
+                    <tr class="border-b border-slate-200">
+                        <td class="p-2.5 text-center">${itemIndex++}</td>
+                        <td class="p-2.5 font-medium">บริการล้างแอร์ผนัง (Wall Type)</td>
+                        <td class="p-2.5 text-center">${qtyWall}</td>
+                        <td class="p-2.5 text-right">${price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                        <td class="p-2.5 text-right font-semibold">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                    </tr>
+                `;
+            }
+
+            const qtyCeiling = parseInt(document.getElementById('qtyCeiling').value) || 0;
+            if (qtyCeiling > 0) {
+                const price = 800;
+                const total = qtyCeiling * price;
+                subtotal += total;
+                tbody.innerHTML += `
+                    <tr class="border-b border-slate-200">
+                        <td class="p-2.5 text-center">${itemIndex++}</td>
+                        <td class="p-2.5 font-medium">บริการล้างแอร์แขวน (Ceiling Type)</td>
+                        <td class="p-2.5 text-center">${qtyCeiling}</td>
+                        <td class="p-2.5 text-right">${price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                        <td class="p-2.5 text-right font-semibold">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                    </tr>
+                `;
+            }
+
+            const qtyCassette = parseInt(document.getElementById('qtyCassette').value) || 0;
+            if (qtyCassette > 0) {
+                const price = 1500;
+                const total = qtyCassette * price;
+                subtotal += total;
+                tbody.innerHTML += `
+                    <tr class="border-b border-slate-200">
+                        <td class="p-2.5 text-center">${itemIndex++}</td>
+                        <td class="p-2.5 font-medium">บริการล้างแอร์ฝังฝ้า (Cassette Type)</td>
+                        <td class="p-2.5 text-center">${qtyCassette}</td>
+                        <td class="p-2.5 text-right">${price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                        <td class="p-2.5 text-right font-semibold">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                    </tr>
+                `;
+            }
+
+            customItems.forEach((item, index) => {
+                const total = item.qty * item.price;
+                subtotal += total;
+                tbody.innerHTML += `
+                    <tr class="border-b border-slate-200">
+                        <td class="p-2.5 text-center">${itemIndex++}</td>
+                        <td class="p-2.5 font-medium flex justify-between items-center">
+                            <span>${item.name}</span>
+                            <button onclick="removeCustomItem(${index})" class="no-print text-red-500 hover:text-red-700 text-xs ml-2 cursor-pointer" title="ลบรายการนี้">
+                                <i class="fas fa-trash-alt"></i> ลบ
+                            </button>
+                        </td>
+                        <td class="p-2.5 text-center">${item.qty}</td>
+                        <td class="p-2.5 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                        <td class="p-2.5 text-right font-semibold">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>
+                    </tr>
+                `;
+            });
+
+            if (tbody.innerHTML.trim() === '') {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="p-8 text-center text-slate-400 italic">ยังไม่มีรายการบริการ เลือกบริการหรือระบุรายการพิเศษด้านบนได้เลยครับ</td>
+                    </tr>
+                `;
+            }
+
+            const vatToggle = document.querySelector('input[name="vatToggle"]:checked').value;
+            let vat = 0;
+            if (vatToggle === 'yes') {
+                vat = subtotal * 0.07;
+                document.getElementById('vatRow').style.display = 'flex';
+            } else {
+                document.getElementById('vatRow').style.display = 'none';
+            }
+
+            const grandTotal = subtotal + vat;
+
+            document.getElementById('subTotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('vatTotal').innerText = vat.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('grandTotal').innerText = grandTotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+        }
+
+        window.onload = function() {
+            calculateTotal();
+        };
+</script>
+</body>
+</html>
