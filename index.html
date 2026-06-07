@@ -22,9 +22,12 @@
 
     <nav class="bg-white/95 backdrop-blur shadow-md sticky top-0 z-50 no-print">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
-            <a href="#" class="flex flex-col">
-                <span class="text-xl md:text-2xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</span>
-                <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold w-max">อัชนัยแอร์ โคราช</span>
+            <a href="#" class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/d/1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY" alt="Atchanai Air Logo" class="h-12 w-auto object-contain rounded-lg">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</span>
+                    <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold w-max">อัชนัยแอร์ โคราช</span>
+                </div>
             </a>
             <div class="hidden md:flex space-x-6 font-semibold text-slate-600 text-sm">
                 <a href="#home" class="hover:text-blue-600 transition">หน้าแรก</a>
@@ -38,6 +41,9 @@
 
     <header id="home" class="bg-gradient-to-b from-blue-50 to-slate-50 py-10 px-4 text-center no-print">
         <div class="max-w-4xl mx-auto">
+            <div class="flex justify-center mb-4">
+                <img src="https://lh3.googleusercontent.com/d/1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY" alt="Atchanai Air Logo" class="h-24 w-auto object-contain">
+            </div>
             <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">ระบบใบเสนอราคาออโต้</span>
             <h1 class="text-3xl md:text-4xl font-black text-slate-900 mt-3">อัชนัยแอร์ <span class="text-blue-600">Atchanai Air</span></h1>
         </div>
@@ -45,12 +51,8 @@
 
     <section id="quotation" class="py-6 bg-white">
         <div class="max-w-4xl mx-auto px-4">
-            
             <div class="no-print bg-slate-50 p-5 md:p-8 rounded-2xl border border-slate-200 mb-8 shadow-sm space-y-5">
-                <div class="text-center">
-                    <h2 class="text-xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-1"></i> กรอกข้อมูลเพื่อสร้างใบเสนอราคา</h2>
-                </div>
-
+                <div class="text-center"><h2 class="text-xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-1"></i> กรอกข้อมูลเพื่อสร้างใบเสนอราคา</h2></div>
                 <div>
                     <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / บริษัท</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -58,7 +60,6 @@
                         <input type="text" id="clientPhone" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
                     </div>
                 </div>
-
                 <div>
                     <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐาน</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -76,122 +77,57 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                                <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
                     <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
                         <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์ระบุรายการบริการอื่นๆ เพิ่มเติมด้วยตัวเอง
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">ชื่อบริการ/รายการงานแอร์</label>
-                            <input type="text" id="customName" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="เช่น ซ่อมบอร์ด, ย้ายคอยล์ร้อน, เติมน้ำยา">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">ราคาต่อหน่วย (บาท)</label>
-                            <input type="number" id="customPrice" min="0" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="0">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">จำนวน</label>
-                            <input type="number" id="customQty" min="1" value="1" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs">
-                        </div>
+                        <div><label class="block text-[11px] text-slate-600 font-medium">ชื่อบริการ</label><input type="text" id="customName" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="เช่น ซ่อมบอร์ด, ย้ายคอยล์ร้อน"></div>
+                        <div><label class="block text-[11px] text-slate-600 font-medium">ราคาต่อหน่วย</label><input type="number" id="customPrice" min="0" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="0"></div>
+                        <div><label class="block text-[11px] text-slate-600 font-medium">จำนวน</label><input type="number" id="customQty" min="1" value="1" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs"></div>
                     </div>
-                    <button type="button" onclick="addCustomItem()" class="mt-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition cursor-pointer">
-                        + เพิ่มรายการลงบิลด้านล่าง
-                    </button>
+                    <button type="button" onclick="addCustomItem()" class="mt-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition cursor-pointer">+ เพิ่มรายการลงบิล</button>
                 </div>
 
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                    <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
-                        <i class="fas fa-percentage"></i> 4. การคิดภาษีมูลค่าเพิ่ม (VAT 7%)
-                    </h3>
+                    <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm"><i class="fas fa-percentage"></i> 4. การคิดภาษีมูลค่าเพิ่ม (VAT 7%)</h3>
                     <div class="flex flex-col sm:flex-row gap-3 text-sm font-semibold text-slate-700">
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()">
-                            <span>ต้องการคิด VAT 7% (ออกใบกำกับภาษีเต็มรูปแบบ)</span>
-                        </label>
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="no" onchange="calculateTotal()">
-                            <span>ไม่คิด VAT (ราคาเงินสด/บิลเงินสดทั่วไป)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 flex gap-3 items-start">
-                    <div class="bg-sky-500 text-white p-2 rounded-lg text-sm mt-0.5">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="text-xs md:text-sm text-sky-900 leading-relaxed">
-                        <strong class="font-bold block text-sky-950 mb-1">💡 คำแนะนำเพิ่มเติมเพื่อความแม่นยำในการประเมินราคา:</strong>
-                        สำหรับงานซ่อม งานติดตั้ง หรือรายการนอกเหนือบริการหลัก หลังจากที่ท่านบันทึกไฟล์ PDF เรียบร้อยแล้ว กรุณาทักแชทสอบถามทาง <strong class="text-emerald-600 font-bold">LINE (ID: 091-669-5595)</strong> พร้อมส่งรายละเอียดเพิ่มเติม เช่น รหัสสินค้า (Model), ภาพถ่ายหน้างานจุดที่จะติดตั้ง, ภาพถ่ายตัวแอร์ หรืออุปกรณ์ที่เกี่ยวข้อง เพื่อให้ช่างตรวจสอบความถูกต้องและล็อกคิวงานให้รวดเร็วยิ่งขึ้นค่ะ
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()"> <span>คิด VAT 7%</span></label>
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="vatToggle" value="no" onchange="calculateTotal()"> <span>ไม่คิด VAT</span></label>
                     </div>
                 </div>
 
                 <div class="flex justify-center pt-2">
-                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-xl shadow-lg transition text-base cursor-pointer text-center w-full sm:w-auto">
-                        <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์ใบเสนอราคา
-                    </button>
+                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-xl shadow-lg transition text-base cursor-pointer">บันทึกเป็น PDF / สั่งพิมพ์</button>
                 </div>
             </div>
 
             <div class="print-card p-5 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
                 <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
-                    <div class="flex items-start gap-4">
+                    <div class="flex items-center gap-4">
+                        <img src="https://lh3.googleusercontent.com/d/1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY" alt="Logo" class="h-16 w-auto object-contain">
                         <div>
                             <h2 class="text-xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</h2>
                             <h3 class="text-sm font-bold text-slate-900">อัชนัยแอร์ (สำนักงานใหญ่ นครราชสีมา)</h3>
-                            <p class="text-[10px] text-slate-600 leading-relaxed mt-0.5">
-                                <strong>สาขา 1:</strong> ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
-                                <strong>สาขา 2:</strong> ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
-                                เบอร์โทรศัพท์ / LINE ID: <strong class="text-slate-900 font-bold">091-669-5595</strong>
-                            </p>
                         </div>
                     </div>
                     <div class="text-left sm:text-right">
-                        <h1 class="text-xl font-black text-slate-900 uppercase tracking-widest">ใบเสนอราคา</h1>
-                        <p class="text-[11px] text-slate-600 mt-1">
-                            <strong>วันที่ออกเอกสาร:</strong> <span id="currentDocDate"></span>
-                        </p>
+                        <h1 class="text-xl font-black text-slate-900 uppercase">ใบเสนอราคา</h1>
+                        <p class="text-[11px] text-slate-600 mt-1"><strong>วันที่:</strong> <span id="currentDocDate"></span></p>
                     </div>
                 </div>
-
                 <div class="my-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <p class="text-sm"><strong>ชื่อลูกค้า/หน่วยงานผู้ติดต่อ:</strong> <span id="lblClientName" class="text-blue-700 font-semibold">-</span></p>
-                    <p class="text-sm mt-1"><strong>เบอร์โทรศัพท์ติดต่อ:</strong> <span id="lblClientPhone">-</span></p>
+                    <p class="text-sm"><strong>ชื่อลูกค้า:</strong> <span id="lblClientName" class="text-blue-700 font-semibold">-</span></p>
+                    <p class="text-sm mt-1"><strong>เบอร์โทรศัพท์:</strong> <span id="lblClientPhone">-</span></p>
                 </div>
-
                 <table class="w-full text-left text-xs border-collapse my-3">
-                    <thead>
-                        <tr class="bg-slate-800 text-white uppercase">
-                            <th class="p-2.5 text-center w-10">ลำดับ</th>
-                            <th class="p-2.5">รายการบริการ / รายละเอียดงานแอร์</th>
-                            <th class="p-2.5 text-center w-16">จำนวน</th>
-                            <th class="p-2.5 text-right w-24">ราคา/หน่วย</th>
-                            <th class="p-2.5 text-right w-28">รวมเงิน (บาท)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr class="bg-slate-800 text-white"><th class="p-2.5">รายการ</th><th class="p-2.5 text-center">จำนวน</th><th class="p-2.5 text-right">ราคา</th><th class="p-2.5 text-right">รวม</th></tr></thead>
                     <tbody id="invoiceItems" class="divide-y divide-slate-200"></tbody>
                 </table>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 border-t-2 border-slate-800 pt-3">
-                    <div class="text-[11px] text-slate-700 space-y-1 self-start">
-                        <p class="font-bold text-slate-900 mb-1">หมายเหตุ:</p>
-                        <p>✅ รับประกันงานล้าง 3 เดือน กรณีมีน้ำหยดหรืออุดตันก่อนกำหนดล้างให้ใหม่ฟรี</p>
-                        <p>✅ รับประกันงานติดตั้ง 3 เดือน</p>
-                        <p>✅ ซื้อแอร์ใหม่พร้อมติดตั้งกับทางร้านรับประกันท่อน้ำยาซ่อมรั่วฟรี 1 ปี</p>
-                    </div>
-                    <div class="space-y-1.5 text-xs">
-                        <div class="flex justify-between">
-                            <span class="text-slate-600">รวมเป็นเงิน (Subtotal):</span>
-                            <span id="subTotal" class="font-bold">0.00 บาท</span>
-                        </div>
-                        <div id="vatRow" class="flex justify-between">
-                            <span class="text-slate-600">ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
-                            <span id="vatTotal" class="font-bold">0.00 บาท</span>
-                        </div>
-                        <div class="flex justify-between border-t border-slate-300 pt-1.5 text-sm font-black text-blue-600">
-                            <span>จำนวนเงินรวมทั้งสิ้น (Grand Total):</span>
-                            <span id="grandTotal">0.00 บาท</span>
-                        </div>
-                    </div>
+                <div class="text-xs space-y-1 mt-4">
+                    <div class="flex justify-between"><span>รวมเป็นเงิน:</span><span id="subTotal" class="font-bold">0.00</span></div>
+                    <div id="vatRow" class="flex justify-between"><span>VAT 7%:</span><span id="vatTotal" class="font-bold">0.00</span></div>
+                    <div class="flex justify-between border-t pt-2 font-black text-blue-600"><span>รวมสุทธิ:</span><span id="grandTotal">0.00</span></div>
                 </div>
             </div>
         </div>
@@ -200,59 +136,41 @@
     <script>
         let customItems = [];
         function addCustomItem() {
-            const nameEl = document.getElementById('customName');
-            const priceEl = document.getElementById('customPrice');
-            const qtyEl = document.getElementById('customQty');
-            const name = nameEl.value.trim();
-            const price = parseFloat(priceEl.value) || 0;
-            const qty = parseInt(qtyEl.value) || 1;
+            const name = document.getElementById('customName').value.trim();
+            const price = parseFloat(document.getElementById('customPrice').value) || 0;
+            const qty = parseInt(document.getElementById('customQty').value) || 1;
             if (name && price >= 0) {
                 customItems.push({ name, price, qty });
-                nameEl.value = ''; priceEl.value = ''; qtyEl.value = '1';
+                document.getElementById('customName').value = '';
+                document.getElementById('customPrice').value = '';
                 calculateTotal();
-            } else { alert('รบกวนระบุชื่อบริการและราคาให้ถูกต้องด้วยนะครับ'); }
+            } else { alert('ระบุข้อมูลให้ครบครับ'); }
         }
-        function removeCustomItem(index) {
-            customItems.splice(index, 1);
-            calculateTotal();
-        }
+        function removeCustomItem(i) { customItems.splice(i, 1); calculateTotal(); }
         function calculateTotal() {
-            const clientName = document.getElementById('clientName').value.trim();
-            const clientPhone = document.getElementById('clientPhone').value.trim();
-            document.getElementById('lblClientName').innerText = clientName || '______________________________________';
-            document.getElementById('lblClientPhone').innerText = clientPhone || '__________________';
-            const today = new Date();
-            const formattedDate = today.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('currentDocDate').innerText = formattedDate;
+            document.getElementById('lblClientName').innerText = document.getElementById('clientName').value || '-';
+            document.getElementById('lblClientPhone').innerText = document.getElementById('clientPhone').value || '-';
+            document.getElementById('currentDocDate').innerText = new Date().toLocaleDateString('th-TH');
             let subtotal = 0;
             const tbody = document.getElementById('invoiceItems');
             tbody.innerHTML = '';
-            let itemIndex = 1;
-            const qtyWall = parseInt(document.getElementById('qtyWall').value) || 0;
-            if (qtyWall > 0) {
-                subtotal += qtyWall * 500;
-                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์ผนัง (500.-)</td><td class="p-2.5 text-center">${qtyWall}</td><td class="p-2.5 text-right">500.00</td><td class="p-2.5 text-right font-semibold">${(qtyWall*500).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-            }
-            const qtyCeiling = parseInt(document.getElementById('qtyCeiling').value) || 0;
-            if (qtyCeiling > 0) {
-                subtotal += qtyCeiling * 800;
-                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์แขวน (800.-)</td><td class="p-2.5 text-center">${qtyCeiling}</td><td class="p-2.5 text-right">800.00</td><td class="p-2.5 text-right font-semibold">${(qtyCeiling*800).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-            }
-            const qtyCassette = parseInt(document.getElementById('qtyCassette').value) || 0;
-            if (qtyCassette > 0) {
-                subtotal += qtyCassette * 1500;
-                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์ฝังฝ้า (1,500.-)</td><td class="p-2.5 text-center">${qtyCassette}</td><td class="p-2.5 text-right">1500.00</td><td class="p-2.5 text-right font-semibold">${(qtyCassette*1500).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-            }
-            customItems.forEach((item, index) => {
-                subtotal += (item.qty * item.price);
-                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5 font-medium flex justify-between items-center">${item.name}<button onclick="removeCustomItem(${index})" class="no-print text-red-500 text-[10px] ml-2">ลบ</button></td><td class="p-2.5 text-center">${item.qty}</td><td class="p-2.5 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-right font-semibold">${(item.qty*item.price).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
+            const services = [{id:'qtyWall', p:500, n:'ล้างแอร์ผนัง'}, {id:'qtyCeiling', p:800, n:'ล้างแอร์แขวน'}, {id:'qtyCassette', p:1500, n:'ล้างแอร์ฝังฝ้า'}];
+            services.forEach(s => {
+                let q = parseInt(document.getElementById(s.id).value) || 0;
+                if(q>0) {
+                    subtotal += q*s.p;
+                    tbody.innerHTML += `<tr><td class="p-2.5">${s.n}</td><td class="p-2.5 text-center">${q}</td><td class="p-2.5 text-right">${s.p.toFixed(2)}</td><td class="p-2.5 text-right font-semibold">${(q*s.p).toFixed(2)}</td></tr>`;
+                }
             });
-            const vatToggle = document.querySelector('input[name="vatToggle"]:checked').value;
-            let vat = (vatToggle === 'yes') ? subtotal * 0.07 : 0;
-            document.getElementById('vatRow').style.display = (vatToggle === 'yes') ? 'flex' : 'none';
-            document.getElementById('subTotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
-            document.getElementById('vatTotal').innerText = vat.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
-            document.getElementById('grandTotal').innerText = (subtotal + vat).toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            customItems.forEach((item, i) => {
+                subtotal += (item.qty*item.price);
+                tbody.innerHTML += `<tr><td class="p-2.5">${item.name} <button onclick="removeCustomItem(${i})" class="text-red-500">[ลบ]</button></td><td class="p-2.5 text-center">${item.qty}</td><td class="p-2.5 text-right">${item.price.toFixed(2)}</td><td class="p-2.5 text-right font-semibold">${(item.qty*item.price).toFixed(2)}</td></tr>`;
+            });
+            let vat = (document.querySelector('input[name="vatToggle"]:checked').value === 'yes') ? subtotal * 0.07 : 0;
+            document.getElementById('vatRow').style.display = (vat>0) ? 'flex' : 'none';
+            document.getElementById('subTotal').innerText = subtotal.toLocaleString(undefined, {minimumFractionDigits:2}) + ' บาท';
+            document.getElementById('vatTotal').innerText = vat.toLocaleString(undefined, {minimumFractionDigits:2}) + ' บาท';
+            document.getElementById('grandTotal').innerText = (subtotal+vat).toLocaleString(undefined, {minimumFractionDigits:2}) + ' บาท';
         }
         window.onload = calculateTotal;
     </script>
