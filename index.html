@@ -22,11 +22,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <!-- Navbar -->
+    <!-- Navbar (ซ่อนตอนพิมพ์) -->
     <nav class="bg-white/95 backdrop-blur shadow-md sticky top-0 z-50 no-print">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3">
-                <!-- โลโก้ร้านอัชนัยแอร์บนหน้าเว็บ -->
                 <img src="https://lh3.googleusercontent.com/d/1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY" alt="Atchanai Air Logo" class="h-12 w-auto object-contain rounded-lg">
                 <div class="flex flex-col">
                     <span class="text-lg md:text-xl font-black text-blue-600 tracking-wider leading-none">ATCHANAI AIR</span>
@@ -44,7 +43,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (ซ่อนตอนพิมพ์) -->
     <header id="home" class="bg-gradient-to-b from-blue-100 via-blue-50 to-slate-50 py-16 px-4 text-center no-print">
         <div class="max-w-4xl mx-auto space-y-4">
             <div class="flex justify-center mb-2">
@@ -71,7 +70,7 @@
         </div>
     </header>
 
-    <!-- Services Section (เน้นดึงดูดงานเล็กและงานใหญ่ให้หยุดดู) -->
+    <!-- Services Section (ซ่อนตอนพิมพ์) -->
     <section id="services" class="py-12 bg-white border-t border-slate-200 no-print">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center mb-10">
@@ -108,15 +107,15 @@
     <section id="quotation" class="py-12 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4">
             
-            <!-- ตัวกรอกข้อมูล (ซ่อนตอนพิมพ์) -->
+            <!-- ตัวกรอกข้อมูลแผงควบคุมหลัก (ซ่อนตอนพิมพ์อัตโนมัติ) -->
             <div class="no-print bg-white p-5 md:p-8 rounded-2xl border border-slate-200 mb-8 shadow-md space-y-5">
                 <div class="text-center">
                     <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full"><i class="fas fa-bolt mr-1"></i> อนุมัติไว ไม่ต้องรอคิวสาย</span>
                     <h2 class="text-2xl font-black text-slate-900 mt-2"><i class="fas fa-magic text-blue-600 mr-1"></i> ระบบสร้างใบเสนอราคาออนไลน์อัตโนมัติ</h2>
-                    <p class="text-xs text-slate-500 mt-1">กรอกรายละเอียดเพื่อสร้างเอกสารมาตรฐานของร้านอัชนัยแอร์ นำไปเสนอหน่วยงานของท่านได้ทันที</p>
+                    <p class="text-xs text-slate-500 mt-1">เลือกบริการหลักจากเมนู Drop-down หรือกรอกรายละเอียดเพิ่มเติม เพื่อสร้างเอกสารมาตรฐานของร้านอัชนัยแอร์ได้ทันที</p>
                 </div>
 
-                <!-- Step 1 -->
+                <!-- Step 1: ข้อมูลลูกค้า -->
                 <div>
                     <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / หน่วยงาน / บริษัท</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -125,26 +124,33 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
+                <!-- Step 2: เมนูเลือก Drop-down บริการหลัก -->
                 <div>
-                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐาน (ระบุจำนวนตัว)</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
-                            <span class="text-xs font-semibold">ติดผนัง (500.-)</span>
-                            <input type="number" id="qtyWall" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm font-bold text-blue-600">
+                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm">
+                        <span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐานของทางร้าน (เมนูหลัก)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="sm:col-span-2">
+                            <label class="block text-[11px] text-slate-600 font-medium mb-1">เลือกประเภทบริการล้างแอร์</label>
+                            <select id="mainServiceSelect" class="w-full rounded-lg border border-slate-300 p-2.5 bg-white text-xs font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none text-slate-700">
+                                <option value="wall">เมนูที่ 1 ล้างแอร์ผนัง Wall Type 1 ชุด 500 บาท</option>
+                                <option value="ceiling">เมนูที่ 2 ล้างแอร์แขวน Ceiling Type 1 ชุด 800 บาท</option>
+                                <option value="cassette">เมนูที่ 3 ล้างแอร์ Cassette Type 1 ชุด 1,500 บาท</option>
+                            </select>
                         </div>
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
-                            <span class="text-xs font-semibold">แอร์แขวน (800.-)</span>
-                            <input type="number" id="qtyCeiling" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm font-bold text-blue-600">
-                        </div>
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
-                            <span class="text-xs font-semibold">ฝังฝ้า (1,500.-)</span>
-                            <input type="number" id="qtyCassette" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm font-bold text-blue-600">
+                        <div>
+                            <label class="block text-[11px] text-slate-600 font-medium mb-1">จำนวน (ชุด)</label>
+                            <div class="flex gap-2">
+                                <input type="number" id="mainServiceQty" min="1" value="1" class="w-full rounded-lg border border-slate-300 p-2 bg-white text-xs text-center font-bold text-blue-600">
+                                <button type="button" onclick="addMainServiceItem()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition cursor-pointer whitespace-nowrap">
+                                    + เพิ่มบริการ
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
+                <!-- Step 3: กรอกรายละเอียดอื่นๆ เพิ่มเติมเอง -->
                 <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
                     <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
                         <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์เพิ่มรายการบริการอื่นๆ ด้วยตัวเอง (งานซ่อม, อะไหล่, ย้ายจุด)
@@ -168,23 +174,24 @@
                     </button>
                 </div>
 
-                <!-- Step 4 -->
+                <!-- Step 4: ปุ่มติ๊กเลือกเปิด-ปิด VAT 7% (กู้คืนตามคำสั่งเรียบร้อยครับพี่) -->
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
                     <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
-                        <i class="fas fa-percentage"></i> 4. การคิดภาษีมูลค่าเพิ่ม (VAT 7%)
+                        <i class="fas fa-percentage"></i> 4. รูปแบบภาษีมูลค่าเพิ่ม (VAT 7%)
                     </h3>
-                    <div class="flex flex-col sm:flex-row gap-4 text-xs sm:text-sm font-semibold text-slate-700">
+                    <div class="flex gap-6 text-xs sm:text-sm font-semibold text-slate-700">
                         <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()">
-                            <span>ต้องการคิด VAT 7% (สำหรับออกใบกำกับภาษีเต็มรูปแบบ)</span>
+                            <input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()" class="w-4 h-4 text-blue-600">
+                            <span>ต้องการคิด VAT 7% (ราคารวมภาษีมูลค่าเพิ่ม)</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="no" onchange="calculateTotal()">
-                            <span>ไม่คิด VAT (ราคาเน็ตเงินสด / บิลเงินสดทั่วไป)</span>
+                            <input type="radio" name="vatToggle" value="no" onchange="calculateTotal()" class="w-4 h-4 text-blue-600">
+                            <span>ไม่คิด VAT 0% (ราคาเงินสด / บิลเงินสดทั่วไป)</span>
                         </label>
                     </div>
                 </div>
 
+                <!-- ปุ่มพิมพ์เอกสาร -->
                 <div class="flex justify-center pt-2">
                     <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-xl shadow-lg transition text-base cursor-pointer text-center w-full sm:w-auto">
                         <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์ใบเสนอราคา
@@ -192,11 +199,10 @@
                 </div>
             </div>
 
-            <!-- หน้าตาตัวเอกสารจริงที่จะถูกเซฟหรือสั่งพิมพ์ (แสดงผลโลโก้และที่อยู่อย่างเป็นทางการ) -->
+            <!-- หน้าตาตัวเอกสารใบเสนอราคาจริง (หัวกระดาษเป็นทางการ มีโลโก้+ที่อยู่ 2 สาขา และไม่มีข้อความส่วนเกิน) -->
             <div class="print-card p-6 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
                 <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
                     <div class="flex items-start gap-4">
-                        <!-- โลโก้ร้านบนหัวกระดาษใบเสนอราคา -->
                         <img src="https://lh3.googleusercontent.com/d/1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY" alt="Atchanai Air Logo" class="print-logo h-16 w-auto object-contain rounded-lg">
                         <div>
                             <h2 class="text-xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</h2>
@@ -257,27 +263,18 @@
         </div>
     </section>
 
-    <!-- Footer SEO ท้องถิ่น -->
+    <!-- Footer ดักคีย์เวิร์ด SEO ค้นหาท้องถิ่น (ซ่อนตอนพิมพ์) -->
     <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 no-print">
         <div class="max-w-4xl mx-auto px-4 space-y-2">
             <p class="text-slate-200 font-bold">อัชนัยแอร์ (Atchanai Air) - ช่างแอร์อันดับ 1 ที่คุณไว้วางใจในเมืองโคราช</p>
             <p>ศูนย์บริการล้างแอร์ ซ่อมติดตั้งแอร์ เขตอำเภอเมืองนครราชสีมา, ตำบลในเมือง, ตำบลสุรนารี</p>
-            <p class="pt-4 text-slate-600">&copy; 2026 Atchanai Air. All Rights Reserved. ระบบออโต้พัฒนาโดยผู้ช่วยหวาน</p>
+            <p class="pt-4 text-slate-600">&copy; 2026 Atchanai Air. All Rights Reserved. ระบบพัฒนาโดยผู้ช่วยหวาน</p>
         </div>
     </footer>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript Logic ประมวลผลราคาและระบบบิล -->
     <script>
-        let customItemsList = [];
+        let invoiceItemsList = [];
 
-        // ตั้งวันที่ปัจจุบันแบบอัตโนมัติ
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDocDate').innerText = new Date().toLocaleDateString('th-TH', options);
-
-        function addCustomItem() {
-            const name = document.getElementById('customName').value.trim();
-            const price = parseFloat(document.getElementById('customPrice').value) || 0;
-            const qty = parseInt(document.getElementById('customQty').value) || 1;
-
-            if (name === "" || price <= 0) {
-                alert("ก
+        // ตั้งวันที่ปัจจุบันอัตโนมัติ
+        const optio
