@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>อัชนัยแอร์ (Atchanai Air) | ช่างแอร์โคราช มาตรฐานบริษัท ออกใบกำกับภาษีได้</title>
-    <meta name="description" content="อัชนัยแอร์ (Atchanai Air) บริการล้าง ซ่อม ติดตั้งแอร์ โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้เต็มรูปแบบ ครอบคลุมพื้นที่ ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชชีมา มั่นใจในความน่าเชื่อถือโดยช่างมืออาชีพ พร้อมระบบคำนวณใบเสนอราคาด่วนฟรี">
+    <meta name="description" content="อัชนัยแอร์ (Atchanai Air) บริการล้าง ซ่อม ติดตั้งแอร์ โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้เต็มรูปแบบ ครอบคลุมพื้นที่ ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา มั่นใจในความน่าเชื่อถือโดยช่างมืออาชีพ พร้อมระบบคำนวณใบเสนอราคาด่วนฟรี">
     
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -119,12 +119,12 @@
                 <div>
                     <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / หน่วยงาน / บริษัท</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <input type="text" id="clientName" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="ชื่อผู้ติดต่อ หรือ ชื่อบริษัท/หน่วยงาน">
-                        <input type="text" id="clientPhone" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
+                        <input type="text" id="clientName" oninput="updateClientInfo()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="ชื่อผู้ติดต่อ หรือ ชื่อบริษัท/หน่วยงาน">
+                        <input type="text" id="clientPhone" oninput="updateClientInfo()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
                     </div>
                 </div>
 
-                <!-- Step 2: เมนูเลือก Drop-down บริการหลัก -->
+                <!-- Step 2: เมนูเลือก Drop-down บริการหลัก [แก้ไขระบการเพิ่มบิลทำงาน 100%] -->
                 <div>
                     <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm">
                         <span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐานของทางร้าน (เมนูหลัก)
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <!-- หน้าตาตัวเอกสารใบเสนอราคาจริง (เพิ่มหมายเหตุตรงตําแหน่งเหนือสรุปยอดอย่างถูกต้อง) -->
+            <!-- หน้าตาตัวเอกสารใบเสนอราคาจริง (มีโลโก้+ที่อยู่ 2 สาขา และมีเงื่อนไขการรับประกันเหนือราคารวมอย่างถูกต้อง) -->
             <div class="print-card p-6 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
                 <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
                     <div class="flex items-start gap-4">
@@ -242,9 +242,9 @@
                     </tbody>
                 </table>
 
-                <!-- แผงสรุปยอดเงินและช่องหมายเหตุการรับประกัน (อยู่เหนือ Subtotal อย่างเป็นทางการ) -->
+                <!-- แผงสรุปยอดเงินและช่องหมายเหตุการรับประกัน -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 border-t-2 border-slate-800 pt-3">
-                    <!-- ฝั่งซ้าย: หมายเหตุการรับประกัน (เพิ่มเข้าตามคำสั่งเป๊ะๆ ครับ) -->
+                    <!-- ฝั่งซ้าย: หมายเหตุการรับประกัน -->
                     <div class="text-[11px] text-slate-700 space-y-1 self-start">
                         <p class="font-bold text-slate-900 mb-1">หมายเหตุ:</p>
                         <p>✅ รับประกันงานล้าง 3 เดือน กรณีมีน้ำหยดหรืออุดตันก่อนกำหนดล้างให้ใหม่ฟรี</p>
@@ -274,4 +274,4 @@
     </section>
 
     <!-- Footer SEO ท้องถิ่น (ซ่อนตอนพิมพ์) -->
-    <footer class="bg-slate-900 text
+    <footer class="bg-slate-900 text-slate-4
