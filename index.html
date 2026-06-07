@@ -6,7 +6,7 @@
     <title>อัชนัยแอร์ (Atchanai Air) | ช่างแอร์โคราช มาตรฐานบริษัท ออกใบกำกับภาษีได้</title>
     <meta name="description" content="Atchanai Air (อัชนัยแอร์) ช่างแอร์โคราช มาตรฐานองค์กร ออกใบกำกับภาษีได้ถูกต้อง ครอบคลุม ต.ในเมือง และ ต.สุรนารี อ.เมืองนครราชสีมา บริการงานแอร์ครบวงจร ล้าง ซ่อม ติดตั้ง พร้อมระบบสร้างใบเสนอราคาอัตโนมัติ (Auto-Quoter) บนหน้าเว็บ รวดเร็ว แม่นยำ">
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -76,7 +76,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
                     <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
                         <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์ระบุรายการบริการอื่นๆ เพิ่มเติมด้วยตัวเอง
@@ -133,4 +132,129 @@
                 </div>
             </div>
 
-            <div class="print-card p-5 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-s
+            <div class="print-card p-5 md:p-8 border-2 border-slate-800 rounded-2xl bg-white text-black shadow-sm">
+                <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-slate-800 pb-4 gap-4">
+                    <div class="flex items-start gap-4">
+                        <div>
+                            <h2 class="text-xl font-black text-blue-600 tracking-wider">ATCHANAI AIR</h2>
+                            <h3 class="text-sm font-bold text-slate-900">อัชนัยแอร์ (สำนักงานใหญ่ นครราชสีมา)</h3>
+                            <p class="text-[10px] text-slate-600 leading-relaxed mt-0.5">
+                                <strong>สาขา 1:</strong> ต.ในเมือง อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
+                                <strong>สาขา 2:</strong> ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา<br>
+                                เบอร์โทรศัพท์ / LINE ID: <strong class="text-slate-900 font-bold">091-669-5595</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-left sm:text-right">
+                        <h1 class="text-xl font-black text-slate-900 uppercase tracking-widest">ใบเสนอราคา</h1>
+                        <p class="text-[11px] text-slate-600 mt-1">
+                            <strong>วันที่ออกเอกสาร:</strong> <span id="currentDocDate"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="my-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <p class="text-sm"><strong>ชื่อลูกค้า/หน่วยงานผู้ติดต่อ:</strong> <span id="lblClientName" class="text-blue-700 font-semibold">-</span></p>
+                    <p class="text-sm mt-1"><strong>เบอร์โทรศัพท์ติดต่อ:</strong> <span id="lblClientPhone">-</span></p>
+                </div>
+
+                <table class="w-full text-left text-xs border-collapse my-3">
+                    <thead>
+                        <tr class="bg-slate-800 text-white uppercase">
+                            <th class="p-2.5 text-center w-10">ลำดับ</th>
+                            <th class="p-2.5">รายการบริการ / รายละเอียดงานแอร์</th>
+                            <th class="p-2.5 text-center w-16">จำนวน</th>
+                            <th class="p-2.5 text-right w-24">ราคา/หน่วย</th>
+                            <th class="p-2.5 text-right w-28">รวมเงิน (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItems" class="divide-y divide-slate-200"></tbody>
+                </table>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 border-t-2 border-slate-800 pt-3">
+                    <div class="text-[11px] text-slate-700 space-y-1 self-start">
+                        <p class="font-bold text-slate-900 mb-1">หมายเหตุ:</p>
+                        <p>✅ รับประกันงานล้าง 3 เดือน กรณีมีน้ำหยดหรืออุดตันก่อนกำหนดล้างให้ใหม่ฟรี</p>
+                        <p>✅ รับประกันงานติดตั้ง 3 เดือน</p>
+                        <p>✅ ซื้อแอร์ใหม่พร้อมติดตั้งกับทางร้านรับประกันท่อน้ำยาซ่อมรั่วฟรี 1 ปี</p>
+                    </div>
+                    <div class="space-y-1.5 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-600">รวมเป็นเงิน (Subtotal):</span>
+                            <span id="subTotal" class="font-bold">0.00 บาท</span>
+                        </div>
+                        <div id="vatRow" class="flex justify-between">
+                            <span class="text-slate-600">ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
+                            <span id="vatTotal" class="font-bold">0.00 บาท</span>
+                        </div>
+                        <div class="flex justify-between border-t border-slate-300 pt-1.5 text-sm font-black text-blue-600">
+                            <span>จำนวนเงินรวมทั้งสิ้น (Grand Total):</span>
+                            <span id="grandTotal">0.00 บาท</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let customItems = [];
+        function addCustomItem() {
+            const nameEl = document.getElementById('customName');
+            const priceEl = document.getElementById('customPrice');
+            const qtyEl = document.getElementById('customQty');
+            const name = nameEl.value.trim();
+            const price = parseFloat(priceEl.value) || 0;
+            const qty = parseInt(qtyEl.value) || 1;
+            if (name && price >= 0) {
+                customItems.push({ name, price, qty });
+                nameEl.value = ''; priceEl.value = ''; qtyEl.value = '1';
+                calculateTotal();
+            } else { alert('รบกวนระบุชื่อบริการและราคาให้ถูกต้องด้วยนะครับ'); }
+        }
+        function removeCustomItem(index) {
+            customItems.splice(index, 1);
+            calculateTotal();
+        }
+        function calculateTotal() {
+            const clientName = document.getElementById('clientName').value.trim();
+            const clientPhone = document.getElementById('clientPhone').value.trim();
+            document.getElementById('lblClientName').innerText = clientName || '______________________________________';
+            document.getElementById('lblClientPhone').innerText = clientPhone || '__________________';
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('currentDocDate').innerText = formattedDate;
+            let subtotal = 0;
+            const tbody = document.getElementById('invoiceItems');
+            tbody.innerHTML = '';
+            let itemIndex = 1;
+            const qtyWall = parseInt(document.getElementById('qtyWall').value) || 0;
+            if (qtyWall > 0) {
+                subtotal += qtyWall * 500;
+                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์ผนัง (500.-)</td><td class="p-2.5 text-center">${qtyWall}</td><td class="p-2.5 text-right">500.00</td><td class="p-2.5 text-right font-semibold">${(qtyWall*500).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
+            }
+            const qtyCeiling = parseInt(document.getElementById('qtyCeiling').value) || 0;
+            if (qtyCeiling > 0) {
+                subtotal += qtyCeiling * 800;
+                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์แขวน (800.-)</td><td class="p-2.5 text-center">${qtyCeiling}</td><td class="p-2.5 text-right">800.00</td><td class="p-2.5 text-right font-semibold">${(qtyCeiling*800).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
+            }
+            const qtyCassette = parseInt(document.getElementById('qtyCassette').value) || 0;
+            if (qtyCassette > 0) {
+                subtotal += qtyCassette * 1500;
+                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5">บริการล้างแอร์ฝังฝ้า (1,500.-)</td><td class="p-2.5 text-center">${qtyCassette}</td><td class="p-2.5 text-right">1500.00</td><td class="p-2.5 text-right font-semibold">${(qtyCassette*1500).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
+            }
+            customItems.forEach((item, index) => {
+                subtotal += (item.qty * item.price);
+                tbody.innerHTML += `<tr><td class="p-2.5 text-center">${itemIndex++}</td><td class="p-2.5 font-medium flex justify-between items-center">${item.name}<button onclick="removeCustomItem(${index})" class="no-print text-red-500 text-[10px] ml-2">ลบ</button></td><td class="p-2.5 text-center">${item.qty}</td><td class="p-2.5 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-right font-semibold">${(item.qty*item.price).toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
+            });
+            const vatToggle = document.querySelector('input[name="vatToggle"]:checked').value;
+            let vat = (vatToggle === 'yes') ? subtotal * 0.07 : 0;
+            document.getElementById('vatRow').style.display = (vatToggle === 'yes') ? 'flex' : 'none';
+            document.getElementById('subTotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('vatTotal').innerText = vat.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+            document.getElementById('grandTotal').innerText = (subtotal + vat).toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
+        }
+        window.onload = calculateTotal;
+    </script>
+</body>
+</html>
