@@ -116,25 +116,19 @@
                     </div>
                 </div>
 
-                <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                    <h3 class="font-bold text-purple-900 mb-2 flex items-center gap-2 text-sm">
-                        <i class="fas fa-envelope"></i> 5. ระบุอีเมลปลายทางที่ต้องการส่งใบเสนอราคา
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">ใส่อีเมลผู้รับ (เช่น เมลเจ้านาย หรือเมลจัดซื้อ)</label>
-                            <input type="email" id="targetEmail" class="mt-1 w-full rounded-lg border border-slate-300 p-2.5 bg-white text-sm focus:outline-purple-500" placeholder="example@company.com">
-                        </div>
-                        <p class="text-xs text-purple-700 pb-2">คัดลอกรายละเอียดงานทั้งหมดส่งเข้าเมลนี้ในคลิกเดียว</p>
+                <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 flex gap-3 items-start">
+                    <div class="bg-sky-500 text-white p-2 rounded-lg text-sm mt-0.5">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="text-xs md:text-sm text-sky-900 leading-relaxed">
+                        <strong class="font-bold block text-sky-950 mb-1">💡 คำแนะนำเพิ่มเติมเพื่อความแม่นยำในการประเมินราคา:</strong>
+                        สำหรับงานซ่อม งานติดตั้ง หรือรายการนอกเหนือบริการหลัก หลังจากที่ท่านบันทึกไฟล์ PDF เรียบร้อยแล้ว กรุณาทักแชทสอบถามทาง <strong class="text-emerald-600 font-bold">LINE (ID: 091-669-5595)</strong> พร้อมส่งรายละเอียดเพิ่มเติม เช่น รหัสสินค้า (Model), ภาพถ่ายหน้างานจุดที่จะติดตั้ง, ภาพถ่ายตัวแอร์ หรืออุปกรณ์ที่เกี่ยวข้อง เพื่อให้ช่างตรวจสอบความถูกต้องและล็อกคิวงานให้รวดเร็วยิ่งขึ้นค่ะ
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
-                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-6 py-3.5 rounded-xl shadow transition text-sm cursor-pointer flex-1 text-center">
-                        <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์
-                    </button>
-                    <button onclick="sendQuotationEmail()" class="bg-purple-600 hover:bg-purple-700 text-white font-black px-6 py-3.5 rounded-xl shadow transition text-sm cursor-pointer flex-1 text-center">
-                        <i class="fas fa-paper-plane mr-1"></i> กดส่งรายละเอียดเข้าอีเมลที่ระบุ
+                <div class="flex justify-center pt-2">
+                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-xl shadow-lg transition text-base cursor-pointer text-center w-full sm:w-auto">
+                        <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์ใบเสนอราคา
                     </button>
                 </div>
             </div>
@@ -200,7 +194,6 @@
 
     <script>
         let customItemsList = [];
-        let globalSummaryText = ""; // เก็บข้อความดิบไว้ใช้ส่งอีเมล
 
         function addCustomItem() {
             const name = document.getElementById('customName').value.trim();
@@ -235,28 +228,23 @@
 
             let index = 1;
             let subtotal = 0;
-            let emailDetails = "";
 
             if(wallQty > 0) {
                 let amt = wallQty * 500; subtotal += amt;
-                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์ติดผนัง (Wall Type)</td><td class="p-2 text-center">${wallQty}</td><td class="p-2 text-right">500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
-                emailDetails += `- ล้างแอร์ติดผนัง จำนวน ${wallQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">บริการล้างเครื่องปรับอากาศแบบติดผนัง (Wall Type) พร้อมตรวจเช็คระบบ</td><td class="p-2 text-center">${wallQty}</td><td class="p-2 text-right">500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
             }
             if(ceilingQty > 0) {
                 let amt = ceilingQty * 800; subtotal += amt;
-                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์แขวนเพดาน (Ceiling Type)</td><td class="p-2 text-center">${ceilingQty}</td><td class="p-2 text-right">800.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
-                emailDetails += `- ล้างแอร์แขวนเพดาน จำนวน ${ceilingQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">บริการล้างเครื่องปรับอากาศแบบแขวนเพดาน (Ceiling Type) พร้อมตรวจเช็คระบบ</td><td class="p-2 text-center">${ceilingQty}</td><td class="p-2 text-right">800.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
             }
             if(cassetteQty > 0) {
                 let amt = cassetteQty * 1500; subtotal += amt;
-                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">ล้างแอร์ฝังฝ้า 4 ทิศทาง (Cassette Type)</td><td class="p-2 text-center">${cassetteQty}</td><td class="p-2 text-right">1,500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
-                emailDetails += `- ล้างแอร์ฝังฝ้า 4 ทิศทาง จำนวน ${cassetteQty} ตัว (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
+                tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">บริการล้างเครื่องปรับอากาศแบบฝังฝ้า 4 ทิศทาง (Cassette Type) พร้อมตรวจเช็คระบบ</td><td class="p-2 text-center">${cassetteQty}</td><td class="p-2 text-right">1,500.00</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
             }
 
             customItemsList.forEach(item => {
                 let amt = item.qty * item.price; subtotal += amt;
                 tbody.innerHTML += `<tr><td class="p-2 text-center">${index++}</td><td class="p-2">${item.name}</td><td class="p-2 text-center">${item.qty}</td><td class="p-2 text-right">${item.price.toFixed(2)}</td><td class="p-2 text-right font-bold">${amt.toFixed(2)}</td></tr>`;
-                emailDetails += `- ${item.name} จำนวน ${item.qty} รายการ (เป็นเงิน ${amt.toFixed(2)} บาท)\n`;
             });
 
             if(subtotal === 0) {
@@ -277,23 +265,6 @@
             document.getElementById('subTotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
             document.getElementById('vatTotal').innerText = vat.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
             document.getElementById('grandTotal').innerText = grand.toLocaleString('th-TH', {minimumFractionDigits: 2}) + ' บาท';
-
-            // บันทึกข้อความสรุปไว้ใช้ส่งเมล
-            globalSummaryText = `เรียน ผู้เกี่ยวข้อง/ลูกค้า\n\nนี่คือรายละเอียดใบเสนอราคาเบื้องต้นจากร้าน อัชนัยแอร์ (Atchanai Air)\n\nชื่อลูกค้า/บริษัท: ${cName}\nเบอร์โทรติดต่อ: ${cPhone}\n\n[รายการบริการที่เลือก]\n${emailDetails || '- ไม่มีรายการ -\n'}\nรวมเป็นเงิน (Subtotal): ${subtotal.toFixed(2)} บาท\nภาษีมูลค่าเพิ่ม: ${vat.toFixed(2)} บาท\nจำนวนเงินรวมทั้งสิ้น: ${grand.toFixed(2)} บาท\n\n*หมายเหตุ: ข้อมูลอ้างอิงตามมาตรฐานร้าน ลูกค้าสามารถตรวจสอบราคานี้เพื่อยื่นเสนออนุมัติในเบื้องต้นได้ทันทีค่ะ`;
-        }
-
-        // 📧 ฟังก์ชันดึงเมลปลายทางและส่งข้อมูล
-        function sendQuotationEmail() {
-            const targetMail = document.getElementById('targetEmail').value.trim();
-            if(targetMail === "") {
-                alert("กรุณาระบุอีเมลปลายทางที่ต้องการส่งในข้อ 5 ก่อนนะคะคุณคิม");
-                return;
-            }
-            
-            const subject = encodeURIComponent("ใบเสนอราคาค่าบริการงานแอร์ - อัชนัยแอร์ (Atchanai Air)");
-            const body = encodeURIComponent(globalSummaryText);
-            
-            window.location.href = `mailto:${targetMail}?subject=${subject}&body=${body}`;
         }
     </script>
 </body>
