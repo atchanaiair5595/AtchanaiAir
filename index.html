@@ -30,7 +30,7 @@
                 <a href="#home" class="hover:text-blue-600 transition">หน้าแรก</a>
                 <a href="#quotation" class="hover:text-blue-600 transition text-blue-600 font-bold">● ออกใบเสนอราคาด่วน</a>
             </div>
-            <a href="https://lin.ee/195QAIMC" target="_blank" class="bg-[#06C755] text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#05b04b] transition flex items-center gap-2 shadow-md">
+            <a href="https://lin.ee/Nmc2gtE" target="_blank" class="bg-[#06C755] text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#05b04b] transition flex items-center gap-2 shadow-md">
                 <i class="fab fa-line text-lg"></i> <span>แอดไลน์ @195QAIMC</span>
             </a>
         </div>
@@ -52,91 +52,8 @@
             
             <div class="no-print bg-slate-50 p-5 md:p-8 rounded-2xl border border-slate-200 mb-8 shadow-sm space-y-5">
                 <div class="text-center">
-                    <h2 class="text-xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-1"></i> กรอกข้อมูลเพื่อสร้างใบเสนอราคา</h2>
-                </div>
-
-                <div>
-                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">1</span> ข้อมูลลูกค้า / บริษัท</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <input type="text" id="clientName" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="ชื่อผู้ติดต่อ หรือ ชื่อบริษัท/หน่วยงาน">
-                        <input type="text" id="clientPhone" oninput="calculateTotal()" class="w-full rounded-xl border border-slate-300 p-3 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="เบอร์โทรศัพท์สำหรับติดต่อกลับ">
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2 text-sm"><span class="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">2</span> บริการล้างแอร์มาตรฐาน</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                            <span class="text-xs font-semibold">ติดผนัง (500.-)</span>
-                            <input type="number" id="qtyWall" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                        </div>
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                            <span class="text-xs font-semibold">แอร์แขวน (800.-)</span>
-                            <input type="number" id="qtyCeiling" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                        </div>
-                        <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center">
-                            <span class="text-xs font-semibold">ฝังฝ้า (1,500.-)</span>
-                            <input type="number" id="qtyCassette" min="0" value="0" oninput="calculateTotal()" class="w-14 border border-slate-300 p-1 text-center rounded bg-slate-50 text-sm">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
-                    <h3 class="font-bold text-blue-900 mb-2 flex items-center gap-2 text-sm">
-                        <i class="fas fa-plus-circle text-emerald-600"></i> 3. พิมพ์ระบุรายการบริการอื่นๆ เพิ่มเติมด้วยตัวเอง
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">ชื่อบริการ/รายการงานแอร์</label>
-                            <input type="text" id="customName" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="เช่น ซ่อมบอร์ด, ย้ายคอยล์ร้อน, เติมน้ำยา">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">ราคาต่อหน่วย (บาท)</label>
-                            <input type="number" id="customPrice" min="0" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs" placeholder="0">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] text-slate-600 font-medium">จำนวน</label>
-                            <input type="number" id="customQty" min="1" value="1" class="mt-1 w-full rounded-lg border border-slate-300 p-2 bg-white text-xs">
-                        </div>
-                    </div>
-                    <button type="button" onclick="addCustomItem()" class="mt-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow transition cursor-pointer">
-                        + เพิ่มรายการลงบิลด้านล่าง
-                    </button>
-                </div>
-
-                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                    <h3 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
-                        <i class="fas fa-percentage"></i> 4. การคิดภาษีมูลค่าเพิ่ม (VAT 7%)
-                    </h3>
-                    <div class="flex flex-col sm:flex-row gap-3 text-sm font-semibold text-slate-700">
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="yes" checked onchange="calculateTotal()">
-                            <span>ต้องการคิด VAT 7% (ออกใบกำกับภาษีเต็มรูปแบบ)</span>
-                        </label>
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="vatToggle" value="no" onchange="calculateTotal()">
-                            <span>ไม่คิด VAT (ราคาเงินสด/บิลเงินสดทั่วไป)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 flex gap-3 items-start">
-                    <div class="bg-sky-500 text-white p-2 rounded-lg text-sm mt-0.5">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="text-xs md:text-sm text-sky-900 leading-relaxed">
-                        <strong class="font-bold block text-sky-950 mb-1">💡 คำแนะนำเพิ่มเติมเพื่อความแม่นยำในการประเมินราคา:</strong>
-                        สำหรับงานซ่อม งานติดตั้ง หรือรายการนอกเหนือบริการหลัก หลังจากที่ท่านบันทึกไฟล์ PDF เรียบร้อยแล้ว กรุณาทักแชทสอบถามทาง <strong class="text-emerald-600 font-bold">LINE (ID: 091-669-5595)</strong> พร้อมส่งรายละเอียดเพิ่มเติม เช่น รหัสสินค้า (Model), ภาพถ่ายหน้างานจุดที่จะติดตั้ง, ภาพถ่ายตัวแอร์ หรืออุปกรณ์ที่เกี่ยวข้อง เพื่อให้ช่างตรวจสอบความถูกต้องและล็อกคิวงานให้รวดเร็วยิ่งขึ้นค่ะ
-                    </div>
-                </div>
-
-                <div class="flex justify-center pt-2">
-                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-xl shadow-lg transition text-base cursor-pointer text-center w-full sm:w-auto">
-                        <i class="fas fa-print mr-1"></i> บันทึกเป็น PDF / สั่งพิมพ์ใบเสนอราคา
-                    </button>
-                </div>
-            </div>
-                        <div class="print-card p-6 md:p-8 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
+                    <h2 class="text-xl font-black text-slate-900"><i class="fas fa-magic text-blue-600 mr-1">
+                                    <div class="print-card p-6 md:p-8 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
                 
                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 border-b-2 border-blue-600 pb-5">
                     <div class="flex flex-col sm:flex-row items-start gap-4">
@@ -221,8 +138,8 @@
             </div>
 
         </div>
-    </section>
-        <script>
+                    </section>
+                            <script>
         // รายการสินค้ากำหนดเองเพิ่มพิเศษ
         let customItemsList = [];
 
@@ -371,4 +288,5 @@
         }
     </script>
 </body>
-</html>
+                    </html>
+                        
