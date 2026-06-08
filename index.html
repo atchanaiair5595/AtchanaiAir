@@ -21,6 +21,10 @@
         @media print {
             .no-print { display: none !important; }
             body { background: white; color: black; }
+            .print-card h1, .print-card p, .print-card span, .print-card th, .print-card td {
+                line-height: 1.5 !important;
+                letter-spacing: 0.02em !important;
+            }
         }
     </style>
 </head>
@@ -178,16 +182,16 @@
 
     <section class="max-w-4xl mx-auto px-4 py-6">
         <div class="print-card p-6 md:p-8 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
-            <div class="flex justify-between items-start border-b-2 border-blue-600 pb-5">
-                <div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 justify-between items-center border-b-2 border-blue-600 pb-5 gap-4">
+                <div class="sm:col-span-8 space-y-1">
                     <h1 class="text-2xl font-black text-slate-900 tracking-wider">ใบเสนอราคา / ใบแจ้งราคากลาง</h1>
-                    <p class="text-xs text-slate-500 mt-1">ผู้ให้บริการ: ร้านอัชนัยแอร์ โคราช</p>
-                    <div class="text-xs space-y-1 mt-3">
-                        <p><strong>ใบเสนอราคา:</strong> <span id="docNumber">-</span></p>
-                        <p><strong>วันที่ออกบิล:</strong> <span id="docDate">-</span></p>
+                    <p class="text-xs text-slate-500 font-medium">ผู้ให้บริการ: ร้านอัชนัยแอร์ โคราช</p>
+                    <div class="text-xs space-y-1 pt-2">
+                        <p class="block"><strong>ใบเสนอราคา:</strong> <span id="docNumber">-</span></p>
+                        <p class="block"><strong>วันที่ออกบิล:</strong> <span id="docDate">-</span></p>
                     </div>
                 </div>
-                <div class="shrink-0">
+                <div class="sm:col-span-4 flex justify-start sm:justify-end shrink-0">
                     <img src="https://drive.google.com/thumbnail?id=1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY&sz=w200" alt="โลโก้ อัชนัยแอร์" class="h-16 w-auto object-contain block">
                 </div>
             </div>
@@ -267,7 +271,7 @@
             </div>
             <div class="text-left">
                 <strong class="block text-xs font-black uppercase tracking-wider text-yellow-200">📢 ด่วน! โปรโมชั่นเดือนนี้</strong>
-                <p class="text-[11px] font-bold leading-tight mt-0.5 text-white">ล้างแอร์บ้าน 3 ชุดขึ้นไป หรือแอร์สำนักงาน มีส่วนลดพิเศษทันที ทักแชทจองคิวช่างได้เลยค่ะ! ⚡</p>
+                <p class="text-[11px] font-bold leading-tight mt-0.5 text-white">โปรโมชั่นเฉพาะลูกค้าตามบ้านล้าง 3 ชุดขึ้นไปราคาพิเศษ พร้อมรับประกัน 3 เดือนทักเลยจ้า</p>
             </div>
         </a>
     </div>
