@@ -21,10 +21,9 @@
         @media print {
             .no-print { display: none !important; }
             body { background: white; color: black; }
-            /* ขยายระยะเว้นบรรทัดช่องไฟเอกสารบนคอมพิวเตอร์ให้ห่างพอดี ไม่เบียดติดกัน */
             .print-card h1, .print-card p, .print-card span, .print-card th, .print-card td {
-                line-height: 1.8 !important;
-                letter-spacing: 0.03em !important;
+                line-height: 1.6 !important;
+                letter-spacing: 0.02em !important;
             }
         }
     </style>
@@ -182,65 +181,67 @@
     </section>
 
     <section class="max-w-4xl mx-auto px-4 py-6">
-        <div class="print-card p-6 md:p-10 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
+        <div class="print-card p-6 md:p-8 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
             
-            <div class="grid grid-cols-1 md:grid-cols-12 justify-between items-start border-b-2 border-blue-600 pb-6 gap-6">
-                <div class="md:col-span-8 space-y-2 text-slate-900">
-                    <h1 class="text-2xl font-black tracking-wider text-blue-600">ใบเสนอราคา / ใบแจ้งราคากลาง</h1>
+            <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-blue-600 pb-4 gap-4">
+                
+                <div class="shrink-0">
+                    <img src="https://drive.google.com/thumbnail?id=1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY&sz=w200" alt="โลโก้ อัชนัยแอร์" class="h-16 w-auto object-contain block bg-white">
+                </div>
+
+                <div class="flex-1 sm:pl-4 space-y-1 text-slate-900">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                        <h2 class="text-base md:text-lg font-black text-blue-600">อัชนัยแอร์ (สำนักงานใหญ่)</h2>
+                        <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">ใบเสนอราคา / ใบแจ้งราคากลาง</span>
+                    </div>
                     
-                    <div class="text-xs md:text-sm font-bold space-y-1 pt-1 leading-relaxed">
-                        <p class="block text-slate-900 text-base font-black">ผู้ให้บริการ: อัชนัยแอร์ (สำนักงานใหญ่)</p>
-                        <p class="block text-slate-700 font-medium">ที่อยู่: 107/2 ถ.มหาชัย ต.ในเมือง อ.เมือง จ.นครราชสีมา 30000</p>
-                        <p class="block text-slate-700 font-medium">โทรศัพท์: 091-6695595, 065-7893239</p>
-                        <p class="block text-slate-500 font-normal">เว็บไซต์: www.atchanaiair-korat.com</p>
-                    </div>
-
-                    <p class="text-[11px] bg-blue-50 text-blue-800 px-3 py-1.5 rounded-lg border-l-4 border-blue-500 font-semibold inline-block mt-2">
-                        ✨ รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน | เรื่องแอร์เรียก...อัชนัยแอร์
+                    <p class="text-xs text-slate-700 font-medium leading-tight">107/2 ถ.มหาชัย ต.ในเมือง อ.เมือง จ.นครราชสีมา 30000</p>
+                    <p class="text-xs text-slate-700 font-bold">โทรศัพท์: 091-6695595, 065-7893239</p>
+                    <p class="text-xs text-slate-500 font-medium">เว็บไซต์: www.atchanaiair-korat.com</p>
+                    
+                    <p class="text-[11px] text-blue-800 font-semibold italic pt-0.5">
+                        รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน | เรื่องแอร์เรียก...อัชนัยแอร์
                     </p>
-
-                    <div class="text-xs space-y-1 pt-3 border-t border-slate-100 gap-y-2">
-                        <p class="block"><strong>เลขที่ใบเสนอราคา:</strong> <span id="docNumber" class="font-mono bg-slate-100 px-1 py-0.5 rounded">-</span></p>
-                        <p class="block"><strong>วันที่ออกเอกสาร:</strong> <span id="docDate">-</span></p>
-                    </div>
-                </div>
-
-                <div class="md:col-span-4 flex justify-start md:justify-end shrink-0 pt-2">
-                    <img src="https://drive.google.com/thumbnail?id=1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY&sz=w200" alt="โลโก้ อัชนัยแอร์" class="h-20 w-auto object-contain block bg-white p-1 rounded border border-slate-100">
                 </div>
             </div>
 
-            <div class="mt-6 text-xs md:text-sm grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60 leading-loose">
-                <p><strong>เรียนลูกค้า / หน่วยงาน:</strong> <span id="previewClientName" class="font-bold text-slate-900">-</span></p>
-                <p class="sm:text-right"><strong>เบอร์โทรติดต่อลูกค้า:</strong> <span id="previewClientPhone" class="font-bold text-slate-900">-</span></p>
+            <div class="mt-4 pt-1 grid grid-cols-1 sm:grid-cols-12 justify-between items-center gap-2 border-b border-dashed border-slate-200 pb-3">
+                <div class="sm:col-span-7 text-xs space-y-1">
+                    <p class="text-slate-800"><strong>เรียนลูกค้า / หน่วยงาน:</strong> <span id="previewClientName" class="font-bold text-slate-900">-</span></p>
+                    <p class="text-slate-800"><strong>เบอร์โทรติดต่อลูกค้า:</strong> <span id="previewClientPhone" class="font-bold text-slate-900">-</span></p>
+                </div>
+                <div class="sm:col-span-5 text-xs sm:text-right space-y-0.5 text-slate-600 font-medium">
+                    <p><strong>เลขที่เอกสาร:</strong> <span id="docNumber" class="font-mono text-slate-900 font-bold">-</span></p>
+                    <p><strong>วันที่ออกเอกสาร:</strong> <span id="docDate" class="text-slate-900 font-bold">-</span></p>
+                </div>
             </div>
 
-            <table class="w-full text-xs md:text-sm mt-8 border-collapse">
+            <table class="w-full text-xs mt-4 border-collapse">
                 <thead>
-                    <tr class="border-b-2 border-slate-300 bg-slate-100 font-bold text-slate-700">
-                        <th class="p-3 text-left">รายละเอียดรายการบริการงานแอร์</th>
-                        <th class="p-3 text-right">ราคา/หน่วย</th>
-                        <th class="p-3 text-center">จำนวน</th>
-                        <th class="p-3 text-right">รวมเงิน (บาท)</th>
+                    <tr class="border-b border-slate-300 bg-slate-50 font-bold text-slate-700">
+                        <th class="p-2.5 text-left">รายละเอียดรายการบริการงานแอร์</th>
+                        <th class="p-2.5 text-right">ราคา/หน่วย</th>
+                        <th class="p-2.5 text-center">จำนวน</th>
+                        <th class="p-2.5 text-right">รวมเงิน (บาท)</th>
                     </tr>
                 </thead>
-                <tbody id="invoiceItemsTable" class="divide-y divide-slate-200">
+                <tbody id="invoiceItemsTable" class="divide-y divide-slate-100">
                     </tbody>
             </table>
 
-            <div class="mt-8 border-t-2 border-slate-200 pt-5 flex justify-end">
-                <div class="w-72 text-xs md:text-sm space-y-2.5">
+            <div class="mt-4 border-t border-slate-200 pt-3 flex justify-end">
+                <div class="w-64 text-xs space-y-1.5">
                     <div class="flex justify-between text-slate-600">
                         <span>รวมเป็นเงินสุทธิ (Subtotal):</span>
-                        <span id="valSubtotal" class="font-medium">0.00</span>
+                        <span id="valSubtotal">0.00</span>
                     </div>
                     <div class="flex justify-between text-slate-600">
                         <span>ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
-                        <span id="valVat" class="font-medium">0.00</span>
+                        <span id="valVat">0.00</span>
                     </div>
-                    <div class="flex justify-between font-black text-base text-slate-900 border-t border-slate-300 pt-2.5">
+                    <div class="flex justify-between font-black text-xs text-slate-900 border-t border-slate-200 pt-1.5">
                         <span>จำนวนเงินทั้งสิ้น:</span>
-                        <span id="valTotal" class="text-blue-600 text-lg">0.00</span>
+                        <span id="valTotal" class="text-blue-600 font-bold text-sm">0.00</span>
                     </div>
                 </div>
             </div>
@@ -364,8 +365,8 @@
                     const itemTotal = qty * srv.price; 
                     subtotal += itemTotal;
                     const row = document.createElement('tr');
-                    row.className = 'border-b border-slate-200 text-slate-700';
-                    row.innerHTML = `<td class="p-3 font-medium">${srv.name}</td><td class="p-3 text-right">${srv.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3 text-center font-bold">${qty}</td><td class="p-3 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+                    row.className = 'border-b border-slate-100 text-slate-700';
+                    row.innerHTML = `<td class="p-2.5 font-medium">${srv.name}</td><td class="p-2.5 text-right">${srv.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-center font-bold">${qty}</td><td class="p-2.5 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
                     tableBody.appendChild(row);
                 }
             });
@@ -375,12 +376,12 @@
                 const itemTotal = item.qty * item.price; 
                 subtotal += itemTotal;
                 const row = document.createElement('tr');
-                row.className = 'border-b border-slate-200 text-slate-700';
-                row.innerHTML = `<td class="p-3 font-medium flex items-center gap-2"><span>${item.name}</span><button onclick="removeCustomItem(${index})" class="no-print text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded">ลบ</button></td><td class="p-3 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3 text-center font-bold">${item.qty}</td><td class="p-3 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+                row.className = 'border-b border-slate-100 text-slate-700';
+                row.innerHTML = `<td class="p-2.5 font-medium flex items-center gap-2"><span>${item.name}</span><button onclick="removeCustomItem(${index})" class="no-print text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded">ลบ</button></td><td class="p-2.5 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-center font-bold">${item.qty}</td><td class="p-2.5 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
                 tableBody.appendChild(row);
             });
 
-            if (!hasItems) { tableBody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-slate-400 font-medium">ยังไม่มีรายการงานแอร์ที่เลือก หรือกรอกข้อมูล</td></tr>`; }
+            if (!hasItems) { tableBody.innerHTML = `<tr><td colspan="4" class="p-6 text-center text-slate-400 font-medium">ยังไม่มีรายการงานแอร์ที่เลือก หรือกรอกข้อมูล</td></tr>`; }
             
             const vatCheck = document.querySelector('input[name="vatToggle"]:checked').value;
             let vatAmount = 0; let finalTotal = 0;
