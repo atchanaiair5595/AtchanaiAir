@@ -21,9 +21,10 @@
         @media print {
             .no-print { display: none !important; }
             body { background: white; color: black; }
+            /* ขยายระยะเว้นบรรทัดช่องไฟเอกสารบนคอมพิวเตอร์ให้ห่างพอดี ไม่เบียดติดกัน */
             .print-card h1, .print-card p, .print-card span, .print-card th, .print-card td {
-                line-height: 1.5 !important;
-                letter-spacing: 0.02em !important;
+                line-height: 1.8 !important;
+                letter-spacing: 0.03em !important;
             }
         }
     </style>
@@ -181,52 +182,65 @@
     </section>
 
     <section class="max-w-4xl mx-auto px-4 py-6">
-        <div class="print-card p-6 md:p-8 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
-            <div class="grid grid-cols-1 sm:grid-cols-12 justify-between items-center border-b-2 border-blue-600 pb-5 gap-4">
-                <div class="sm:col-span-8 space-y-1">
-                    <h1 class="text-2xl font-black text-slate-900 tracking-wider">ใบเสนอราคา / ใบแจ้งราคากลาง</h1>
-                    <p class="text-xs text-slate-500 font-medium">ผู้ให้บริการ: ร้านอัชนัยแอร์ โคราช</p>
-                    <div class="text-xs space-y-1 pt-2">
-                        <p class="block"><strong>ใบเสนอราคา:</strong> <span id="docNumber">-</span></p>
-                        <p class="block"><strong>วันที่ออกบิล:</strong> <span id="docDate">-</span></p>
+        <div class="print-card p-6 md:p-10 border border-slate-300 rounded-2xl bg-white text-black shadow-lg">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 justify-between items-start border-b-2 border-blue-600 pb-6 gap-6">
+                <div class="md:col-span-8 space-y-2 text-slate-900">
+                    <h1 class="text-2xl font-black tracking-wider text-blue-600">ใบเสนอราคา / ใบแจ้งราคากลาง</h1>
+                    
+                    <div class="text-xs md:text-sm font-bold space-y-1 pt-1 leading-relaxed">
+                        <p class="block text-slate-900 text-base font-black">ผู้ให้บริการ: อัชนัยแอร์ (สำนักงานใหญ่)</p>
+                        <p class="block text-slate-700 font-medium">ที่อยู่: 107/2 ถ.มหาชัย ต.ในเมือง อ.เมือง จ.นครราชสีมา 30000</p>
+                        <p class="block text-slate-700 font-medium">โทรศัพท์: 091-6695595, 065-7893239</p>
+                        <p class="block text-slate-500 font-normal">เว็บไซต์: www.atchanaiair-korat.com</p>
+                    </div>
+
+                    <p class="text-[11px] bg-blue-50 text-blue-800 px-3 py-1.5 rounded-lg border-l-4 border-blue-500 font-semibold inline-block mt-2">
+                        ✨ รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน | เรื่องแอร์เรียก...อัชนัยแอร์
+                    </p>
+
+                    <div class="text-xs space-y-1 pt-3 border-t border-slate-100 gap-y-2">
+                        <p class="block"><strong>เลขที่ใบเสนอราคา:</strong> <span id="docNumber" class="font-mono bg-slate-100 px-1 py-0.5 rounded">-</span></p>
+                        <p class="block"><strong>วันที่ออกเอกสาร:</strong> <span id="docDate">-</span></p>
                     </div>
                 </div>
-                <div class="sm:col-span-4 flex justify-start sm:justify-end shrink-0">
-                    <img src="https://drive.google.com/thumbnail?id=1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY&sz=w200" alt="โลโก้ อัชนัยแอร์" class="h-16 w-auto object-contain block">
+
+                <div class="md:col-span-4 flex justify-start md:justify-end shrink-0 pt-2">
+                    <img src="https://drive.google.com/thumbnail?id=1E0GJS_1Ss8h7ZOAKZ1Mt5QIHUfeFX5YY&sz=w200" alt="โลโก้ อัชนัยแอร์" class="h-20 w-auto object-contain block bg-white p-1 rounded border border-slate-100">
                 </div>
             </div>
 
-            <div class="mt-4 text-xs grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-50 p-3 rounded-xl">
-                <p><strong>เรียนลูกค้า:</strong> <span id="previewClientName">-</span></p>
-                <p class="sm:text-right"><strong>เบอร์โทรติดต่อ:</strong> <span id="previewClientPhone">-</span></p>
+            <div class="mt-6 text-xs md:text-sm grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/60 leading-loose">
+                <p><strong>เรียนลูกค้า / หน่วยงาน:</strong> <span id="previewClientName" class="font-bold text-slate-900">-</span></p>
+                <p class="sm:text-right"><strong>เบอร์โทรติดต่อลูกค้า:</strong> <span id="previewClientPhone" class="font-bold text-slate-900">-</span></p>
             </div>
 
-            <table class="w-full text-xs mt-6 border-collapse">
+            <table class="w-full text-xs md:text-sm mt-8 border-collapse">
                 <thead>
                     <tr class="border-b-2 border-slate-300 bg-slate-100 font-bold text-slate-700">
-                        <th class="p-3 text-left">รายละเอียดรายการบริการ</th>
+                        <th class="p-3 text-left">รายละเอียดรายการบริการงานแอร์</th>
                         <th class="p-3 text-right">ราคา/หน่วย</th>
                         <th class="p-3 text-center">จำนวน</th>
                         <th class="p-3 text-right">รวมเงิน (บาท)</th>
                     </tr>
                 </thead>
-                <tbody id="invoiceItemsTable">
+                <tbody id="invoiceItemsTable" class="divide-y divide-slate-200">
                     </tbody>
             </table>
 
-            <div class="mt-6 border-t border-slate-200 pt-4 flex justify-end">
-                <div class="w-64 text-xs space-y-2">
+            <div class="mt-8 border-t-2 border-slate-200 pt-5 flex justify-end">
+                <div class="w-72 text-xs md:text-sm space-y-2.5">
                     <div class="flex justify-between text-slate-600">
-                        <span>รวมเป็นเงินสุทธิ:</span>
-                        <span id="valSubtotal">0.00</span>
+                        <span>รวมเป็นเงินสุทธิ (Subtotal):</span>
+                        <span id="valSubtotal" class="font-medium">0.00</span>
                     </div>
                     <div class="flex justify-between text-slate-600">
                         <span>ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
-                        <span id="valVat">0.00</span>
+                        <span id="valVat" class="font-medium">0.00</span>
                     </div>
-                    <div class="flex justify-between font-bold text-sm text-slate-900 border-t border-slate-200 pt-2">
+                    <div class="flex justify-between font-black text-base text-slate-900 border-t border-slate-300 pt-2.5">
                         <span>จำนวนเงินทั้งสิ้น:</span>
-                        <span id="valTotal" class="text-blue-600">0.00</span>
+                        <span id="valTotal" class="text-blue-600 text-lg">0.00</span>
                     </div>
                 </div>
             </div>
