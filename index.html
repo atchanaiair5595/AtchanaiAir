@@ -258,4 +258,143 @@
                     <i class="fab fa-youtube"></i> วิดีโอแนะนำตัว
                 </span>
                 <h3 class="text-xl font-black text-slate-900 leading-tight">
-                    🎬 คลิปสั้นแนะนำบริการล้างแอร์<br
+                    🎬 คลิปสั้นแนะนำบริการล้างแอร์<br> <span class="text-blue-600">ร้านอัชนัยแอร์</span>
+                </h3>
+                <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed pt-1">
+                    แนะนำบริการล้างแอร์บ้านราคาพิเศษ ขจัดสิ่งสกปรกฝุ่นอุดตันในถังน้ำ และความเอาใจใส่เช็ดทำความสะอาดเรียบร้อยรอบบริเวณหน้างานของลูกค้าโดยช่างแอร์ตัวจริงครับ!
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md aspect-video bg-slate-900">
+                <iframe 
+                    src="https://www.youtube.com/embed/lYdykDJBfec" 
+                    title="ล้างแอร์โคราช ราคาพิเศษ 500.- ประกันงาน 3 เดือน | ร้านอัชนัยแอร์" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    loading="lazy" 
+                    class="w-full h-full">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    <div id="seo-content-zone" class="no-print"></div>
+    <div id="review-content-zone" class="no-print"></div>
+
+    <div id="floating-promo" class="fixed bottom-6 right-6 z-50 max-w-xs bg-gradient-to-r from-amber-500 to-orange-500 text-white p-4 rounded-2xl shadow-2xl border border-amber-400 no-print transition-all duration-300 transform hover:scale-105 flex items-start gap-3 animate-bounce">
+        <button onclick="closePromo()" class="absolute -top-2 -right-2 bg-slate-800 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold hover:bg-slate-900 shadow">✕</button>
+        <a href="https://lin.ee/Nmc2gtE" target="_blank" class="flex gap-2 items-center">
+            <div class="bg-white text-orange-600 p-2.5 rounded-xl text-xl shrink-0 shadow-inner flex items-center justify-center">
+                <i class="fas fa-fire text-red-500"></i>
+            </div>
+            <div class="text-left">
+                <strong class="block text-xs font-black uppercase tracking-wider text-yellow-200">📢 ด่วน! โปรโมชั่นเดือนนี้</strong>
+                <p class="text-[11px] font-bold leading-tight mt-0.5 text-white">โปรโมชั่นเฉพาะลูกค้าตามบ้านล้าง 3 ชุดขึ้นไปราคาพิเศษ พร้อมรับประกัน 3 เดือนทักเลยจ้า</p>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        let customItemsList = [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            const dateStr = String(now.getDate()).padStart(2, '0') + '/' + String(now.getMonth() + 1).padStart(2, '0') + '/' + (now.getFullYear() + 543);
+            document.getElementById('docDate').innerText = dateStr;
+            
+            const randNum = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('docNumber').innerText = `QT-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}-${randNum}`;
+
+            fetch('at_news.html')
+                .then(res => { if(res.ok) return res.text(); })
+                .then(html => { if(html) document.getElementById('seo-content-zone').innerHTML = html; })
+                .catch(err => console.log(err));
+
+            fetch('at_review.html')
+                .then(res => { if(res.ok) return res.text(); })
+                .then(html => { if(html) document.getElementById('review-content-zone').innerHTML = html; })
+                .catch(err => console.log(err));
+
+            calculateTotal();
+        });
+
+        function closePromo() {
+            const promoBox = document.getElementById('floating-promo');
+            if (promoBox) promoBox.style.display = 'none';
+        }
+
+        function addCustomItem() {
+            const nameField = document.getElementById('customName');
+            const priceField = document.getElementById('customPrice');
+            const qtyField = document.getElementById('customQty');
+
+            const name = nameField.value.trim();
+            const price = parseFloat(priceField.value) || 0;
+            const qty = parseInt(qtyField.value) || 1;
+
+            if (name === '') { alert('โปรดระบุชื่อรายการบริการก่อนค่ะ'); return; }
+            if (price <= 0) { alert('โปรดใส่ราคาต่อหน่วยที่มากกว่า 0 บาทค่ะ'); return; }
+
+            customItemsList.push({ name, price, qty });
+            nameField.value = ''; priceField.value = ''; qtyField.value = '1';
+            calculateTotal();
+        }
+
+        function removeCustomItem(index) {
+            customItemsList.splice(index, 1);
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const cName = document.getElementById('clientName').value.trim();
+            const cPhone = document.getElementById('clientPhone').value.trim();
+            document.getElementById('previewClientName').innerText = cName || '- ไม่ได้ระบุชื่อลูกค้า -';
+            document.getElementById('previewClientPhone').innerText = cPhone || '-';
+
+            const tableBody = document.getElementById('invoiceItemsTable');
+            tableBody.innerHTML = '';
+            let subtotal = 0; let hasItems = false;
+            
+            const standardServices = [
+                { id: 'qtyWall', name: 'บริการล้างแอร์มาตรฐาน (ประเภทติดผนัง - Wall Type)', price: 500 },
+                { id: 'qtyCeiling', name: 'บริการล้างแอร์มาตรฐาน (ประเภทแขวนใต้ฝ้า - Ceiling Type)', price: 800 },
+                { id: 'qtyCassette', name: 'บริการล้างแอร์มาตรฐาน (ประเภทฝังฝ้าสี่ทิศทาง - Cassette Type)', price: 1500 }
+            ];
+
+            standardServices.forEach(srv => {
+                const qty = parseInt(document.getElementById(srv.id).value) || 0;
+                if (qty > 0) {
+                    hasItems = true; 
+                    const itemTotal = qty * srv.price; 
+                    subtotal += itemTotal;
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-slate-100 text-slate-700';
+                    row.innerHTML = `<td class="p-2.5 font-medium">${srv.name}</td><td class="p-2.5 text-right">${srv.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-center font-bold">${qty}</td><td class="p-2.5 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+                    tableBody.appendChild(row);
+                }
+            });
+
+            customItemsList.forEach((item, index) => {
+                hasItems = true; 
+                const itemTotal = item.qty * item.price; 
+                subtotal += itemTotal;
+                const row = document.createElement('tr');
+                row.className = 'border-b border-slate-100 text-slate-700';
+                row.innerHTML = `<td class="p-2.5 font-medium flex items-center gap-2"><span>${item.name}</span><button onclick="removeCustomItem(${index})" class="no-print text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded">ลบ</button></td><td class="p-2.5 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-2.5 text-center font-bold">${item.qty}</td><td class="p-2.5 text-right font-semibold text-slate-900">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+                tableBody.appendChild(row);
+            });
+
+            if (!hasItems) { tableBody.innerHTML = `<tr><td colspan="4" class="p-6 text-center text-slate-400 font-medium">ยังไม่มีรายการงานแอร์ที่เลือก หรือกรอกข้อมูล</td></tr>`; }
+            
+            const vatCheck = document.querySelector('input[name="vatToggle"]:checked').value;
+            let vatAmount = 0; let finalTotal = 0;
+            
+            if (vatCheck === 'yes') { vatAmount = subtotal * 0.07; finalTotal = subtotal + vatAmount; } else { vatAmount = 0; finalTotal = subtotal; }
+            
+            document.getElementById('valSubtotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2});
+            document.getElementById('valVat').innerText = vatAmount.toLocaleString('th-TH', {minimumFractionDigits: 2});
+            document.getElementById('valTotal').innerText = finalTotal.toLocaleString('th-TH', {minimumFractionDigits: 2});
+        }
+    </script>
+</body>
+</html>
