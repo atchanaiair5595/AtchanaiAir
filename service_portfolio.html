@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รวมภาพผลงานเด่น - อัชนัยแอร์ โคราช</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome สำหรับ Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* Global Typography Fix - แก้ไขตัวหนังสือร่น/ซ้อนทับกัน */
+        /* 🪄 สไตล์เดียวกับหน้าแรก: สั่งครอบจัดการระบบตัวหนังสือและระยะบรรทัดทั้งหน้าเว็บ (Global Rules) */
         * {
-            line-height: 1.85 !important;
+            line-height: 1.85 !important; 
+            letter-spacing: 0.02em !important; 
             box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+        }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.4 !important; 
+            margin-bottom: 0.5rem;
         }
         /* ซ่อน Scrollbar ของ Lightbox */
         .no-scrollbar::-webkit-scrollbar {
@@ -23,66 +37,71 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <nav class="bg-blue-900 text-white sticky top-0 z-40 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-3 block md:table w-full">
-            <div class="md:table-cell align-middle text-center md:text-left font-bold text-lg mb-2 md:mb-0">
-                <a href="index.html" class="hover:text-blue-200 transition">
-                    <i class="fa-solid relative top-[1px] md:top-0 mr-1 fa-snowflake text-cyan-300"></i> อัชนัยแอร์ โคราช
-                </a>
+    <!-- 🌐 แถบนำทางอัจฉริยะ (Navbar Navigator) ดึงสไตล์ตามหน้า index.html เชื่อมลิงก์ตรงดักคะแนน SEO -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <a href="https://www.atchanaiair-korat.com" class="font-black text-slate-900 text-base md:text-lg flex items-center gap-2">
+                <span class="text-blue-600"><i class="fas fa-snowflake"></i></span> ร้านอัชนัยแอร์ โคราช
+            </a>
+            <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-wider">
+                <a href="https://www.atchanaiair-korat.com" class="text-slate-600 hover:text-blue-600 transition">หน้าแรก</a>
+                <a href="service_portfolio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1">ผลงานของเรา</a>
+                <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="text-slate-600 hover:text-blue-600 transition">จองคิวด่วน</a>
             </div>
-            <div class="md:table-cell align-middle text-center md:text-right space-x-4 text-sm font-medium">
-                <a href="index.html" class="hover:text-cyan-300 transition px-2 py-1">หน้าแรก</a>
-                <a href="service_portfolio.html" class="text-cyan-300 border-b-2 border-cyan-300 px-2 py-1">ผลงานของเรา</a>
-                <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-bold transition inline-block">
-                    <i class="fa-brands fa-line mr-1 text-sm align-middle"></i> ติดต่อช่างแอร์
-                </a>
-            </div>
+            <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="text-[11px] font-extrabold bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-xl flex items-center gap-1.5 shadow transition">
+                <i class="fab fa-line text-sm"></i> ติดต่อช่างแอร์
+            </a>
         </div>
     </nav>
 
-    <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-12 px-4 text-center">
+    <!-- ส่วนหัวกระดานผลงานเด่น (ดึงโทนสีพรีเมียมเข้มขรึมดันความน่าเชื่อถือองค์กร) -->
+    <header class="bg-gradient-to-b from-blue-900 to-indigo-950 text-white py-14 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <span class="bg-cyan-500/20 text-cyan-300 text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-cyan-500/30">
+            <span class="bg-blue-500/20 text-cyan-300 text-xs uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-cyan-500/30">
                 Our Masterpieces & Projects
             </span>
-            <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-3">คลังภาพผลงานเด่นระดับองค์กร</h1>
-            <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-                รวบรวมความไว้วางใจจากหน่วยงานชื่อดังและบ้านพักอาศัยในโคราช การันตีฝีมือประณีตโดย ช่างไน ประสบการณ์กว่า 20 ปี รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน
+            <h1 class="text-3xl md:text-4xl font-black mt-5 mb-4 tracking-tight">คลังภาพผลงานเด่นและหน่วยงานที่น่าเชื่อถือ</h1>
+            <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto font-light">
+                รวบรวมความไว้วางใจจากหน่วยงานชั้นนำและบ้านพักอาศัยในโคราช การันตีงานเนี๊ยบเรียบร้อยตามมาตรฐานช่างใหญ่โดย ช่างไน ประสบการณ์กว่า 20 ปี รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน
             </p>
         </div>
     </header>
 
+    <!-- พื้นที่แสดงผลงาน (Portfolio Content Section) -->
     <main class="max-w-6xl mx-auto px-4 py-12">
         
-        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 mb-12">
+        <!-- สถานที่ที่ 1: บริษัท Easy Buy จังหวัดนครราชสีมา (ทั้ง 2 สาขา) -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-12">
             <div class="block lg:table w-full border-b border-slate-100 pb-6 mb-6">
+                <!-- ข้อมูลบรรยายสรุปเพื่อดันพลัง SEO คีย์เวิร์ดเด็ด -->
                 <div class="lg:table-cell lg:w-1/3 lg:pr-8 align-top mb-6 lg:mb-0">
-                    <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded mb-3">
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded mb-3">
                         <i class="fa-solid fa-circle-check mr-1"></i> ลูกค้า VIP ประจำกว่า 10 ปี
                     </span>
-                    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4">บริษัท อีซี่ บาย (Easy Buy) จำกัด มหาชน ทั้ง 2 สาขา จ.นครราชสีมา</h2>
+                    <h2 class="text-xl md:text-2xl font-black text-slate-900 mb-4 tracking-tight">บริษัท อีซี่ บาย (Easy Buy) จำกัด มหาชน ทั้ง 2 สาขา จ.นครราชสีมา</h2>
                     <p class="text-slate-600 text-sm mb-4">
-                        อีกหนึ่งความภาคภูมิใจสูงสุดของ <strong class="text-blue-900">ร้านแอร์โคราช</strong> อัชนัยแอร์ ที่ได้รับความไว้วางใจจากบริษัทการเงินชั้นนำระดับประเทศอย่าง <strong class="text-slate-800">Easy Buy จังหวัดนครราชสีมา ทั้ง 2 สาขา</strong> เลือกใช้บริการดูแลระบบทำความเย็นยาวนานต่อเนื่องยาวนานกว่า 10 ปีเต็ม ตั้งแต่อดีตจนถึงปัจจุบัน
+                        อีกหนึ่งความภาคภูมิใจสูงสุดของ <strong class="text-blue-600">ร้านแอร์โคราช</strong> อัชนัยแอร์ ที่ได้รับความไว้วางใจจากบริษัทการเงินชั้นนำระดับประเทศอย่าง <strong class="text-slate-800">Easy Buy จังหวัดนครราชสีมา ทั้ง 2 สาขา</strong> เลือกใช้บริการดูแลระบบทำความเย็นยาวนานต่อเนื่องกว่า 10 ปีเต็ม ลูกค้าประจำเหนียวแน่นจนถึงปัจจุบัน
                     </p>
                     <p class="text-slate-600 text-sm mb-4">
-                        ทีมงาน <strong class="text-blue-900">ช่างแอร์โคราช</strong> ของเรา เข้าให้บริการแบบครบวงจร ทั้งงานล้างแอร์ประจำปี งานซ่อมบำรุงเร่งด่วน และงานออกแบบติดตั้งเครื่องปรับอากาศใหม่ ด้วยมาตรฐานระดับสากล พร้อมออกใบกำกับภาษีเต็มรูปแบบสำหรับลูกค้าองค์กรได้อย่างถูกต้อง แม่นยำ และรวดเร็ว
+                        ทีมงาน <strong class="text-blue-600">ช่างแอร์โคราช</strong> ของเรา เข้าให้บริการแบบครบวงจร ทั้งงานล้างแอร์ประจำปี งานซ่อมบำรุง และงานติดตั้งเครื่องปรับอากาศใหม่ ได้รับความไว้วางใจในการทำงานประณีต รวดเร็ว พร้อมออกใบกำกับภาษีเต็มรูปแบบได้อย่างถูกต้องแม่นยำ
                     </p>
-                    <div class="bg-blue-50 border-l-4 border-blue-600 p-3 rounded-r">
-                        <p class="text-xs text-blue-900 font-medium">
-                            <i class="fa-solid fa-star mr-1 text-amber-500"></i> เน้นงานประณีต รวดเร็ว ตรวจเช็กระบบละเอียดทุกขั้นตอน เพื่อไม่ให้ส่งผลกระทบต่อเวลาทำการของสาขา
+                    <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl">
+                        <p class="text-xs text-blue-950 font-bold">
+                            <i class="fa-solid fa-star mr-1 text-amber-500"></i> มุ่งเน้นงานไว ได้ราคาดี ต้นทุนต่ำ และบริการเป็นกันเอง รับประกันงาน ไม่ทิ้งงานแน่นอนครับ!
                         </p>
                     </div>
                 </div>
 
+                <!-- ภาพปกหลักขนาดเด่น -->
                 <div class="lg:table-cell lg:w-2/3 align-top">
-                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 shadow-sm" onclick="openLightbox(0)">
+                    <div class="relative group cursor-pointer overflow-hidden rounded-2xl bg-slate-100 shadow-md border border-slate-200" onclick="openLightbox(0)">
                         <img src="https://i.ibb.co/9Hkp38j0/20210228-102049.jpg" alt="ช่างแอร์โคราช บริการติดตั้งและซ่อมแอร์ที่ Easy Buy โคราช" class="w-full h-[300px] md:h-[420px] object-cover group-hover:scale-105 transition duration-500" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent flex items-end p-4 md:p-6 text-white">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4 md:p-6 text-white">
                             <div>
-                                <span class="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded mb-2 inline-block">ภาพผลงานหลัก</span>
-                                <h3 class="text-base md:text-lg font-bold">งานบริการดูแลระบบเครื่องปรับอากาศ ณ บริษัท Easy Buy โคราช</h3>
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded mb-2 inline-block">ภาพผลงานหลัก</span>
+                                <h3 class="text-base md:text-lg font-black tracking-tight">งานบริการดูแลระบบเครื่องปรับอากาศ ณ บริษัท Easy Buy โคราช</h3>
                             </div>
                         </div>
                         <div class="absolute top-4 right-4 bg-slate-900/80 text-white p-2.5 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 transition">
@@ -92,138 +111,153 @@
                 </div>
             </div>
 
+            <!-- อัลบั้มรูปภาพย่อยเรียงสวยงาม (Grid Gallery) -->
             <div>
-                <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">อัลบั้มภาพการทำงานทั้งหมดในสถานที่นี้</h4>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3"><i class="fas fa-folder-open mr-1"></i> อัลบั้มภาพการทำงานทั้งหมดในสถานที่นี้</h4>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(1)">
+                    <!-- ภาพที่ 1 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(1)">
                         <img src="https://i.ibb.co/JFCstnDp/Untitled-1.jpg" alt="ร้านแอร์โคราช ผลงานล้างแอร์ Easy Buy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(2)">
+                    <!-- ภาพที่ 2 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(2)">
                         <img src="https://i.ibb.co/Y7vhd4pK/20241201-101714.jpg" alt="ช่างแอร์โคราช ซ่อมบำรุงเครื่องปรับอากาศมาตรฐาน VIP" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(3)">
+                    <!-- ภาพที่ 3 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(3)">
                         <img src="https://i.ibb.co/pc7whqv/20241201-101701.jpg" alt="ช่างแอร์โคราช งานล้างและเช็กน้ำยาแอร์อัชนัยแอร์" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(4)">
+                    <!-- ภาพที่ 4 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(4)">
                         <img src="https://i.ibb.co/qYByfNJh/20241201-095426.jpg" alt="ร้านแอร์โคราช บริการงานด่วนระดับสำนักงานและองค์กร" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(5)">
+                    <!-- ภาพที่ 5 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(5)">
                         <img src="https://i.ibb.co/rRMy6w6b/20241201-091229.jpg" alt="ช่างแอร์โคราช ล้างแอร์สำนักงานสะอาดหมดจดคุ้มราคา" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(6)">
+                    <!-- ภาพที่ 6 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(6)">
                         <img src="https://i.ibb.co/7dswMpkV/20210228-130903.jpg" alt="ช่างไนแอร์โคราช ช่างหลักตรวจสอบระบบไฟเครื่องปรับอากาศ" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(7)">
+                    <!-- ภาพที่ 7 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(7)">
                         <img src="https://i.ibb.co/KpGDGksF/20210228-130522.jpg" alt="อัชนัยแอร์ โคราช ล้างแอร์ออฟฟิศ Easy Buy นครราชสีมา" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(8)">
+                    <!-- ภาพที่ 8 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(8)">
                         <img src="https://i.ibb.co/wNkWdZ8P/20210228-130501.jpg" alt="ช่างแอร์โคราชฝีมือดี รับประกันงานหลังทำเสร็จ" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(9)">
+                    <!-- ภาพที่ 9 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(9)">
                         <img src="https://i.ibb.co/5gDqw9ML/20210228-130453.jpg" alt="ร้านแอร์โคราช บริการประทับใจ ซื่อสัตย์ ได้มาตรฐาน" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(10)">
+                    <!-- ภาพที่ 10 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(10)">
                         <img src="https://i.ibb.co/j9D6L7rH/20210228-104411.jpg" alt="ช่างแอร์เมืองโคราช ตรวจเช็กคอมเพรสเซอร์แอร์ส่วนกลาง" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(11)">
+                    <!-- ภาพที่ 11 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(11)">
                         <img src="https://i.ibb.co/MxNhf0hv/20210228-103241.jpg" alt="ล้างแอร์สี่ทิศทางโคราช โดยช่างแอร์มืออาชีพ อัชนัยแอร์" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(12)">
+                    <!-- ภาพที่ 12 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(12)">
                         <img src="https://i.ibb.co/7tPpBx85/20210228-103059.jpg" alt="บริการซ่อมแอร์รั่ว แอร์ไม่เย็น เขตอำเภอเมืองโคราช" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 border border-slate-100 aspect-square" onclick="openLightbox(13)">
+                    <!-- ภาพที่ 13 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200 aspect-square shadow-sm" onclick="openLightbox(13)">
                         <img src="https://i.ibb.co/N2P1XT0K/20210228-101954.jpg" alt="ช่างไนอัชนัยแอร์ ล้างแอร์แขวนขนาดใหญ่ที่ Easy Buy โคราช" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
+                        <div class="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/40 transition flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 font-bold"><i class="fa-solid fa-eye mr-1"></i> ขยายรูป</div>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        </main>
+        <!-- [คุณพี่คิมสามารถนำโค้ดสถานที่ถัดไปมาวางต่อท้ายตรงนี้ได้เลยค๊าาา] -->
 
+    </main>
+
+    <!-- ระบบ Pop-up Lightbox อัจฉริยะแบบปัด/กดเปลี่ยนภาพได้ทันทีโดยไม่ต้องโหลดหน้าใหม่ -->
     <div id="customLightbox" class="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4 select-none">
+        <!-- ปุ่มปิดกล่อง -->
         <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white hover:text-slate-300 text-3xl transition p-2 focus:outline-none cursor-pointer">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
+        <!-- พื้นที่แสดงภาพหลักกลางจอ -->
         <div class="relative max-w-4xl w-full flex items-center justify-center">
+            <!-- ปุ่มถอยกลับภาพก่อนหน้า -->
             <button onclick="prevImage()" class="absolute left-0 md:-left-16 text-white hover:text-slate-300 text-4xl transition p-4 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
 
+            <!-- ตัวรูปภาพที่แสดงผล -->
             <img id="lightboxImg" src="" alt="ภาพผลงานขยายใหญ่ อัชนัยแอร์ โคราช" class="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded shadow-2xl">
 
+            <!-- ปุ่มเปิดไปภาพถัดไป -->
             <button onclick="nextImage()" class="absolute right-0 md:-right-16 text-white hover:text-slate-300 text-4xl transition p-4 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
 
+        <!-- ตัวเลขกำกับลำดับรูปภาพ -->
         <div id="lightboxIndex" class="text-slate-400 text-sm mt-4 font-mono">
             0 / 0
         </div>
     </div>
 
-    <footer class="bg-slate-900 text-white mt-12 border-t-4 border-blue-900">
-        <div class="max-w-6xl mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-                
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-2">บริษัท อัชนัยแอร์ (โคราช) จำกัด</h3>
-                    <p class="text-slate-400 text-sm mb-2">เรื่องแอร์...เรียกอัชนัยแอร์ ประสบการณ์กว่า 20 ปี</p>
-                    <p class="text-slate-400 text-xs">107/2 ถนนมหาชัย ตำบลในเมือง อำเภอเมือง จังหวัดนครราชสีมา 30000</p>
-                </div>
-
-                <div class="text-center">
-                    <img src="https://i.ibb.co/RG62KxHr/Thao-Wessuwan.jpg" alt="ผ้ายันต์ท้าวเวสสุวรรณองค์จริง อัชนัยแอร์ โคราช" class="w-24 mx-auto rounded shadow-lg border border-slate-800 mb-2">
-                    <p class="text-[11px] text-amber-400/70 font-medium">คุ้มครองปลอดภัย เจริญรุ่งเรือง มั่นคง</p>
-                </div>
-
-                <div class="text-center md:text-right">
-                    <p class="text-slate-400 text-sm mb-3">สายด่วนติดต่อช่างไนโดยตรง</p>
-                    <a href="tel:0916695595" class="block w-full sm:w-auto text-center bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-4 py-2 rounded-lg text-sm mb-2 transition inline-block">
-                        <i class="fa-solid fa-phone mr-1"></i> 091-669-5595
-                    </a>
-                    <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="block w-full sm:w-auto text-center bg-green-600 hover:bg-green-500 text-white font-bold px-4 py-2 rounded-lg text-sm transition inline-block">
-                        <i class="fa-brands fa-line mr-1 text-base align-middle"></i> แอดไลน์ @195QAIMC
-                    </a>
-                </div>
-
+    <!-- ⛩️ Footer มงคลดึงแพทเทิร์นตรงตามหน้า index.html เป๊ะๆ เพื่อ Local SEO ของร้าน -->
+    <footer class="bg-white border-t border-slate-200 py-12 px-4 text-center mt-auto shadow-inner">
+        <div class="max-w-xl mx-auto flex flex-col items-center gap-5">
+            <div class="w-24 h-32 overflow-hidden rounded-xl border-2 border-red-600 shadow-xl bg-slate-50 transform hover:scale-105 transition duration-300">
+                <img src="https://i.ibb.co/RG62KxHr/Thao-Wessuwan.jpg" alt="ผ้ายันต์ท้าวเวสสุวรรณ ร้านอัชนัยแอร์" class="w-full h-full object-cover">
             </div>
 
-            <div class="border-t border-slate-800 mt-8 pt-6 text-center text-xs text-slate-500">
-                &copy; 2026 Atchanai Air Korat. All Rights Reserved.
+            <p class="text-xs font-bold text-slate-700 italic mt-2 bg-slate-50 px-5 py-2.5 rounded-xl border border-slate-100 max-w-md">
+                " รวดเร็ว ซื่อสัตย์ คุ้มค่า ได้มาตรฐาน | เรื่องแอร์...เรียกอัชนัยแอร์ นะครับ 🙏 "
+            </p>
+            
+            <div class="text-[11px] text-slate-500 font-medium space-y-2 mt-2 max-w-lg">
+                <p class="font-bold text-slate-700 text-sm">ร้านอัชนัยแอร์ (โคราช) โทร: 091-669-5595, 065-789-3239</p>
+                <p class="px-2">107/2 ถนนมหาชัย ตำบลในเมือง อำเภอเมือง จังหวัดนครราชสีมา 30000</p>
+                <p class="text-emerald-600 font-bold bg-emerald-50/50 py-1 px-3 rounded-lg inline-block">
+                    LINE ID: @195QAIMC | ลิงก์ติดต่อ: 
+                    <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="underline hover:text-emerald-700 transition ml-0.5">
+                        https://lin.ee/Vvo5Bdw
+                    </a>
+                </p>
+                <p class="text-[10px] text-slate-400 pt-2 tracking-wide border-t border-slate-100 mt-2 block">© 2026 Atchanai Air Korat. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Script ควบคุมการทำงานของระบบ Lightbox Pop-up แบบประมวลผลเร็วแสง -->
     <script>
-        // อาร์เรย์เก็บ URL รูปภาพทั้งหมดในหน้านี้ เพื่อใช้กดสไลด์ซ้าย-ขวา
         const portfolioImages = [
             "https://i.ibb.co/9Hkp38j0/20210228-102049.jpg",
             "https://i.ibb.co/JFCstnDp/Untitled-1.jpg",
@@ -243,68 +277,25 @@
 
         let currentImageIndex = 0;
 
-        // ฟังก์ชันเปิด Lightbox
         function openLightbox(index) {
             currentImageIndex = index;
             updateLightboxContent();
-            
             const lightbox = document.getElementById('customLightbox');
             lightbox.classList.remove('hidden');
-            // ทำ Fade-in Effect เล็กน้อย
-            setTimeout(() => {
-                lightbox.classList.remove('opacity-0');
-            }, 10);
-            
-            // ล็อคไม่ให้หน้าเว็บหลักเลื่อน (Scroll) ขณะดูรูป
+            setTimeout(() => { lightbox.classList.remove('opacity-0'); }, 10);
             document.body.style.overflow = 'hidden';
         }
 
-        // ฟังก์ชันปิด Lightbox
         function closeLightbox() {
             const lightbox = document.getElementById('customLightbox');
             lightbox.classList.add('opacity-0');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-            }, 300);
-            
-            // คืนค่า Scroll ของหน้าเว็บหลัก
+            setTimeout(() => { lightbox.classList.add('hidden'); }, 300);
             document.body.style.overflow = '';
         }
 
-        // ฟังก์ชันเปลี่ยนไปรูปถัดไป
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
             updateLightboxContent();
         }
 
-        // ฟังก์ชันถอยกลับไปรูปล่าสุด
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
-            updateLightboxContent();
-        }
-
-        // ฟังก์ชันอัปเดตรูปภาพและตัวเลขกำกับลำดับ
-        function updateLightboxContent() {
-            const imgElement = document.getElementById('lightboxImg');
-            const indexElement = document.getElementById('lightboxIndex');
-            
-            imgElement.src = portfolioImages[currentImageIndex];
-            indexElement.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
-        }
-
-        // รองรับการกดปุ่มบนคีย์บอร์ด (Esc = ปิด, ลูกศรซ้าย = รูปก่อนหน้า, ลูกศรขวา = รูปถัดไป)
-        document.addEventListener('keydown', function(event) {
-            const lightbox = document.getElementById('customLightbox');
-            if (!lightbox.classList.contains('hidden')) {
-                if (event.key === 'Escape') {
-                    closeLightbox();
-                } else if (event.key === 'ArrowRight') {
-                    nextImage();
-                } else if (event.key === 'ArrowLeft') {
-                    prevImage();
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+        function prevImage() {Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
