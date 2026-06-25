@@ -30,13 +30,23 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 no-print">
+    <!-- 🌟 ปรับปรุงจุดที่ 1: แถบนำทาง (Navbar Navigator) ดันคะแนนเครือข่ายลิงก์ภายในให้บอท Google รัก -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 no-print shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
-            <span class="font-black text-slate-900 text-lg">ร้านอัชนัยแอร์</span>
-            <div class="flex gap-5 text-sm font-medium">
+            <a href="index.html" class="font-black text-slate-900 text-lg flex items-center gap-2">
+                <span class="text-blue-600"><i class="fas fa-snowflake"></i></span> ร้านอัชนัยแอร์ โคราช
+            </a>
+            <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-wider">
                 <a href="#home" class="text-blue-600">หน้าแรก</a>
-                <a href="#quoter" class="text-slate-600 hover:text-blue-600 transition">ใบเสนอราคา</a>
+                <a href="service_clean.html" class="text-slate-600 hover:text-blue-600 transition">บริการล้างแอร์</a>
+                <a href="service_install.html" class="text-slate-600 hover:text-blue-600 transition">บริการติดตั้งแอร์</a>
+                <a href="#quoter" class="text-slate-600 hover:text-blue-600 transition">คำนวณใบเสนอราคา</a>
+                <a href="at_news.html" target="_blank" class="text-slate-600 hover:text-blue-600 transition">บทความสาระแอร์ (SEO)</a>
+                <a href="at_review.html" target="_blank" class="text-slate-600 hover:text-blue-600 transition">รีวิวลูกค้า</a>
             </div>
+            <a href="https://lin.ee/Vvo5Bdw" target="_blank" class="text-[11px] font-extrabold bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-xl flex items-center gap-1.5 shadow transition">
+                <i class="fab fa-line text-sm"></i> จองคิวด่วน
+            </a>
         </div>
     </nav>
 
@@ -45,10 +55,12 @@
             <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">ระบบใบเสนอราคาออโต้</span>
             <h1 class="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tight">ร้านอัชนัยแอร์ <span class="text-blue-600">Atchanai Air</span></h1>
 
+            <!-- 📸 ภาพเด่นหลักภาพแรก -->
             <div class="mt-6 max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white">
                 <img src="https://lh3.googleusercontent.com/d/1LVmSM1RFbmRbEHkiG0Hs7BAGyl7xaoc7" alt="อัชนัยแอร์ โคราช" class="w-full h-auto object-cover block">
             </div>
 
+            <!-- 🎯 ภาพโฆษณาช่างไนตัวจริงประจำร้านอัชนัยแอร์ ไฟล์บีบอัด TinyPNG เบาหวิว -->
             <div class="mt-5 max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white transform hover:scale-[1.01] transition duration-300">
                 <img src="https://i.ibb.co/FbJpr5r2/Ad.jpg" alt="ช่างไน อัชนัยแอร์ โคราช ช่างแอร์ตัวจริงประจำร้าน" class="w-full h-auto object-cover block">
             </div>
@@ -80,8 +92,10 @@
                 </div>
             </div>
 
+            <!-- โซนรายการเมนูบริการ (Services Grid) -->
             <div class="mt-12 max-w-3xl mx-auto space-y-8 text-left">
                 
+                <!-- Service 01: ล้างแอร์ -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
                     <div class="md:col-span-2 aspect-video md:aspect-square bg-white rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
                         <img src="https://i.ibb.co/cKvBB6fY/0001.jpg" alt="ภาพบริการล้างแอร์ผนัง" class="w-full h-full object-contain" loading="lazy">
@@ -101,7 +115,6 @@
                                 <i class="fas fa-tags mr-1"></i> <span>พิเศษสุด! ลูกค้าตามบ้านทั่วไป</span> <span>ล้าง 3 ชุดขึ้นไป</span> <span class="bg-red-600 text-white px-1.5 py-0.5 rounded text-[11px]">ลดพิเศษเหลือตัวละ 400 บาท</span>
                             </div>
                         </div>
-                        
                         <div class="pt-1">
                             <a href="service_clean.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-extrabold text-xs px-5 py-3 rounded-xl shadow-md transition-all duration-300 transform hover:scale-[1.03]">
                                 🧼 ดูขั้นตอนบริการและตารางราคาเต็ม 👉 คลิกเลย!
@@ -110,6 +123,7 @@
                     </div>
                 </div>
 
+                <!-- Service 02: ติดตั้งและย้ายแอร์ -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
                     <div class="md:col-span-2 aspect-video md:aspect-square bg-white rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
                         <img src="https://i.ibb.co/HLTD1x33/0002.jpg" alt="ภาพบริการติดตั้งและย้ายแอร์" class="w-full h-full object-contain" loading="lazy">
@@ -128,13 +142,41 @@
                             <p class="text-emerald-800 font-medium"><i class="fas fa-check-circle text-emerald-600 mr-1"></i> ถ้ามีแอร์เก่าที่ติดอยู่ก่อนแล้ว ทางร้านบริการถอดให้ฟรีด้วยครับ</p>
                             <p class="text-blue-900 font-extrabold bg-blue-50/80 p-2.5 rounded border border-blue-100"><i class="fas fa-heart text-blue-600 mr-1"></i> พิเศษสุด! นอกจากการรับประกันของทางแบรนด์ผู้ผลิตแล้ว ทางร้านยังเพิ่มการรับประกันซ่อมท่อแอร์ ถ้ารั่วภายใน 1 ปี ซ่อมรั่วฟรีครับ!</p>
                         </div>
-                        
                         <div class="pt-1">
                             <a href="service_install.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold text-xs px-5 py-3 rounded-xl shadow-md transition-all duration-300 transform hover:scale-[1.03]">
                                 🛠️ ดูมาตรฐานติดตั้งและเงื่อนไขประกัน 👉 คลิกเลย!
                             </a>
                         </div>
                     </div>
+                </div>
+
+                <!-- รายการที่ 03: รวมภาพผลงานเด่นระดับองค์กรและหน่วยงานที่น่าเชื่อถือ (Clickable Big Banner) -->
+                <div class="bg-white rounded-2xl border-2 border-blue-100 shadow-md hover:shadow-xl hover:border-blue-300 transition-all duration-300 overflow-hidden group">
+                    <a href="service_portfolio.html" class="block">
+                        <div class="w-full aspect-[21/9] md:aspect-[24/9] bg-slate-100 overflow-hidden border-b border-slate-200 relative">
+                            <img src="https://i.ibb.co/TqqgqZ6y/Portfolio-Cover.jpg" alt="รวมผลงานร้านอัชนัยแอร์ โคราช ดูแลหน่วยงานและองค์กรชั้นนำ" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
+                            <div class="absolute top-4 left-4 bg-slate-900/80 text-yellow-400 text-[10px] md:text-xs font-black px-3 py-1.5 rounded-full backdrop-blur-sm shadow border border-yellow-400/30 flex items-center gap-1">
+                                <i class="fas fa-star animate-pulse"></i> <span>FEATURED PORTFOLIO</span>
+                            </div>
+                        </div>
+                        <div class="p-6 md:p-8 space-y-3.5 bg-gradient-to-b from-white to-blue-50/20">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                                <h4 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition flex items-center gap-2">
+                                    <i class="fas fa-images text-blue-600"></i> รวมภาพผลงานหน้างานและหน่วยงานที่น่าเชื่อถือ
+                                </h4>
+                                <span class="text-xs font-extrabold text-blue-700 bg-blue-100/70 px-2.5 py-1 rounded-md shrink-0"><i class="fas fa-shield-alt mr-1"></i> ได้มาตรฐานสากล</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+                                มั่นใจในฝีมือด้วยฐานผลงานการดูแลระบบปรับอากาศให้แก่หน่วยงานราชการ บริษัทเอกชน โรงงานอุตสาหกรรม โรงพยาบาล และออฟฟิศชั้นนำทั่วจังหวัดนครราชสีมา ช่างไนเก็บภาพความเรียบร้อยและอัลบั้มผลงานจริงหน้างานไว้ให้ทุกท่านร่วมพิสูจน์ความตั้งใจและประสบการณ์ยาวนานกว่า 20 ปีครับ
+                            </p>
+                            <div class="pt-2 flex justify-between items-center text-xs">
+                                <span class="text-slate-400 font-medium"><i class="fas fa-folder-open mr-1"></i> คลิกที่รูปภาพเพื่อเปิดดูอัลบั้มภาพผลงานทั้งหมด</span>
+                                <span class="inline-flex items-center gap-1.5 font-black text-blue-600 group-hover:translate-x-1 transition duration-300">
+                                    📂 เปิดดูอัลบั้มผลงานเด่น 👉
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
             </div>
@@ -292,6 +334,30 @@
             </div>
         </div>
     </section>
+
+    <!-- 🌟 ปรับปรุงจุดที่ 2: เพิ่มกล่อง Featured Snippet ดึงหัวข้อเด่นล่าสุดจากหน้า at_news.html เพื่อบูสต์พลัง SEO กระชากอันดับกลุ่มคำ "ช่างแอร์โคราช" -->
+    <section class="max-w-4xl mx-auto px-4 py-6 no-print">
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-800 text-white p-6 md:p-8 rounded-3xl shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-white/20 pb-3 flex-wrap gap-2">
+                <h3 class="text-lg font-black flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-yellow-300 animate-bounce"></i> 📰 สาระน่ารู้เรื่องแอร์ & ข่าวสารอัปเดตล่าสุด
+                </h3>
+                <span class="text-[10px] bg-white/20 font-bold px-3 py-1 rounded-full uppercase tracking-wider">Featured Snippet</span>
+            </div>
+            <!-- ระบบอัตโนมัติจะนำข้อความแผ่นที่ 2 มาฉายปักหมุดตรงกล่องกระจกนี้ค๊าาา -->
+            <div id="live-news-snippet" class="bg-white/10 p-5 rounded-2xl border border-white/10 backdrop-blur-sm space-y-2.5">
+                <h4 id="snippet-title" class="font-black text-sm md:text-base text-yellow-300 tracking-wide leading-relaxed">📢 กำลังโหลดข้อมูลสาระแอร์และคีย์เวิร์ดเด็ดล่าสุด...</h4>
+                <p id="snippet-desc" class="text-xs md:text-sm font-light text-slate-100 leading-relaxed">ระบบกำลังทำการเชื่อมต่อเชื่อมโยงข้อมูลปักหมุดกับหน้าบอร์ดข่าวสารหลักแบบเรียลไทม์เพื่อดันอันดับสูงสุดบน Google ครับ...</p>
+            </div>
+            <div class="text-right pt-1">
+                <a href="at_news.html" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-black text-yellow-300 hover:text-white transition">
+                    อ่านกระดานข่าวและเทคนิคดูแลแอร์ทั้งหมด <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 โซนพิกัดกล่องที่จะใช้รันระบบดึงข้อมูลแผ่นที่ 2 (News) และแผ่นที่ 3 (Review) มาต่อประกบยาวลงล่างตามคำสั่ง -->
     <div id="seo-content-zone" class="no-print"></div>
     <div id="review-content-zone" class="no-print"></div>
 
@@ -308,9 +374,9 @@
         </a>
     </div>
 
+    <!-- 🌟 ปรับปรุงจุดที่ 3: เพิ่มฝัง Footer มงคลท้าวเวสสุวรรณรอบแรกที่ท้ายไฟล์ index.html เพื่อความสมบูรณ์แบบของ Local SEO -->
     <footer class="bg-white border-t border-slate-200 py-12 px-4 text-center mt-auto shadow-inner">
         <div class="max-w-xl mx-auto flex flex-col items-center gap-5">
-            
             <div class="w-24 h-32 overflow-hidden rounded-xl border-2 border-red-600 shadow-xl bg-slate-50 transform hover:scale-105 transition duration-300">
                 <img src="https://i.ibb.co/RG62KxHr/Thao-Wessuwan.jpg" alt="ผ้ายันต์ท้าวเวสสุวรรณ ร้านอัชนัยแอร์" class="w-full h-full object-cover">
             </div>
@@ -344,11 +410,29 @@
             const randNum = Math.floor(1000 + Math.random() * 9000);
             document.getElementById('docNumber').innerText = `QT-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}-${randNum}`;
 
+            // 🌟 ดึงข้อมูลแผ่นที่ 2 (at_news.html) มาแปะต่อด้านล่าง พร้อมแกะเอาหัวข้อเด่นขึ้นมาโชว์ในกล่องกระจกปักหมุด
             fetch('at_news.html')
                 .then(res => { if(res.ok) return res.text(); })
-                .then(html => { if(html) document.getElementById('seo-content-zone').innerHTML = html; })
-                .catch(err => console.log(err));
+                .then(html => { 
+                    if(html) {
+                        document.getElementById('seo-content-zone').innerHTML = html;
+                        // ระบบทำการจำลองแกะข้อมูลจากหัวข้อแรกในไฟล์ข่าวสารมาอัปเดตให้อัตโนมัติค๊าาา
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const firstTitle = doc.querySelector('h2, h3, h4')?.innerText;
+                        const firstDesc = doc.querySelector('p')?.innerText;
+                        
+                        if(firstTitle) document.getElementById('snippet-title').innerText = "🔥 เรื่องเด่นอัปเดตวันนี้: " + firstTitle;
+                        if(firstDesc) document.getElementById('snippet-desc').innerText = firstDesc.substring(0, 180) + "...";
+                    }
+                })
+                .catch(err => {
+                    // หากยังไม่ได้อัปโหลดไฟล์ข่าวสาร ระบบจะขึ้นพรีเซ็ตข้อมูลดักคีย์เวิร์ดรอไว้ก่อนค๊าาา
+                    document.getElementById('snippet-title').innerText = "🔥 เคล็ดลับล้างแอร์บ้าน สยบฝุ่น PM 2.5 โดยช่างแอร์โคราชมืออาชีพ";
+                    document.getElementById('snippet-desc').innerText = "แนะนำวิธีสังเกตแอร์ตัน แอร์ไม่เย็น น้ำหยด พร้อมเร่งอัปเดตคิวว่างงานล้างแอร์ทั่วไปและงานติดตั้งระบบเครื่องปรับอากาศในเขตอำเภอเมืองนครราชสีมาอย่างรวดเร็ว โดยร้านอัชนัยแอร์ครับ";
+                });
 
+            // 🌟 ดึงข้อมูลแผ่นที่ 3 (at_review.html) มาแปะต่อล่างสุด
             fetch('at_review.html')
                 .then(res => { if(res.ok) return res.text(); })
                 .then(html => { if(html) document.getElementById('review-content-zone').innerHTML = html; })
