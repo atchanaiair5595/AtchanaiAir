@@ -13,16 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- 🪄 คาถามหานิยม: สั่งครอบจัดการระบบตัวหนังสือและระยะบรรทัดทั้งหน้าเว็บในจุดเดียว (Global Rules) โปร่งตาทั้งคอมและมือถือ -->
     <style>
         * {
-            line-height: 1.85 !important; /* สั่งให้ทุกจุดในหน้าเว็บเว้นระยะบรรทัดโปร่งสบายตาเท่ากันหมด */
-            letter-spacing: 0.02em !important; /* เว้นช่องไฟตัวอักษรเล็กน้อยให้อ่านง่ายบนมือถือ */
+            line-height: 1.85 !important; 
+            letter-spacing: 0.02em !important; 
         }
         body { 
             font-family: 'Sarabun', sans-serif; 
         }
         h1, h2, h3, h4, h5, h6 {
-            line-height: 1.4 !important; /* ยกเว้นหัวข้อใหญ่ให้กระชับพอดียามอยู่บรรทัดใหม่ */
+            line-height: 1.4 !important; 
             margin-bottom: 0.5rem;
         }
         @media print {
@@ -36,6 +37,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
+    <!-- 🌐 แถบนำทาง (Navbar Navigator) ดันคะแนนเครือข่ายลิงก์ภายในให้บอท Google รัก -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 no-print shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
             <a href="index.html" class="font-black text-slate-900 text-base md:text-lg flex items-center gap-2">
@@ -60,10 +62,12 @@
             <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">ระบบใบเสนอราคาออโต้</span>
             <h1 class="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tight">ร้านอัชนัยแอร์ <span class="text-blue-600">Atchanai Air</span></h1>
 
+            <!-- 📸 ภาพเด่นหลักภาพแรก -->
             <div class="mt-6 max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white">
                 <img src="https://lh3.googleusercontent.com/d/1LVmSM1RFbmRbEHkiG0Hs7BAGyl7xaoc7" alt="อัชนัยแอร์ โคราช" class="w-full h-auto object-cover block">
             </div>
 
+            <!-- 🎯 ภาพโฆษณาช่างไนตัวจริงประจำร้านอัชนัยแอร์ -->
             <div class="mt-5 max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white transform hover:scale-[1.01] transition duration-300">
                 <img src="https://i.ibb.co/FbJpr5r2/Ad.jpg" alt="ช่างไน อัชนัยแอร์ โคราช ช่างแอร์ตัวจริงประจำร้าน" class="w-full h-auto object-cover block">
             </div>
@@ -95,8 +99,10 @@
                 </div>
             </div>
 
+            <!-- โซนรายการเมนูบริการ (Services Grid) -->
             <div class="mt-12 max-w-3xl mx-auto space-y-8 text-left">
                 
+                <!-- Service 01: ล้างแอร์ -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
                     <div class="md:col-span-2 aspect-video md:aspect-square bg-white rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
                         <img src="https://i.ibb.co/cKvBB6fY/0001.jpg" alt="ภาพบริการล้างแอร์ผนัง" class="w-full h-full object-contain" loading="lazy">
@@ -124,6 +130,7 @@
                     </div>
                 </div>
 
+                <!-- Service 02: ติดตั้งและย้ายแอร์ -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
                     <div class="md:col-span-2 aspect-video md:aspect-square bg-white rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
                         <img src="https://i.ibb.co/HLTD1x33/0002.jpg" alt="ภาพบริการติดตั้งและย้ายแอร์" class="w-full h-full object-contain" loading="lazy">
@@ -150,10 +157,11 @@
                     </div>
                 </div>
 
+                <!-- 📂 รายการที่ 03: รวมภาพผลงานเด่น (Portfolio Cover) -> ปรับเปลี่ยนลิงก์หน้าปกตัวใหม่สุดเป๊ะตามสั่งเรียบร้อยค๊าาา -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 overflow-hidden group">
                     <a href="service_portfolio.html" class="block">
                         <div class="w-full aspect-[21/9] md:aspect-[24/9] bg-slate-100 overflow-hidden border-b border-slate-200 relative">
-                            <img src="https://i.ibb.co/TqqgqZ6y/Portfolio-Cover.jpg" alt="รวมผลงานร้านอัชนัยแอร์ โคราช ดูแลหน่วยงานและองค์กรชั้นนำ" class="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500">
+                            <img src="https://i.ibb.co/KpGDGksF/20210228-130522.jpg" alt="รวมผลงานร้านอัชนัยแอร์ โคราช ดูแลหน่วยงานและองค์กรชั้นนำ" class="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500">
                             <div class="absolute top-4 left-4 bg-slate-900/80 text-yellow-400 text-[10px] md:text-xs font-black px-3 py-1.5 rounded-full backdrop-blur-sm shadow border border-yellow-400/30 flex items-center gap-1">
                                 <i class="fas fa-star animate-pulse"></i> <span>FEATURED PORTFOLIO</span>
                             </div>
@@ -269,7 +277,7 @@
                     <p><strong>เลขที่เอกสาร:</strong> <span id="docNumber" class="font-mono text-slate-900 font-bold tracking-wider">-</span></p>
                     <p><strong>วันที่ออกเอกสาร:</strong> <span id="docDate" class="text-slate-900 font-bold">-</span></p>
                     <p class="text-slate-900 font-bold bg-blue-50 sm:bg-transparent inline-block sm:block px-2 py-0.5 sm:p-0 rounded mt-1 sm:mt-0">
-                        <i class="fas fa-wallet text-blue-600 mr-1 sm:hidden"></i>เงื่อนไขการชำrate: เงินสด/โอน (ทันทีหลังงานเสร็จ)
+                        <i class="fas fa-wallet text-blue-600 mr-1 sm:hidden"></i>เงื่อนไขการชำระเงิน: เงินสด/โอน (ทันทีหลังงานเสร็จ)
                     </p>
                 </div>
             </div>
@@ -334,6 +342,7 @@
         </div>
     </section>
 
+    <!-- 📰 กล่อง Featured Snippet ดูดซับหัวข้อเด่นล่าสุดจากหน้า at_news.html เพื่อบูสต์พลัง SEO คีย์เวิร์ดเด็ด -->
     <section class="max-w-4xl mx-auto px-4 py-6 no-print">
         <div class="bg-gradient-to-br from-blue-600 to-indigo-800 text-white p-6 md:p-8 rounded-3xl shadow-lg space-y-5">
             <div class="flex items-center justify-between border-b border-white/20 pb-3 flex-wrap gap-2">
@@ -354,6 +363,7 @@
         </div>
     </section>
 
+    <!-- 🌊 พิกัดดึงเนื้อหาแผ่นที่ 2 (News) และ แผ่นที่ 3 (Review) มาต่อเรียงกันลงไปด้านล่างยาวๆ ค๊าาา -->
     <div id="seo-content-zone" class="no-print"></div>
     <div id="review-content-zone" class="no-print"></div>
 
@@ -370,6 +380,7 @@
         </a>
     </div>
 
+    <!-- ⛩️ Footer มงคลท้าวเวสสุวรรณเรียกทรัพย์ รอบแรกท้ายหน้าไฟล์ index.html เพื่อความแข็งแกร่งของ Local SEO -->
     <footer class="bg-white border-t border-slate-200 py-12 px-4 text-center mt-auto shadow-inner">
         <div class="max-w-xl mx-auto flex flex-col items-center gap-5">
             <div class="w-24 h-32 overflow-hidden rounded-xl border-2 border-red-600 shadow-xl bg-slate-50 transform hover:scale-105 transition duration-300">
@@ -405,7 +416,7 @@
             const randNum = Math.floor(1000 + Math.random() * 9000);
             document.getElementById('docNumber').innerText = `QT-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}-${randNum}`;
 
-            // 🌟 ดึงข้อมูลแผ่นที่ 2 (at_news.html) มาต่อท้ายอัตโนมัติ
+            // 🌟 ดึงข้อมูลแผ่นที่ 2 (at_news.html) มาแปะต่อ และแกะข้อความแรกขึ้นกล่องพักหมุด
             fetch('at_news.html')
                 .then(res => { if(res.ok) return res.text(); })
                 .then(html => { 
