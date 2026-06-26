@@ -1,0 +1,30 @@
+/* =========================================
+   ไฟล์สไตล์หลัก (Global Styles) - อัชนัยแอร์ 
+   ========================================= */
+
+/* 🪄 คาถามหานิยม: จัดการระบบตัวหนังสือและระยะบรรทัดทั้งหน้าเว็บให้โปร่งตาสวยงาม อ่านง่ายสบายตา */
+* {
+    line-height: 1.85 !important; 
+    letter-spacing: 0.02em !important; 
+    box-sizing: border-box;
+}
+
+/* ตั้งค่าฟอนต์หลักของเว็บไซต์ให้เป็น Sarabun */
+body { 
+    font-family: 'Sarabun', sans-serif; 
+}
+
+/* ควบคุมระยะห่างของหัวข้อต่างๆ ให้กระชับสวยงาม */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4 !important; 
+    margin-bottom: 0.5rem;
+}
+
+/* ซ่อน Scrollbar ของหน้าต่าง Pop-up ขยายรูปภาพ เพื่อความพรีเมียม */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
