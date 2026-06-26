@@ -28,3 +28,17 @@ h1, h2, h3, h4, h5, h6 {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* 🖨️ สไตล์สำหรับการสั่งพิมพ์ใบเสนอราคา (Print Media) */
+@media print {
+    .no-print { 
+        display: none !important; 
+    }
+    body { 
+        background: white; 
+        color: black; 
+    }
+    .print-card h1, .print-card p, .print-card span, .print-card th, .print-card td {
+        line-height: 1.6 !important;
+    }
+}
