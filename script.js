@@ -219,7 +219,7 @@ function calculateTotal() {
             subtotal += itemTotal;
             const row = document.createElement('tr');
             row.className = 'border-b border-slate-200/60 text-slate-700 hover:bg-slate-50/50 transition';
-            row.innerHTML = `<td class="p-3.5 font-medium text-slate-800">${srv.name}</td><td class="p-3.5 text-right font-mono">${srv.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3.5 text-center font-bold text-slate-900">${qty}</td><td class="p-3.5 text-right font-semibold font-mono text-slate-900 tracking-wide">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+            row.innerHTML = `<td class="p-3.5 font-medium text-slate-800">\${srv.name}</td><td class="p-3.5 text-right font-mono">\${srv.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3.5 text-center font-bold text-slate-900">\${qty}</td><td class="p-3.5 text-right font-semibold font-mono text-slate-900 tracking-wide">\${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
             tableBody.appendChild(row);
         }
     });
@@ -230,7 +230,7 @@ function calculateTotal() {
         subtotal += itemTotal;
         const row = document.createElement('tr');
         row.className = 'border-b border-slate-200/60 text-slate-700 hover:bg-slate-50/50 transition';
-        row.innerHTML = `<td class="p-3.5 font-medium text-slate-800 flex items-center gap-2.5"><span>${item.name}</span><button onclick="removeCustomItem(${index})" class="no-print text-[10px] bg-red-100 hover:bg-red-200 text-red-600 font-bold px-2 py-0.5 rounded transition">ลบ</button></td><td class="p-3.5 text-right font-mono">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3.5 text-center font-bold text-slate-900">${item.qty}</td><td class="p-3.5 text-right font-semibold font-mono text-slate-900 tracking-wide">${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
+        row.innerHTML = `<td class="p-3.5 font-medium text-slate-800 flex items-center gap-2.5"><span>\${item.name}</span><button onclick="removeCustomItem(\${index})" class="no-print text-[10px] bg-red-100 hover:bg-red-200 text-red-600 font-bold px-2 py-0.5 rounded transition">ลบ</button></td><td class="p-3.5 text-right font-mono">\${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3.5 text-center font-bold text-slate-900">\${item.qty}</td><td class="p-3.5 text-right font-semibold font-mono text-slate-900 tracking-wide">\${itemTotal.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td>`;
         tableBody.appendChild(row);
     });
 

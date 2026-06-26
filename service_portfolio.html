@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รวมภาพผลงานเด่น - อัชนัยแอร์ โคราช</title>
+    <link rel="canonical" href="https://www.atchanaiair-korat.com/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght=300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* 🪄 คาถามหานิยมดึงมาจากหน้าแรก: จัดการระบบตัวหนังสือและระยะบรรทัดทั้งหน้าเว็บให้โปร่งตาสวยงาม */
@@ -89,7 +90,7 @@
                     </div>
                 </div>
 
-                <!-- ภาพปกหลักขนาดเด่น (มาพร้อมเอฟเฟกต์เมาส์ลากผ่านแล้วซูมขยายขึ้นนิดนึง โทนสีน้ำเงิน ดำ ส้ม) -->
+                <!-- ภาพปกหลักขนาดเด่น -->
                 <div class="lg:col-span-2">
                     <div class="relative group cursor-pointer overflow-hidden rounded-2xl bg-slate-900 shadow-md border border-slate-200" onclick="openLightbox(0)">
                         <img src="https://i.ibb.co/9Hkp38j0/20210228-102049.jpg" alt="ช่างแอร์โคราช บริการติดตั้งและซ่อมแอร์ที่ Easy Buy โคราช" class="w-full h-[300px] md:h-[420px] object-cover duration-500 ease-out group-hover:scale-[1.03]" loading="lazy">
@@ -106,10 +107,10 @@
                 </div>
             </div>
 
-            <!-- อัลบั้มรูปภาพย่อย (Grid Gallery) -->
+            <!-- อัลบั้มรูปภาพย่อย (Grid Gallery) - ปรับแต่ง gap ให้สมดุลขึ้น -->
             <div>
                 <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fas fa-images mr-1 text-sky-500"></i> อัลบั้มภาพการทำงานทั้งหมดในสถานที่นี้ (คลิกขยายดูรูปสไลด์ได้เลยครับ)</h4>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     
                     <!-- ภาพย่อย 1 - 13 ตกแต่งเมาส์ลากผ่านแล้วซูมขยายขึ้นนิดนึง พร้อมเปิด Lightbox เมื่อคลิก -->
                     <div class="relative group cursor-pointer overflow-hidden rounded-xl bg-slate-200 border border-slate-300 aspect-square shadow-sm" onclick="openLightbox(1)">
@@ -181,40 +182,32 @@
             </div>
         </section>
 
-        <!-- [คุณพี่คิมสามารถนำโค้ดสถานที่ถัดไปมาวางต่อท้ายตรงนี้ได้เลยค๊าาา] -->
-
     </main>
 
-    <!-- 🌌 หน้าต่างแสดงผล Lightbox Pop-up ฉบับแก้บั๊ก: สปริงตัวเร็วแสง คลิกข้างนอกเพื่อปิดได้จริง -->
+    <!-- 🌌 หน้าต่างแสดงผล Lightbox Pop-up ฉบับแก้บั๊ก -->
     <div id="customLightbox" class="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-200 p-4 select-none" onclick="closeLightbox()">
-        <!-- ปุ่มปิดกล่อง -->
         <button type="button" onclick="closeLightbox()" class="absolute top-4 right-4 text-white hover:text-orange-500 text-3xl transition p-2 focus:outline-none cursor-pointer z-[60]">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <!-- โซนรูปภาพหลัก (ป้องกันการคลิกปิดเมื่อกดโดนรูป) -->
         <div class="relative max-w-4xl w-full flex items-center justify-center" onclick="event.stopPropagation()">
-            <!-- ปุ่มถอยกลับภาพก่อนหน้า -->
             <button type="button" onclick="prevImage()" class="absolute left-2 md:-left-16 text-white hover:text-sky-400 text-4xl transition p-4 focus:outline-none cursor-pointer z-[60]">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <!-- รูปภาพแสดงผลจริง -->
             <img id="lightboxImg" src="" alt="ภาพผลงานขยายใหญ่ อัชนัยแอร์ โคราช" class="max-w-full max-h-[75vh] md:max-h-[82vh] object-contain rounded-xl shadow-2xl border-2 border-slate-700">
 
-            <!-- ปุ่มเปิดไปภาพถัดไป -->
             <button type="button" onclick="nextImage()" class="absolute right-2 md:-right-16 text-white hover:text-sky-400 text-4xl transition p-4 focus:outline-none cursor-pointer z-[60]">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
 
-        <!-- ตัวเลขแสดงสถานะจำนวนรูปภาพ -->
         <div id="lightboxIndex" class="text-orange-400 text-sm mt-4 font-mono font-bold bg-slate-900 px-4 py-1.5 rounded-full border border-slate-700">
             0 / 0
         </div>
     </div>
 
-    <!-- ⛩️ Footer มงคลท้าวเวสสุวรรณเรียกทรัพย์ โทนสว่าง ดึงข้อมูลร้านและโซนบริการรอบ มทส. ครบถ้วน -->
+    <!-- ⛩️ Footer มงคลท้าวเวสสุวรรณเรียกทรัพย์ โทนสว่าง -->
     <footer class="bg-white border-t border-slate-200 py-12 px-4 text-center mt-auto shadow-inner text-slate-800">
         <div class="max-w-xl mx-auto flex flex-col items-center gap-5">
             <div class="w-24 h-32 overflow-hidden rounded-xl border-2 border-red-600 shadow-xl bg-slate-50 transform hover:scale-105 transition duration-300">
@@ -243,84 +236,64 @@
 
     <!-- Script ควบคุมระบบเปิดรูปและปัดเลื่อนซ้ายขวา (รวมอยู่ในไฟล์เดียวจบ) -->
     <script>
-        // อาร์เรย์เก็บลิงก์รูปภาพทั้งหมด 14 รูปของ Easy Buy (เรียงตามลำดับหน้าเว็บเป๊ะๆ)
         const portfolioImages = [
-            "https://i.ibb.co/9Hkp38j0/20210228-102049.jpg", // รูปที่ 0 (ภาพปกหลัก)
-            "https://i.ibb.co/JFCstnDp/Untitled-1.jpg",      // รูปที่ 1
-            "https://i.ibb.co/Y7vhd4pK/20241201-101714.jpg", // รูปที่ 2
-            "https://i.ibb.co/pc7whqv/20241201-101701.jpg",  // รูปที่ 3
-            "https://i.ibb.co/qYByfNJh/20241201-095426.jpg", // รูปที่ 4
-            "https://i.ibb.co/rRMy6w6b/20241201-091229.jpg", // รูปที่ 5
-            "https://i.ibb.co/7dswMpkV/20210228-130903.jpg", // รูปที่ 6
-            "https://i.ibb.co/KpGDGksF/20210228-130522.jpg", // รูปที่ 7
-            "https://i.ibb.co/wNkWdZ8P/20210228-130501.jpg", // รูปที่ 8
-            "https://i.ibb.co/5gDqw9ML/20210228-130453.jpg", // รูปที่ 9
-            "https://i.ibb.co/j9D6L7rH/20210228-104411.jpg", // รูปที่ 10
-            "https://i.ibb.co/MxNhf0hv/20210228-103241.jpg", // รูปที่ 11
-            "https://i.ibb.co/7tPpBx85/20210228-103059.jpg", // รูปที่ 12
-            "https://i.ibb.co/N2P1XT0K/20210228-101954.jpg"  // รูปที่ 13
+            "https://i.ibb.co/9Hkp38j0/20210228-102049.jpg",
+            "https://i.ibb.co/JFCstnDp/Untitled-1.jpg",      
+            "https://i.ibb.co/Y7vhd4pK/20241201-101714.jpg", 
+            "https://i.ibb.co/pc7whqv/20241201-101701.jpg",  
+            "https://i.ibb.co/qYByfNJh/20241201-095426.jpg", 
+            "https://i.ibb.co/rRMy6w6b/20241201-091229.jpg", 
+            "https://i.ibb.co/7dswMpkV/20210228-130903.jpg", 
+            "https://i.ibb.co/KpGDGksF/20210228-130522.jpg", 
+            "https://i.ibb.co/wNkWdZ8P/20210228-130501.jpg", 
+            "https://i.ibb.co/5gDqw9ML/20210228-130453.jpg", 
+            "https://i.ibb.co/j9D6L7rH/20210228-104411.jpg", 
+            "https://i.ibb.co/MxNhf0hv/20210228-103241.jpg", 
+            "https://i.ibb.co/7tPpBx85/20210228-103059.jpg", 
+            "https://i.ibb.co/N2P1XT0K/20210228-101954.jpg"  
         ];
 
         let currentImageIndex = 0;
 
-        // ฟังก์ชันเปิดหน้าต่าง Pop-up สปริงตัวเร็วแสง ⚡
         function openLightbox(index) {
             currentImageIndex = index;
             updateLightboxContent();
-            
             const lightbox = document.getElementById('customLightbox');
-            // 1. ถอดคลาสซ่อนกล่องออก เพื่อเตรียมแสดงผล
             lightbox.classList.remove('hidden');
-            
-            // 2. สั่ง Fade-in เด้งดึ๋งนุ่มนวลภายใน 10ms (แก้ปัญหาภาพนิ่งไม่ขยาย)
             setTimeout(() => { 
                 lightbox.classList.remove('opacity-0'); 
             }, 10);
-            
-            // 3. ล็อคการเลื่อนหน้าจอของเว็บหลักด้านหลัง เพื่อให้โฟกัสที่รูปภาพ
             document.body.style.overflow = 'hidden';
         }
 
-        // ฟังก์ชันปิดหน้าต่าง Pop-up เมื่อคลิกปุ่มกากบาท หรือคลิกพื้นที่สีดำภายนอก
         function closeLightbox() {
             const lightbox = document.getElementById('customLightbox');
-            // 1. สั่ง Fade-out (ทำภาพให้ค่อยๆ โปร่งใส)
             lightbox.classList.add('opacity-0');
-            
-            // 2. รอจังหวะ Effect 200ms แล้วค่อยซ่อนกล่องทั้งหมดให้หายไปจากหน้าจอ
             setTimeout(() => { 
                 lightbox.classList.add('hidden'); 
             }, 200);
-            
-            // 3. ปลดล็อคให้หน้าเว็บหลักกลับมาเลื่อน Scroll ได้ตามปกติ
             document.body.style.overflow = '';
         }
 
-        // ฟังก์ชันเลื่อนไปรูปถัดไป (กดปุ่มสไลด์ขวา)
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
             updateLightboxContent();
         }
 
-        // ฟังก์ชันย้อนไปรูปก่อนหน้า (กดปุ่มสไลด์ซ้าย)
         function prevImage() {
             currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
             updateLightboxContent();
         }
 
-        // ฟังก์ชันอัปเดตรูปภาพในกล่อง Pop-up และตัวเลขแสดงสถานะหน้าให้ตรงกัน
         function updateLightboxContent() {
             const imgElement = document.getElementById('lightboxImg');
             const indexElement = document.getElementById('lightboxIndex');
-            
             imgElement.src = portfolioImages[currentImageIndex];
-            indexElement.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
+            indexElement.textContent = `\${currentImageIndex + 1} / \${portfolioImages.length}`;
         }
 
-        // รองรับการใช้งานปุ่มบนคีย์บอร์ดคอมพิวเตอร์ (Esc = ปิด, ลูกศรซ้าย/ขวา = เลื่อนรูป)
         document.addEventListener('keydown', function(event) {
             const lightbox = document.getElementById('customLightbox');
-            // ระบบจะทำงานเฉพาะตอนที่กล่องขยายรูปกำลังเปิดแสดงผลอยู่เท่านั้น
             if (!lightbox.classList.contains('hidden')) {
                 if (event.key === 'Escape') {
                     closeLightbox();
