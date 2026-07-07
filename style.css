@@ -42,3 +42,139 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 1.6 !important;
     }
 }
+
+/* =========================================
+   สไตล์การตกแต่งหน้าเพจ at_news.html - อัชนัยแอร์
+   ========================================= */
+
+/* 🪄 บังคับระยะบรรทัดและตัวอักษรให้สวยงาม อ่านง่าย ไม่ซ้อนทับกันทุกหน้าจอ */
+.news-container, .news-container * {
+    line-height: 1.85 !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* ส่วนหัวข้อข่าวสาร */
+.news-header-zone {
+    text-align: center;
+    padding: 30px 15px;
+    background: #1f2937; /* สีเทาเข้ม-ดำ */
+    border-radius: 12px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    border-bottom: 5px solid #ff7a00; /* สีส้มประจำร้าน */
+}
+
+.news-header-zone h2 {
+    color: #00a3ff; /* สีฟ้าสดใส */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* 🟢 ปุ่มสถานะกระพริบกระตุ้นความสนใจ */
+.live-badge {
+    display: inline-block;
+    background: #ff7a00;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    animation: pulseEffect 1.5s infinite;
+}
+
+/* 🔥 เอฟเฟกต์ Emoji กระพริบเด่น */
+.emoji-flash {
+    animation: flashEffect 1s infinite alternate;
+    display: inline-block;
+}
+
+/* กล่องบทความ */
+.news-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.news-item h3 {
+    color: #1f2937;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 15px;
+}
+
+/* ปุ่มอ่านต่อ */
+.read-more-btn {
+    display: inline-block;
+    background: #00a3ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 15px;
+    transition: background 0.2s;
+}
+
+.read-more-btn:hover {
+    background: #0084cf;
+    color: #fff;
+}
+
+/* 🔢 แถบเมนูแบ่งหน้าด้านล่างสุด */
+.pagination-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+.page-btn {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.page-btn.active, .page-btn:hover:not([disabled]) {
+    background: #ff7a00;
+    border-color: #ff7a00;
+    color: #ffffff;
+}
+
+.page-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 🎬 Keyframes สำหรับเอนิเมชันความเด่น */
+@keyframes pulseEffect {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 122, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 122, 0, 0); }
+}
+
+@keyframes flashEffect {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
