@@ -258,3 +258,80 @@ function calculateTotal() {
     if (valVatEl) valVatEl.innerText = vatAmount.toLocaleString('th-TH', {minimumFractionDigits: 2});
     if (valTotalEl) valTotalEl.innerText = finalTotal.toLocaleString('th-TH', {minimumFractionDigits: 2});
 }
+
+// ========================================================
+// 🔢 ระบบแบ่งหน้าอัจฉริยะ (Pagination System) สไตล์ WordPress สำหรับหน้า at_news.html
+// ========================================================
+const ITEMS_PER_PAGE = 5; // กำหนดให้แสดงผลหน้าละ 5 บทความเพื่อความเร็วสูงสุด
+let currentPage = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+    // รันระบบแบ่งหน้าเมื่อโหลดหน้าเว็บเสร็จสมบูรณ์
+    initPagination();
+});
+
+function initPagination() {
+    const newsContainer = document.querySelector('.news-container');
+    if (!newsContainer) return; // ถ้าไม่ใช่หน้าข่าวสาร ให้ข้ามฟังก์ชันนี้ไปเลย
+
+    // ดึงบทความทั้งหมดที่ระบบแอดมินส่งมา (ดักจับจาก Tag <!-- NEWS_ITEM_START -->)
+    const allArticles = Array.from(newsContainer.querySelectorAll('.news-item'));
+    const totalPages = Math.ceil(allArticles.length / ITEMS_PER_PAGE);
+
+    function displayPage(page) {
+        currentPage = page;
+        const startIndex = (page - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+
+        // วนลูป ซ่อน/แสดง บทความตามหน้าปัจจุบัน
+        allArticles.forEach((article, index) => {
+            if (index >= startIndex && index < endIndex) {
+                article.style.display = 'block'; // แสดงผล
+            } else {
+                article.style.display = 'none'; // ซ่อนไว้หลังบ้าน
+            }
+        });
+
+        // อัปเดตปุ่มควบคุมตัวเลขด้านล่าง
+        renderPaginationControls(totalPages);
+        
+        // เมื่อกดเปลี่ยนหน้า ให้หน้าจอเลื่อนกลับไปด้านบนสุดของโซนข่าวสารอย่างนุ่มนวล
+        const headerZone = document.querySelector('.news-header-zone');
+        if (headerZone) headerZone.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderPaginationControls(totalPages) {
+        const paginationZone = document.querySelector('.pagination-zone');
+        if (!paginationZone) return;
+
+        let controlsHTML = '';
+        
+        // ปุ่มก่อนหน้า
+        controlsHTML += `<button class="page-btn prev" ${currentPage === 1 ? 'disabled' : ''} onclick="changeNewsPage(${currentPage - 1})">&lt;&lt; ก่อนหน้า</button>`;
+
+        // แสดงตัวเลขหน้า (ถ้าหน้าเยอะเกินไปจะแสดงจุดไข่ปลาให้ดูพรีเมียม)
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                controlsHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changeNewsPage(${i})">${i}</button>`;
+            } else if (i === currentPage - 2 || i === currentPage + 2) {
+                controlsHTML += `<span class="page-dots">...</span>`;
+            }
+        }
+
+        // ปุ่มถัดไป
+        controlsHTML += `<button class="page-btn next" ${currentPage === totalPages ? 'disabled' : ''} onclick="changeNewsPage(${currentPage + 1})">ถัดไป &gt;&gt;</button>`;
+
+        paginationZone.innerHTML = controlsHTML;
+    }
+
+    // สร้างฟังก์ชันผูกกับ Window เพื่อให้คลิกจาก HTML ได้
+    window.changeNewsPage = function(page) {
+        if (page < 1 || page > totalPages) return;
+        displayPage(page);
+    };
+
+    // เริ่มต้นแสดงผลหน้าแรกสุดเป็นค่าเริ่มต้น
+    if (allArticles.length > 0) {
+        displayPage(1);
+    }
+}
