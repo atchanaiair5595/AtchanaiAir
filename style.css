@@ -179,8 +179,55 @@ h1, h2, h3, h4, h5, h6 {
     100% { opacity: 1; transform: scale(1.1); }
 }
 /* =========================================
-   ระบบสไตล์เพิ่มเติมสำหรับปุ่มแชร์บทความ (Share Buttons)
+   ระบบสไตล์สำหรับโพสต์ข่าวสาร (News Item Styles)
    ========================================= */
+.news-item.full-post {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+}
+.post-title {
+    color: #0056b3;
+    font-size: 22px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.post-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+}
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.post-content {
+    margin-bottom: 20px;
+    color: #444;
+    line-height: 1.7; /* ระยะบรรทัดกำลังดี อ่านบนคอมและมือถือสบายตา */
+}
+.contact-box {
+    padding: 15px;
+    background: #f0f8ff;
+    border-left: 4px solid #0056b3;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 280px;
+    line-height: 1.6;
+}
+.contact-box a {
+    color: #333;
+    text-decoration: none;
+}
+.contact-box a.line-text {
+    color: #00c300;
+    font-weight: bold;
+}
+
+/* --- ระบบสไตล์สำหรับปุ่มแชร์บทความ (Share Buttons) --- */
 .action-footer {
     display: flex;
     flex-wrap: wrap;
@@ -218,7 +265,6 @@ h1, h2, h3, h4, h5, h6 {
 .btn-share:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    color: #ffffff !important;
 }
 .btn-share.facebook { background: #1877F2; }
 .btn-share.line { background: #00B900; }
