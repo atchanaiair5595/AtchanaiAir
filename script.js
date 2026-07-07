@@ -335,10 +335,3 @@ function initPagination() {
         displayPage(1);
     }
 }
-
-// ========================================================
-// 🌐 ระบบแชร์บทความ (Social Share) สำหรับกระดานข่าว
-// ========================================================
-function shareToFacebook(e) { ... }
-function shareToLine(e) { ... }
-function copyPageLink() { ... }
