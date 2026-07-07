@@ -178,3 +178,48 @@ h1, h2, h3, h4, h5, h6 {
     0% { opacity: 0.3; transform: scale(0.9); }
     100% { opacity: 1; transform: scale(1.1); }
 }
+/* =========================================
+   ระบบสไตล์เพิ่มเติมสำหรับปุ่มแชร์บทความ (Share Buttons)
+   ========================================= */
+.action-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 15px;
+}
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.share-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7280;
+}
+.btn-share {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #ffffff !important;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+.btn-share:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    color: #ffffff !important;
+}
+.btn-share.facebook { background: #1877F2; }
+.btn-share.line { background: #00B900; }
+.btn-share.copy-link { background: #6b7280; }
