@@ -335,3 +335,26 @@ function initPagination() {
         displayPage(1);
     }
 }
+
+// ========================================================
+// 🌐 ระบบกลไกแชร์บทความไปยังโซเชียลมีเดีย (Social Sharing)
+// ========================================================
+function shareToFacebook(e) {
+    e.preventDefault();
+    const url = encodeURIComponent(window.location.href);
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=400');
+}
+
+function shareToLine(e) {
+    e.preventDefault();
+    const url = encodeURIComponent(window.location.href);
+    window.open('https://social-plugins.line.me/lineit/share?url=' + url, '_blank', 'width=600,height=500');
+}
+
+function copyPageLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('🐳 คัดลอกลิงก์บทความเรียบร้อยแล้วครับ! พี่คิมสามารถนำไปวางโพสต์ต่อได้เลยครับ');
+    }).catch(err => {
+        console.error('ไม่สามารถคัดลอกลิงก์ได้:', err);
+    });
+}
