@@ -51,7 +51,10 @@ function initPaginationAndSharing() {
         }
 
         const titleText = article.querySelector('h2, h3, h4')?.innerText || "ข่าวสารจากอัชนัยแอร์ โคราช";
-        const pageUrl = window.location.origin + window.location.pathname + '#' + article.id;
+        
+        // 🌟 แก้ไขจุดที่ 1: ตัดหางขยะจาก Facebook ออกให้หมด เพื่อให้ลิงก์สะอาด
+        const cleanUrl = window.location.href.split('#')[0].split('?')[0];
+        const pageUrl = cleanUrl + '#' + article.id;
         
         if (!article.querySelector('.social-share-box')) {
             const shareBox = document.createElement('div');
@@ -125,6 +128,7 @@ function initPaginationAndSharing() {
             const targetPage = Math.floor(index / ITEMS_PER_PAGE) + 1;
             displayPage(targetPage);
             
+            // 🌟 แก้ไขจุดที่ 2: หน่วงเวลาเพิ่มเป็น 800ms ให้ Facebook โหลดรูปเสร็จชัวร์ๆ ค่อยสไลด์
             setTimeout(() => {
                 targetArticle.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
@@ -142,7 +146,7 @@ function initPaginationAndSharing() {
                     targetArticle.style.boxShadow = originalBoxShadow || '0 4px 6px rgba(0,0,0,0.02)';
                 }, 3500);
 
-            }, 400); 
+            }, 800); 
         } else {
             if (allArticles.length > 0) displayPage(1);
         }
