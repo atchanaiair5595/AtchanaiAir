@@ -1,178 +1,56 @@
 // ========================================================
-// 🐳 ไฟล์กลไกหลัก script.js ของร้านอัชนัยแอร์ (ฉบับสมบูรณ์)
+// 🔢 ระบบแบ่งหน้า + เสกปุ่มแชร์อัตโนมัติสไตล์ WordPress สำหรับหน้าข่าวสาร (อัปเดตล่าสุด)
 // ========================================================
-
-// --------------------------------------------------------
-// 🚀 1. ระบบดึงเนื้อหาหน้าเว็บอัตโนมัติ (One-Page Scroll & Lazy Load)
-// --------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-    // หาจุดที่ต้องการนำข่าวสารมาแสดง
-    const seoZone = document.getElementById('seo-content-zone');
-    
-    if (seoZone) {
-        // ใช้ Intersection Observer ดึงหน้าเว็บเมื่อลูกค้าเลื่อนมาใกล้ (โหลดเร็ว SEO ชอบ)
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    loadNewsContent(seoZone);
-                    obs.disconnect(); // โหลดครั้งเดียวแล้วหยุดการทำงาน ประหยัดทรัพยากร
-                }
-            });
-        }, { rootMargin: '300px' }); // เริ่มโหลดล่วงหน้า 300px ก่อนที่ลูกค้าจะเลื่อนไปถึง
-        
-        observer.observe(seoZone);
-    }
-
-    // สั่งให้ระบบใบเสนอราคาเซ็ตวันที่ปัจจุบันไว้ล่วงหน้า
-    calculateTotal();
-});
-
-async function loadNewsContent(targetElement) {
-    try {
-        const response = await fetch('at_news.html');
-        if (!response.ok) throw new Error('ไม่สามารถโหลดไฟล์ข่าวสารได้');
-        
-        const html = await response.text();
-        targetElement.innerHTML = html; 
-        
-        // เมื่อดึงหน้าข่าวสารมาแปะเสร็จ ให้รันระบบแบ่งหน้าและปุ่มแชร์ทันที
-        if (typeof initPaginationAndSharing === 'function') {
-            initPaginationAndSharing();
-        }
-    } catch (error) {
-        console.error("🐳 ข้อผิดพลาด: ", error);
-    }
-}
-
-// --------------------------------------------------------
-// 📋 2. ระบบใบเสนอราคาอัตโนมัติ (Auto-Quoter) สำหรับพี่คิม
-// --------------------------------------------------------
-let customItems = []; // กล่องเก็บรายการเพิ่มเติมที่พี่คิมพิมพ์เอง
-
-function addCustomItem() {
-    const name = document.getElementById('customName').value;
-    const price = parseFloat(document.getElementById('customPrice').value) || 0;
-    const qty = parseInt(document.getElementById('customQty').value) || 1;
-    
-    if(name && price > 0) {
-        customItems.push({ name, price, qty });
-        // ล้างช่องกรอกข้อมูลให้ว่างพร้อมพิมพ์ใหม่
-        document.getElementById('customName').value = '';
-        document.getElementById('customPrice').value = '';
-        document.getElementById('customQty').value = '1';
-        calculateTotal();
-    }
-}
-
-function calculateTotal() {
-    // 1. ดึงชื่อและเบอร์โทรไปแสดงที่เอกสาร
-    document.getElementById('previewClientName').innerText = document.getElementById('clientName').value || '-';
-    document.getElementById('previewClientPhone').innerText = document.getElementById('clientPhone').value || '-';
-    
-    // 2. รันเลขที่เอกสารและวันที่
-    const now = new Date();
-    document.getElementById('docDate').innerText = now.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
-    
-    // สร้างเลขบิลแบบสุ่มไม่ซ้ำ เช่น QT-202607-1234
-    if(document.getElementById('docNumber').innerText === '-') {
-        const year = now.getFullYear();
-        const month = (now.getMonth() + 1).toString().padStart(2, '0');
-        const rand = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        document.getElementById('docNumber').innerText = `QT-${year}${month}-${rand}`;
-    }
-
-    let tbodyHTML = '';
-    let subtotal = 0;
-
-    // 3. คำนวณแอร์ติดผนัง
-    const wallQty = parseInt(document.getElementById('qtyWall').value) || 0;
-    if(wallQty > 0) {
-        const total = wallQty * 500;
-        subtotal += total;
-        tbodyHTML += `<tr class="border-b border-slate-100"><td class="p-3 text-left">บริการล้างแอร์ติดผนัง (Wall Type)</td><td class="p-3 text-right">500.00</td><td class="p-3 text-center">${wallQty}</td><td class="p-3 text-right font-medium">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-    }
-
-    // 4. คำนวณแอร์แขวนใต้ฝ้า
-    const ceilingQty = parseInt(document.getElementById('qtyCeiling').value) || 0;
-    if(ceilingQty > 0) {
-        const total = ceilingQty * 800;
-        subtotal += total;
-        tbodyHTML += `<tr class="border-b border-slate-100"><td class="p-3 text-left">บริการล้างแอร์แขวนใต้ฝ้า (Ceiling Type)</td><td class="p-3 text-right">800.00</td><td class="p-3 text-center">${ceilingQty}</td><td class="p-3 text-right font-medium">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-    }
-
-    // 5. คำนวณแอร์ฝังฝ้า
-    const cassetteQty = parseInt(document.getElementById('qtyCassette').value) || 0;
-    if(cassetteQty > 0) {
-        const total = cassetteQty * 1500;
-        subtotal += total;
-        tbodyHTML += `<tr class="border-b border-slate-100"><td class="p-3 text-left">บริการล้างแอร์ฝังฝ้า 4 ทิศทาง (Cassette Type)</td><td class="p-3 text-right">1,500.00</td><td class="p-3 text-center">${cassetteQty}</td><td class="p-3 text-right font-medium">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-    }
-
-    // 6. เพิ่มรายการ Custom ที่พี่คิมคีย์เอง (เช่น งาน Home Service รอบ มทส.)
-    customItems.forEach(item => {
-        const total = item.price * item.qty;
-        subtotal += total;
-        tbodyHTML += `<tr class="border-b border-slate-100"><td class="p-3 text-left text-amber-900">${item.name}</td><td class="p-3 text-right">${item.price.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td><td class="p-3 text-center">${item.qty}</td><td class="p-3 text-right font-medium">${total.toLocaleString('th-TH', {minimumFractionDigits: 2})}</td></tr>`;
-    });
-
-    document.getElementById('invoiceItemsTable').innerHTML = tbodyHTML;
-
-    // 7. คำนวณภาษี
-    const vatMode = document.querySelector('input[name="vatToggle"]:checked').value;
-    let vatAmount = 0;
-    if(vatMode === 'yes') {
-        vatAmount = subtotal * 0.07;
-    }
-    const grandTotal = subtotal + vatAmount;
-
-    // แสดงผลตัวเลข
-    document.getElementById('valSubtotal').innerText = subtotal.toLocaleString('th-TH', {minimumFractionDigits: 2});
-    document.getElementById('valVat').innerText = vatAmount.toLocaleString('th-TH', {minimumFractionDigits: 2});
-    document.getElementById('valTotal').innerText = grandTotal.toLocaleString('th-TH', {minimumFractionDigits: 2});
-}
-
-// --------------------------------------------------------
-// 🎁 ปิดป้ายโปรโมชั่น
-// --------------------------------------------------------
-function closePromo() { 
-    const promo = document.getElementById('floating-promo');
-    if(promo) promo.style.display = 'none'; 
-}
-
-
-// --------------------------------------------------------
-// 🔢 3. ระบบแบ่งหน้า + ปุ่มแชร์สไตล์ WordPress สำหรับหน้าข่าวสาร
-// --------------------------------------------------------
-const ITEMS_PER_PAGE = 4; // โชว์หน้าละ 4 ข่าว
+const ITEMS_PER_PAGE = 4; // 🌟 แก้ไขตามใจพี่คิม: กำหนดให้แสดงผลหน้าละ 4 บทความเท่านั้นเพื่อความเร็วสูงสุด
 let currentPage = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+    // รันระบบแบ่งหน้าและสร้างปุ่มแชร์เมื่อโหลดหน้าเว็บเสร็จสมบูรณ์
+    initPaginationAndSharing();
+});
 
 function initPaginationAndSharing() {
     const newsContainer = document.querySelector('.news-container');
-    if (!newsContainer) return;
+    if (!newsContainer) return; // ถ้าไม่ใช่หน้าข่าวสาร ให้ข้ามฟังก์ชันนี้ไปเลย
 
+    // ดักจับทุกโพสต์ข่าวสารเพื่อฝังปุ่มแชร์ส่วนกลาง
     const allArticles = Array.from(newsContainer.querySelectorAll('.news-item'));
     
     allArticles.forEach((article, index) => {
-        if (!article.id) article.id = 'news-archive-' + index;
+        // 🌟 ถ้าย้อนกลับไปเจอข่าวเก่ามากๆ ที่ยังไม่มี ID ระบบจะแอบสร้าง ID แบบถาวรจำลองให้
+        if (!article.id) {
+            article.id = 'news-archive-' + index;
+        }
 
+        // ค้นหาหัวข้อข่าวและสร้างลิงก์ Anchor ที่มีหางติดมาด้วย
+        const titleText = article.querySelector('h2, h3, h4')?.innerText || "ข่าวสารจากอัชนัยแอร์ โคราช";
         const pageUrl = window.location.origin + window.location.pathname + '#' + article.id;
         
+        // ตรวจสอบว่าในโพสต์นั้นยังไม่มีกล่องแชร์ เพื่อไม่ให้เกิดกล่องซ้ำซ้อน
         if (!article.querySelector('.social-share-box')) {
             const shareBox = document.createElement('div');
             shareBox.className = 'social-share-box no-print mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-sm text-slate-500';
+            
+            // โครงสร้างปุ่มแชร์ส่วนกลาง (Template ชุดเดียว ครอบคลุมทุกโพสต์ในอนาคต)
             shareBox.innerHTML = `
                 <span class="font-medium mr-1">แชร์ความรู้นี้:</span>
                 <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}" target="_blank" class="share-btn fb bg-[#1877f2] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">Facebook</a>
                 <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(pageUrl)}" target="_blank" class="share-btn line bg-[#06c755] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">LINE</a>
                 <button onclick="navigator.clipboard.writeText('${pageUrl}'); alert('🐳 คัดลอกลิงก์บทความเรียบร้อยแล้วค่ะพี่คิม!');" class="share-btn copy bg-slate-200 text-slate-700 px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:bg-slate-300 transition">คัดลอกลิงก์</button>
             `;
+            
+            // นำกล่องแชร์ไปต่อท้ายล่างสุดของเนื้อหาในโพสต์นั้นๆ ทันที
             article.appendChild(shareBox);
         }
 
+        // 🌟 [ระบบสั่งรีดไขมันเพิ่มความเร็วเว็บ] 
         const articleImg = article.querySelector('img');
-        if (articleImg) articleImg.setAttribute('loading', 'lazy');
+        if (articleImg) {
+            articleImg.setAttribute('loading', 'lazy');
+        }
     });
 
+    // ระบบจัดการคำนวณหน้าแบ่งผลผลิตข่าวสาร (Pagination Logic)
     const totalPages = Math.ceil(allArticles.length / ITEMS_PER_PAGE);
 
     function displayPage(page) {
@@ -180,14 +58,16 @@ function initPaginationAndSharing() {
         const startIndex = (page - 1) * ITEMS_PER_PAGE;
         const endIndex = startIndex + ITEMS_PER_PAGE;
 
+        // วนลูป ซ่อน/แสดง บทความตามหน้าปัจจุบัน
         allArticles.forEach((article, index) => {
             if (index >= startIndex && index < endIndex) {
-                article.style.display = 'block';
+                article.style.display = 'block'; // แสดงผลเฉพาะ 4 อันเด่นในหน้านั้น
             } else {
-                article.style.display = 'none';
+                article.style.display = 'none'; // ซ่อนตัวเก่าๆ ไว้หลังบ้าน ไม่ให้เปลืองพื้นที่
             }
         });
 
+        // อัปเดตปุ่มควบคุมตัวเลขด้านล่าง
         renderPaginationControls(totalPages);
     }
 
@@ -196,8 +76,11 @@ function initPaginationAndSharing() {
         if (!paginationZone) return;
 
         let controlsHTML = '';
+        
+        // ปุ่มก่อนหน้า พร้อมเลื่อนจอขึ้นนิดนึง
         controlsHTML += `<button class="page-btn prev" ${currentPage === 1 ? 'disabled' : ''} onclick="changeNewsPage(${currentPage - 1}); document.querySelector('.news-header-zone').scrollIntoView({ behavior: 'smooth' });">&lt;&lt; ก่อนหน้า</button>`;
 
+        // แสดงตัวเลขหน้า
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
                 controlsHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changeNewsPage(${i}); document.querySelector('.news-header-zone').scrollIntoView({ behavior: 'smooth' });">${i}</button>`;
@@ -206,44 +89,56 @@ function initPaginationAndSharing() {
             }
         }
 
+        // ปุ่มถัดไป
         controlsHTML += `<button class="page-btn next" ${currentPage === totalPages ? 'disabled' : ''} onclick="changeNewsPage(${currentPage + 1}); document.querySelector('.news-header-zone').scrollIntoView({ behavior: 'smooth' });">ถัดไป &gt;&gt;</button>`;
+
         paginationZone.innerHTML = controlsHTML;
     }
 
+    // สร้างฟังก์ชันผูกกับ Window เพื่อให้คลิกจาก HTML ได้ตามเดิม
     window.changeNewsPage = function(page) {
         if (page < 1 || page > totalPages) return;
         displayPage(page);
     };
 
+    // 🌟 4. ระบบค้นหาข่าวเป้าหมาย (Anchor Routing) และทำไฮไลท์วิบวับเมื่อเปิดผ่านลิงก์แชร์ 🌟
     const hash = window.location.hash;
     if (hash) {
+        // เช็คว่ามีเป้าหมาย Anchor มาจากลิงก์ที่แชร์ไว้หรือไม่
         const targetArticle = document.querySelector(hash);
         if (targetArticle) {
+            // หาว่าข่าวนี้ซ่อนอยู่หน้าไหน แล้วสั่งเปิดหน้านั้นมารอเลย
             const index = allArticles.indexOf(targetArticle);
             const targetPage = Math.floor(index / ITEMS_PER_PAGE) + 1;
             displayPage(targetPage);
             
+            // หน่วงเวลาเล็กน้อยให้หน้าเรนเดอร์เสร็จ แล้วค่อยๆ สไลด์จอลงไปหาเป้าหมาย
             setTimeout(() => {
                 targetArticle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // 🪄 สร้างเอฟเฟกต์สีส้มพาสเทลวิบวับกระตุ้นสายตา 3 วินาที ให้ลูกค้าโฟกัสจุดหมาย
                 const originalBg = targetArticle.style.backgroundColor;
                 const originalBoxShadow = targetArticle.style.boxShadow;
                 
                 targetArticle.style.transition = 'all 0.5s ease';
-                targetArticle.style.backgroundColor = '#fff7ed';
-                targetArticle.style.border = '2px solid #ff7a00';
+                targetArticle.style.backgroundColor = '#fff7ed'; // พื้นหลังสีส้มอ่อนสบายตา
+                targetArticle.style.border = '2px solid #ff7a00'; // ขอบสีส้มประจำร้าน
                 targetArticle.style.boxShadow = '0 0 20px rgba(255, 122, 0, 0.4)';
                 
+                // คืนค่าสีเดิมหลังผ่านไป 3.5 วินาที
                 setTimeout(() => {
                     targetArticle.style.backgroundColor = originalBg || '';
                     targetArticle.style.border = '1px solid #e5e7eb';
                     targetArticle.style.boxShadow = originalBoxShadow || '0 4px 6px rgba(0,0,0,0.02)';
                 }, 3500);
 
-            }, 400); 
+            }, 400); // ดีเลย์เผื่อมือถือที่เน็ตไม่แรง
         } else {
+            // กรณีลูกค้าพิมพ์หางเต่ามาผิด หรือลิงก์เสีย ให้แสดงผลหน้าแรกตามปกติ
             if (allArticles.length > 0) displayPage(1);
         }
     } else {
+        // เริ่มต้นแสดงผลหน้าแรกสุดเป็นค่าเริ่มต้น ถ้าไม่มีการกระโดดหาข่าว
         if (allArticles.length > 0) displayPage(1);
     }
 }
