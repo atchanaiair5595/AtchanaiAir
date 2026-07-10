@@ -52,9 +52,10 @@ function initPaginationAndSharing() {
 
         const titleText = article.querySelector('h2, h3, h4')?.innerText || "ข่าวสารจากอัชนัยแอร์ โคราช";
         
-        // 🌟 แก้ไขจุดที่ 1: ตัดหางขยะจาก Facebook ออกให้หมด เพื่อให้ลิงก์สะอาด
+        // 🌟 แก้ไขจุดที่ 1: แยกการสร้างลิงก์ เพื่อหลอกไม่ให้ Facebook ตัดหางทิ้ง
         const cleanUrl = window.location.href.split('#')[0].split('?')[0];
-        const pageUrl = cleanUrl + '#' + article.id;
+        const hashUrl = cleanUrl + '#' + article.id; // ใช้สำหรับปุ่มคัดลอกลิงก์ปกติ
+        const queryUrl = cleanUrl + '?post=' + article.id; // ใช้ส่งให้ Facebook/LINE
         
         if (!article.querySelector('.social-share-box')) {
             const shareBox = document.createElement('div');
@@ -62,9 +63,9 @@ function initPaginationAndSharing() {
             
             shareBox.innerHTML = `
                 <span class="font-medium mr-1">แชร์ความรู้นี้:</span>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}" target="_blank" class="share-btn fb bg-[#1877f2] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">Facebook</a>
-                <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(pageUrl)}" target="_blank" class="share-btn line bg-[#06c755] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">LINE</a>
-                <button onclick="navigator.clipboard.writeText('${pageUrl}'); alert('🐳 คัดลอกลิงก์บทความเรียบร้อยแล้วค่ะพี่คิม!');" class="share-btn copy bg-slate-200 text-slate-700 px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:bg-slate-300 transition">คัดลอกลิงก์</button>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(queryUrl)}" target="_blank" class="share-btn fb bg-[#1877f2] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">Facebook</a>
+                <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(queryUrl)}" target="_blank" class="share-btn line bg-[#06c755] text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:opacity-90 transition">LINE</a>
+                <button onclick="navigator.clipboard.writeText('${hashUrl}'); alert('🐳 คัดลอกลิงก์บทความเรียบร้อยแล้วค่ะพี่คิม!');" class="share-btn copy bg-slate-200 text-slate-700 px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 hover:bg-slate-300 transition">คัดลอกลิงก์</button>
             `;
             
             article.appendChild(shareBox);
@@ -120,15 +121,22 @@ function initPaginationAndSharing() {
         displayPage(page);
     };
 
-    const hash = window.location.hash;
-    if (hash) {
-        const targetArticle = document.querySelector(hash);
+    // 🌟 แก้ไขจุดที่ 2: เพิ่มความฉลาดให้ระบบอ่านลิงก์จาก Facebook ที่มี ?post= ได้ด้วย
+    const urlParams = new URLSearchParams(window.location.search);
+    const postQuery = urlParams.get('post'); // เช็กลิงก์จาก Facebook
+    const hash = window.location.hash; // เช็กลิงก์ก๊อปปี้ปกติ
+    
+    // เลือกว่าจะเลื่อนไปที่ไหน (ถ้าแชร์จากเฟซบุ๊กจะใช้ postQuery ถ้าก๊อปปี้ปกติจะใช้ hash)
+    const targetSelector = postQuery ? '#' + postQuery : (hash ? hash : null);
+
+    if (targetSelector) {
+        const targetArticle = document.querySelector(targetSelector);
         if (targetArticle) {
             const index = allArticles.indexOf(targetArticle);
             const targetPage = Math.floor(index / ITEMS_PER_PAGE) + 1;
             displayPage(targetPage);
             
-            // 🌟 แก้ไขจุดที่ 2: หน่วงเวลาเพิ่มเป็น 800ms ให้ Facebook โหลดรูปเสร็จชัวร์ๆ ค่อยสไลด์
+            // หน่วงเวลา 800ms ให้เบราว์เซอร์โหลดรูปเสร็จชัวร์ๆ ค่อยสไลด์
             setTimeout(() => {
                 targetArticle.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
