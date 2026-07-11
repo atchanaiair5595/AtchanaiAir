@@ -10,7 +10,6 @@ async function loadNewsContent() {
     }
 
     try {
-        // 🌟 ปลาวาฬน้อยเติม Cache-Busting (รหัสเวลา) เข้าไป เพื่อบังคับให้ดึงข่าวใหม่ล่าสุดเสมอค่ะ!
         const cacheBuster = new Date().getTime();
         const response = await fetch(`at_news.html?v=${cacheBuster}`);
         
