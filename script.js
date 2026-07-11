@@ -10,7 +10,10 @@ async function loadNewsContent() {
     }
 
     try {
-        const response = await fetch('at_news.html');
+        // 🌟 ปลาวาฬน้อยเติม Cache-Busting (รหัสเวลา) เข้าไป เพื่อบังคับให้ดึงข่าวใหม่ล่าสุดเสมอค่ะ!
+        const cacheBuster = new Date().getTime();
+        const response = await fetch(`at_news.html?v=${cacheBuster}`);
+        
         if (response.ok) {
             const html = await response.text();
             zone.innerHTML = html; // แปะเนื้อหาสารบัญข่าวลงเว็บหลัก
