@@ -16,8 +16,23 @@ async function loadNewsContent() {
         
         if (response.ok) {
             const html = await response.text();
-            zone.innerHTML = html; // แปะเนื้อหาสารบัญข่าวลงเว็บหลัก
-            // 🌟 ปลาวาฬน้อยเคลียร์ระบบแบ่งหน้า (Pagination) ออกให้แล้วค่ะ เว็บเราจะโหลดเร็วขึ้นมาก!
+            
+            // 🐳 เครื่องมือจำลองการอ่าน HTML ของปลาวาฬ
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // 🐳 หากล่องข่าวทั้งหมดในไฟล์ at_news.html
+            const allArticles = doc.querySelectorAll('article.news-item');
+            
+            // 🐳 สั่งลบข่าวที่เกิน 5 อันดับแรกออก (ไม่ให้ไปแสดงบนหน้า index.html)
+            allArticles.forEach((article, index) => {
+                if (index >= 5) {
+                    article.remove(); 
+                }
+            });
+
+            // แปะเนื้อหาที่คัดกรองเหลือแค่ 5 ข่าวลงเว็บหลัก
+            zone.innerHTML = doc.body.innerHTML; 
         }
     } catch (error) {
         console.error("ปลาวาฬโหลดหน้าสารบัญข่าวไม่สำเร็จครับพี่คิม: ", error);
